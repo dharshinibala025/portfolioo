@@ -17,8 +17,8 @@ export const personalInfo = {
 };
 
 export const heroStats = [
-  { label: 'Years Learning', value: '03+' },
-  { label: 'Projects Shipped', value: '06' },
+  { label: 'Internship', value: '01' },
+  { label: 'Projects Shipped', value: '03' },
   { label: 'Tech Stacks', value: '04' },
   { label: 'Certifications', value: '05' },
 ];
@@ -26,7 +26,7 @@ export const heroStats = [
 export const projects = [
   {
     id: 1,
-    title: 'AI Study Companion',
+    title: 'AI Chatbot',
     description:
       'A GenAI-driven study assistant that creates personalized learning prompts, flashcards, and revision plans.',
     image: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=60',
@@ -35,7 +35,7 @@ export const projects = [
   },
   {
     id: 2,
-    title: 'Smart Campus Navigator',
+    title: 'Personal Showcase',
     description:
       'Progressive web app with indoor mapping and club updates to make campus resources more accessible.',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60',
@@ -44,22 +44,14 @@ export const projects = [
   },
   {
     id: 3,
-    title: 'Pulse Portfolio Engine',
+    title: 'Health Fitness Tracker',
     description:
       'A modular portfolio generator that ships animated sections, theming controls, and CMS integrations.',
     image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60',
     link: 'https://github.com/username/pulse-portfolio',
     tags: ['React', 'Framer Motion', 'Tailwind'],
   },
-  {
-    id: 4,
-    title: 'CodeQuest Quiz Arena',
-    description:
-      'Gamified quiz platform that adapts question difficulty using lightweight ML heuristics.',
-    image: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&q=60',
-    link: 'https://github.com/username/codequest',
-    tags: ['Node', 'Supabase', 'React'],
-  },
+  
 ];
 
 export const certificates = [
@@ -95,27 +87,22 @@ export const certificates = [
 
 export const roadmapMoments = [
   {
-    year: '2022',
-    title: 'Foundations & Curiosity',
-    description: 'Started coding journey, built first HTML sites and automation scripts.',
+    year: '2020-21',
+    title: 'Secondary School Leaving',
+    description: 'VBMMS,Attayampatti-637501',
     highlight: 'Girl toy explores the first milestone with spark trails.',
   },
   {
-    year: '2023',
-    title: 'AI Exploration',
-    description: 'Experimented with Generative AI, hackathons, and prompt engineering challenges.',
+    year: '2023-24',
+    title: 'Higher Secondary Leaving',
+    description: 'SVM Hr.Sec School,Gurusamipalayam-',
     highlight: 'Toy levels up with neon backpack LED pulses.',
   },
+ 
   {
-    year: '2024',
-    title: 'Product Mindset',
-    description: 'Launched interactive projects, led mini dev squads, and shipped polished UX.',
-    highlight: 'Toy plants a flag atop glowing timeline peaks.',
-  },
-  {
-    year: '2025',
-    title: 'Momentum & Internships',
-    description: 'Targeting research internships, building human-centered AI prototypes.',
+    year: '2024-28',
+    title: 'Bachelor Degree-B.E(CSE)',
+    description: 'Targeting research internships, building human-centered AI Skill developing cgpa-8.19 till 3rd semester',
     highlight: 'Toy rides a magenta comet toward future goals.',
   },
 ];
