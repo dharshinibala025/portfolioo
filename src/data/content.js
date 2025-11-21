@@ -85,7 +85,7 @@ export const certificates = [
   },
 ];
 
-export const roadmapMoments = [
+export const journeyMoments = [
   {
     year: '2020-21',
     title: 'Secondary School Leaving',

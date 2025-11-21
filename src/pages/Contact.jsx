@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import { personalInfo, socials } from '../data/content';
 
-const Contact = () => (
+const Contact = () => {
+  const [clickedBox, setClickedBox] = useState(null);
+
+  return (
   <section>
     <PageHeader
       eyebrow="Contact"
@@ -15,8 +19,25 @@ const Contact = () => (
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="space-y-6 rounded-3xl border border-white/10 bg-black/30 p-8"
+        onClick={() => setClickedBox(clickedBox === 'contact' ? null : 'contact')}
+        className="relative space-y-6 rounded-3xl border border-white/10 bg-black/30 p-8 cursor-pointer transition-all duration-300"
+        style={{
+          borderColor: clickedBox === 'contact' ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
+          boxShadow: clickedBox === 'contact' 
+            ? '0 0 30px rgba(196, 31, 216, 0.6), inset 0 0 30px rgba(196, 31, 216, 0.1)' 
+            : 'none',
+        }}
       >
+        <motion.div
+          className="absolute inset-0 rounded-3xl border-2 border-accent-400 pointer-events-none"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ 
+            opacity: clickedBox === 'contact' ? [0, 1, 0.6] : 0,
+            scale: clickedBox === 'contact' ? [0.8, 1.1, 1] : 0.8,
+          }}
+          transition={{ duration: 0.5 }}
+        />
+        <div className="relative z-10">
         <h3 className="font-display text-2xl text-white">Get In Touch</h3>
         <p className="text-muted">
           Prefer email? Reach me at{' '}
@@ -44,14 +65,32 @@ const Contact = () => (
             ))}
           </div>
         </div>
+        </div>
       </motion.div>
       <motion.form
         initial={{ opacity: 0, x: 30 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="space-y-4 rounded-3xl border border-white/10 bg-black/30 p-8"
+        onClick={() => setClickedBox(clickedBox === 'form' ? null : 'form')}
+        className="relative space-y-4 rounded-3xl border border-white/10 bg-black/30 p-8 cursor-pointer transition-all duration-300"
+        style={{
+          borderColor: clickedBox === 'form' ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
+          boxShadow: clickedBox === 'form' 
+            ? '0 0 30px rgba(196, 31, 216, 0.6), inset 0 0 30px rgba(196, 31, 216, 0.1)' 
+            : 'none',
+        }}
       >
+        <motion.div
+          className="absolute inset-0 rounded-3xl border-2 border-accent-400 pointer-events-none"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ 
+            opacity: clickedBox === 'form' ? [0, 1, 0.6] : 0,
+            scale: clickedBox === 'form' ? [0.8, 1.1, 1] : 0.8,
+          }}
+          transition={{ duration: 0.5 }}
+        />
+        <div className="relative z-10">
         <div>
           <label className="text-sm text-muted" htmlFor="name">
             Name
@@ -98,10 +137,12 @@ const Contact = () => (
         <p className="text-center text-xs text-muted">
           This form is a visual prototype. Connect via email while I integrate backend automation.
         </p>
+        </div>
       </motion.form>
     </div>
   </section>
-);
+  );
+};
 
 export default Contact;
 
