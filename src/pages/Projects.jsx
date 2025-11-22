@@ -10,8 +10,8 @@ const Projects = () => {
     <section>
       <PageHeader
         eyebrow="Projects"
-        title="Animated zig-zag gallery of things I've built"
-        description="Each build blends AI curiosity, responsive UX, and purposeful polish. Click to see the glow animation."
+        title="Innovation Hub"
+        description="A space where creative ideas,smart automation,and AI driven solution come to life"
         trailing={<span className="rounded-full border border-white/15 px-4 py-2 text-xs text-muted">Phone responsive</span>}
       />
       <div className="space-y-8">
