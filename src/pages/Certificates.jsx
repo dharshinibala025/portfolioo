@@ -10,7 +10,7 @@ const Certificates = () => {
     <section>
       <PageHeader
         eyebrow="Certifications"
-        title="Proof of curiosity and continuous learning"
+        title="Workshop on large language model in Generative AI"
         description="Each certificate represents a milestone in AI, cloud, or design craft. Click to see the glow animation."
       />
       <div className="rounded-3xl border border-white/10 bg-black/20 p-6 md:p-8">
