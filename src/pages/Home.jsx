@@ -51,8 +51,8 @@ const Home = () => {
 
         <div className="flex flex-wrap gap-4">
           <a
-            href="/Dharshini_B_Resume.pdf"
-            download
+            href="/resume/Dharshini s Resume.pdf"
+            download="Dharshini_Resume.pdf"
             className="group inline-flex items-center gap-3 rounded-full border border-transparent bg-accent-500 px-6 py-3 font-medium text-white shadow-glow transition hover:-translate-y-1 hover:bg-accent-400"
           >
             Download CV
