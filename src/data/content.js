@@ -1,5 +1,9 @@
 import profileImage from '../assets/profile.jpg';
 import image from '../assets/image.png';
+import vit from '../assets/vit.jpg';
+import hp from '../assets/hp.jpg';
+import yukta from '../assets/yukta.jpg';
+import cert from '../assets/cert.jpg';
 
 export const personalInfo = {
   name: 'Dharshini B',
@@ -61,28 +65,28 @@ export const certificates = [
     title: 'Large Language Model in GenAI ',
     issuedBy: 'VIT,Vellore',
     year: '2024',
-    image: 'https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=600&q=60',
+    image: vit,
   },
   {
     id: 'cert-Online Course',
     title: 'AI for Beginners',
     issuedBy: 'HP life & HP foundation',
     year: '2025',
-    image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=60',
+    image: hp,
   },
   {
     id: 'cert-sympo',
     title: 'Yuktha Paper presentation',
     issuedBy: 'PSGItech',
     year: '2024',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=60',
+    image: yukta,
   },
   {
     id: 'cert-Career Development',
     title: 'Programming on C & C++',
     issuedBy: 'Bharathidasan University',
     year: '202',
-    image: 'https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=600&q=60',
+    image: cert,
   },
 ];
 
