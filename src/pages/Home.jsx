@@ -72,7 +72,7 @@ const Home = () => {
             {heroStats.map((stat) => (
               <div key={stat.label} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-center">
                 <p className="font-display text-3xl text-white">{stat.value}</p>
-                <p className="text-xs uppercase tracking-[0.35em] text-muted">{stat.label}</p>
+                <p className="text-xs uppercase tracking-[0.05em] text-muted">{stat.label}</p>
               </div>
             ))}
           </div>
