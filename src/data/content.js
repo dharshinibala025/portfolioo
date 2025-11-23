@@ -1,4 +1,5 @@
 import profileImage from '../assets/profile.jpg';
+import image from '../assets/image.png';
 
 export const personalInfo = {
   name: 'Dharshini B',
@@ -12,7 +13,7 @@ export const personalInfo = {
     'I’m Dharshini Balasubramaniam, a highly curious and driven second-year student at KSR College of Engineering. With a profound fascination for the transformative potential of Artificial Intelligence, particularly Generative AI, I actively experiment with cutting-edge tools and methodologies. My technical foundation is complemented by ongoing development in Full-Stack capabilities, driven by an unwavering commitment to innovation, growth, and building impactful solutions in the technology sector.',
   description:
     'I am Dharshini Balasubramaniam, a highly curious and driven second-year student at KSR College of Engineering. With a profound fascination for the transformative potential of AI—especially Generative AI—I experiment with the latest tools while sharpening full-stack fundamentals to craft meaningful, innovative solutions.',
-  technologies: ['Python', 'Java', 'C', 'HTML','c++'],
+  technologies: ['Python', 'Java', 'C', 'HTML', 'c++'],
   profileImage,
 };
 
@@ -31,7 +32,7 @@ export const projects = [
       'A stylish AI-powered chatbot built to create smooth,real-time conversational experiences.',
     image: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=60',
     link: 'https://github.com/dharshinibala025/ai-study-companion',
-    tags: ['Javascript', 'OpenAI', 'Node.js','SQlite3','Express'],
+    tags: ['Javascript', 'OpenAI', 'Node.js', 'SQlite3', 'Express'],
   },
   {
     id: 2,
@@ -47,11 +48,11 @@ export const projects = [
     title: 'Health Fitness Tracker',
     description:
       'A smart health and fitness tracking application that monitors activities,workouts,and progrss to promote a healthier lifestyle.',
-    image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60',
+    image: image,
     link: 'https://github.com/username/pulse-portfolio',
     tags: ['HTML', 'CSS', 'Javascript'],
   },
-  
+
 ];
 
 export const certificates = [
@@ -98,7 +99,7 @@ export const journeyMoments = [
     description: 'SVM Hr.Sec School,Gurusamipalayam-',
     highlight: 'Toy levels up with neon backpack LED pulses.',
   },
- 
+
   {
     year: '2024-28',
     title: 'Bachelor Degree-B.E(CSE)',
@@ -108,9 +109,7 @@ export const journeyMoments = [
 ];
 
 export const socials = [
-  { label: 'GitHub', url:'https://github.com/dharshinibala025' },
+  { label: 'GitHub', url: 'https://github.com/dharshinibala025' },
   { label: 'LinkedIn', url: 'https://www.linkedin.com/in/dharshini-bala-62193632a?' },
   { label: 'Twitter', url: 'https://x.com/Dharshiniibala?t=WixAss77mnxtDvBJIz5PFg&s=09' },
 ];
-
-  ``
