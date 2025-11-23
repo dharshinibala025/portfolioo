@@ -4,6 +4,8 @@ import vit from '../assets/vit.jpg';
 import hp from '../assets/hp.jpg';
 import yukta from '../assets/yukta.jpg';
 import cert from '../assets/cert.jpg';
+import chatbot from '../assets/chatbot.jpg';
+import summ from '../assets/summ.jpg';
 
 export const personalInfo = {
   name: 'Dharshini B',
@@ -34,18 +36,18 @@ export const projects = [
     title: 'AI Chatbot',
     description:
       'A stylish AI-powered chatbot built to create smooth,real-time conversational experiences.',
-    image: 'https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=60',
+    image: chatbot,
     link: 'https://github.com/dharshinibala025/ai-study-companion',
     tags: ['Javascript', 'OpenAI', 'Node.js', 'SQlite3', 'Express'],
   },
   {
     id: 2,
-    title: 'Personal Showcase',
+    title: 'Krishi Sakthi',
     description:
-      'Progressive web app with indoor mapping and club updates to make campus resources more accessible.',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=60',
-    link: 'https://github.com/username/smart-campus',
-    tags: ['', 'Mapbox', 'PWAs'],
+      'An Website for Kerala Farmers Queries Deployed on Streamlit',
+    image: summ,
+    link: 'https://krishi-sakhi-innovix-yp7whczthex5zaachik6gu.streamlit.app/',
+    tags: ['Python', 'Streamlit'],
   },
   {
     id: 3,
