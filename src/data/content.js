@@ -6,6 +6,8 @@ import yukta from '../assets/yukta.jpg';
 import cert from '../assets/cert.jpg';
 import chatbot from '../assets/chatbot.jpg';
 import summ from '../assets/summ.jpg';
+import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs } from 'react-icons/fa6';
+import { SiCplusplus } from 'react-icons/si';
 
 export const personalInfo = {
   name: 'Dharshini B',
@@ -58,7 +60,6 @@ export const projects = [
     link: 'https://github.com/username/pulse-portfolio',
     tags: ['HTML', 'CSS', 'Javascript'],
   },
-
 ];
 
 export const certificates = [
@@ -87,7 +88,7 @@ export const certificates = [
     id: 'cert-Career Development',
     title: 'Programming on C & C++',
     issuedBy: 'Bharathidasan University',
-    year: '202',
+    year: '2020',
     image: cert,
   },
 ];
@@ -105,7 +106,6 @@ export const journeyMoments = [
     description: 'SVM Hr.Sec School,Gurusamipalayam-',
     highlight: 'Toy levels up with neon backpack LED pulses.',
   },
-
   {
     year: '2024-28',
     title: 'Bachelor Degree-B.E(CSE)',
@@ -115,7 +115,18 @@ export const journeyMoments = [
 ];
 
 export const socials = [
-  { label: 'GitHub', url: 'https://github.com/dharshinibala025' },
-  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/dharshini-bala-62193632a?' },
-  { label: 'Twitter', url: 'https://x.com/Dharshiniibala?t=WixAss77mnxtDvBJIz5PFg&s=09' },
+  { label: 'GitHub', url: 'https://github.com/dharshinibala025', icon: FaGithub },
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/dharshini-bala-62193632a?', icon: FaLinkedin },
+  { label: 'Twitter', url: 'https://x.com/Dharshiniibala?t=WixAss77mnxtDvBJIz5PFg&s=09', icon: FaTwitter },
+];
+
+export const skills = [
+  { name: 'Python', icon: FaPython },
+  { name: 'Java', icon: FaJava },
+  { name: 'C++', icon: SiCplusplus },
+  { name: 'HTML5', icon: FaHtml5 },
+  { name: 'CSS3', icon: FaCss3Alt },
+  { name: 'JavaScript', icon: FaJs },
+  { name: 'React', icon: FaReact },
+  { name: 'Node.js', icon: FaNodeJs },
 ];

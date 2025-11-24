@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import { certificates } from '../data/content';
@@ -7,12 +7,24 @@ const Certificates = () => {
   const [clickedCard, setClickedCard] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
 
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedImage]);
+
   return (
     <section>
       <PageHeader
         eyebrow="Certifications"
-        title="Workshop on large language model in Generative AI"
-        description="Each certificate represents a milestone in AI, cloud, or design craft. Click to see the glow animation."
+        title="Skill Credentials"
+        description="Completed recognized technical certifications that validate my skills in programming and AI workflows."
       />
       <div className="rounded-3xl border border-white/10 bg-black/20 p-6 md:p-8">
         <div className="grid gap-6 md:grid-cols-2">
