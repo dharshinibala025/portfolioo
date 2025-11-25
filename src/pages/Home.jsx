@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { heroStats, personalInfo, projects, certificates, journeyMoments } from '../data/content';
+import { heroStats, personalInfo } from '../data/content';
 import jor from '../assets/jor.jpg';
 import abb from '../assets/abb.jpg';
 
@@ -9,13 +9,13 @@ const showcaseTiles = [
   {
     label: 'Projects',
     path: '/projects',
-    image: projects[0]?.image,
+
     accent: 'from-accent-500/30 via-transparent to-transparent',
   },
   {
     label: 'Certificates',
     path: '/certificates',
-    image: certificates[0]?.image,
+
     accent: 'from-[#7C4DFF]/30 via-transparent to-transparent',
   },
   {
@@ -139,7 +139,6 @@ const Home = () => {
             <p className="text-xs uppercase tracking-[0.4em] text-muted">Experience the pages</p>
             <h2 className="font-display text-2xl text-white">Home showcases every journey</h2>
           </div>
-          <span className="rounded-full border border-white/10 px-4 py-2 text-xs text-muted">Phone responsive</span>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           {showcaseTiles.map((tile) => (
@@ -177,113 +176,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-2">
-        <motion.div
-          onClick={() => setClickedBox(clickedBox === 'projects-box' ? null : 'projects-box')}
-          className="relative rounded-3xl border border-white/10 bg-white/5 p-6 cursor-pointer transition-all duration-300"
-          style={{
-            borderColor: clickedBox === 'projects-box' ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
-            boxShadow: clickedBox === 'projects-box'
-              ? '0 0 30px rgba(196, 31, 216, 0.6), inset 0 0 30px rgba(196, 31, 216, 0.1)'
-              : 'none',
-          }}
-        >
-          <motion.div
-            className="absolute inset-0 rounded-3xl border-2 border-accent-400 pointer-events-none"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{
-              opacity: clickedBox === 'projects-box' ? [0, 1, 0.6] : 0,
-              scale: clickedBox === 'projects-box' ? [0.8, 1.1, 1] : 0.8,
-            }}
-            transition={{ duration: 0.5 }}
-          />
-          <div className="relative z-10">
-            <p className="text-xs uppercase tracking-[0.4em] text-muted">Latest projects</p>
-            <h3 className="mb-4 font-display text-2xl text-white">Making imagination tangible</h3>
-            <div className="space-y-4">
-              {projects.slice(0, 3).map((project) => (
-                <motion.div
-                  key={project.id}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setClickedBox(clickedBox === `project-${project.id}` ? null : `project-${project.id}`);
-                  }}
-                  className="flex gap-4 rounded-2xl border border-white/5 bg-black/30 p-4 cursor-pointer transition-all duration-300"
-                  style={{
-                    borderColor: clickedBox === `project-${project.id}` ? 'rgba(196, 31, 216, 0.6)' : 'rgba(255, 255, 255, 0.05)',
-                    boxShadow: clickedBox === `project-${project.id}`
-                      ? '0 0 20px rgba(196, 31, 216, 0.4)'
-                      : 'none',
-                  }}
-                >
-                  <img src={project.image} alt={project.title} className="h-20 w-28 rounded-xl object-cover" />
-                  <div>
-                    <p className="font-semibold text-white">{project.title}</p>
-                    <p className="text-sm text-muted">{project.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
-        <motion.div
-          onClick={() => setClickedBox(clickedBox === 'timeline-box' ? null : 'timeline-box')}
-          className="relative rounded-3xl border border-white/10 bg-white/5 p-6 cursor-pointer transition-all duration-300"
-          style={{
-            borderColor: clickedBox === 'timeline-box' ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
-            boxShadow: clickedBox === 'timeline-box'
-              ? '0 0 30px rgba(196, 31, 216, 0.6), inset 0 0 30px rgba(196, 31, 216, 0.1)'
-              : 'none',
-          }}
-        >
-          <motion.div
-            className="absolute inset-0 rounded-3xl border-2 border-accent-400 pointer-events-none"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{
-              opacity: clickedBox === 'timeline-box' ? [0, 1, 0.6] : 0,
-              scale: clickedBox === 'timeline-box' ? [0.8, 1.1, 1] : 0.8,
-            }}
-            transition={{ duration: 0.5 }}
-          />
-          <div className="relative z-10">
-            <p className="text-xs uppercase tracking-[0.4em] text-muted">Career timeline</p>
-            <h3 className="mb-4 font-display text-2xl text-white">Toy walking the neon path</h3>
-            <div className="relative">
-              <div className="absolute left-4 top-0 h-full w-1 rounded-full bg-gradient-to-b from-accent-400 via-accent-500 to-transparent" />
-              <div className="space-y-6 pl-12">
-                {journeyMoments.map((moment, idx) => (
-                  <div key={moment.year} className="relative">
-                    <motion.div
-                      className="absolute -left-10 top-1 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-accent-500 to-purple-900 shadow-glow"
-                      animate={{ y: [0, idx % 2 === 0 ? -6 : 6, 0] }}
-                      transition={{ duration: 4, repeat: Infinity, delay: idx * 0.3 }}
-                    >
-                      <span className="text-lg">🧸</span>
-                    </motion.div>
-                    <motion.div
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setClickedBox(clickedBox === `moment-${moment.year}` ? null : `moment-${moment.year}`);
-                      }}
-                      className="rounded-2xl border border-white/5 bg-black/40 p-4 cursor-pointer transition-all duration-300"
-                      style={{
-                        borderColor: clickedBox === `moment-${moment.year}` ? 'rgba(196, 31, 216, 0.6)' : 'rgba(255, 255, 255, 0.05)',
-                        boxShadow: clickedBox === `moment-${moment.year}`
-                          ? '0 0 20px rgba(196, 31, 216, 0.4)'
-                          : 'none',
-                      }}
-                    >
-                      <p className="text-sm uppercase tracking-[0.3em] text-accent-200">{moment.year}</p>
-                      <p className="font-semibold text-white">{moment.title}</p>
-                      <p className="text-sm text-muted">{moment.description}</p>
-                    </motion.div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
+
     </section>
   );
 };

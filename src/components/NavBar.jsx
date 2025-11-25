@@ -5,7 +5,7 @@ const navLinks = [
   { label: 'Home', path: '/' },
   { label: 'Projects', path: '/projects' },
   { label: 'Certificates', path: '/certificates' },
-  { label: 'Journey', path: '/journey' },
+  { label: 'Skills', path: '/skills' },
   { label: 'About', path: '/about' },
   { label: 'Contact', path: '/contact' },
 ];
@@ -30,10 +30,9 @@ const NavBar = () => (
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  `relative rounded-full px-4 py-2 transition ${
-                    isActive
-                      ? 'bg-accent-500/20 text-white shadow-glow'
-                      : 'text-muted hover:text-white hover:bg-white/5'
+                  `relative rounded-full px-4 py-2 transition ${isActive
+                    ? 'bg-accent-500/20 text-white shadow-glow'
+                    : 'text-muted hover:text-white hover:bg-white/5'
                   }`
                 }
               >

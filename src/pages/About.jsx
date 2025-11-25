@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
-import { personalInfo, skills } from '../data/content';
+import { personalInfo, skills, journeyMoments } from '../data/content';
 
 const highlightCards = [
   { label: 'Current Focus', value: 'Generative AI explorations' },
@@ -18,7 +18,6 @@ const About = () => {
       <PageHeader
         eyebrow="About"
         title="The person behind the purple glow"
-        description={personalInfo.about}
       />
       <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
         <motion.div
@@ -69,51 +68,7 @@ const About = () => {
           </div>
         </motion.div>
         <div className="space-y-6">
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            onClick={() => setClickedBox(clickedBox === 'snapshot' ? null : 'snapshot')}
-            className="relative rounded-3xl border border-white/10 bg-black/30 p-6 cursor-pointer transition-all duration-300"
-            style={{
-              borderColor: clickedBox === 'snapshot' ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
-              boxShadow: clickedBox === 'snapshot'
-                ? '0 0 30px rgba(196, 31, 216, 0.6), inset 0 0 30px rgba(196, 31, 216, 0.1)'
-                : 'none',
-            }}
-          >
-            <motion.div
-              className="absolute inset-0 rounded-3xl border-2 border-accent-400 pointer-events-none"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{
-                opacity: clickedBox === 'snapshot' ? [0, 1, 0.6] : 0,
-                scale: clickedBox === 'snapshot' ? [0.8, 1.1, 1] : 0.8,
-              }}
-              transition={{ duration: 0.5 }}
-            />
-            <div className="relative z-10">
-              <h3 className="font-display text-xl text-white">Snapshot</h3>
-              <dl className="mt-4 space-y-3 text-sm text-muted">
-                <div className="flex justify-between">
-                  <dt>Date of Birth</dt>
-                  <dd className="text-white">{personalInfo.dob}</dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt>Location</dt>
-                  <dd className="text-white">{personalInfo.location}</dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt>College</dt>
-                  <dd className="text-white">{personalInfo.college}</dd>
-                </div>
-                <div className="flex justify-between">
-                  <dt>Technologies</dt>
-                  <dd className="text-white">{personalInfo.technologies.join(', ')}</dd>
-                </div>
-              </dl>
-            </div>
-          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -150,38 +105,66 @@ const About = () => {
       </div>
 
       <div className="mt-16">
-        <h3 className="mb-8 font-display text-2xl text-white">Technical Arsenal <span className="text-sm text-muted font-sans font-normal ml-4">(Click the last skill to reveal the next)</span></h3>
-        <div className="flex flex-wrap gap-6 justify-center md:justify-start">
-          {skills.slice(0, visibleCount).map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, scale: 0.5, y: 20 }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                y: [0, -10, 0],
-              }}
-              transition={{
-                y: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: index * 0.2 },
-                default: { duration: 0.4 }
-              }}
-              whileHover={{ scale: 1.1, rotate: 5, filter: "brightness(1.2)" }}
-              onClick={() => {
-                if (index === visibleCount - 1 && visibleCount < skills.length) {
-                  setVisibleCount(prev => prev + 1);
-                }
-              }}
-              className={`group relative flex h-24 w-24 cursor-pointer flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm transition-colors hover:border-accent-400/50 hover:bg-white/10 ${index === visibleCount - 1 && visibleCount < skills.length ? 'animate-pulse ring-1 ring-accent-400/50' : ''
-                }`}
-            >
-              <skill.icon className="text-4xl text-accent-300 transition-colors group-hover:text-accent-100" />
-              <span className="absolute -bottom-8 opacity-0 transition-opacity group-hover:opacity-100 text-xs text-accent-200 font-medium tracking-wider">
-                {skill.name}
-              </span>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          onClick={() => setClickedBox(clickedBox === 'timeline-box' ? null : 'timeline-box')}
+          className="relative rounded-3xl border border-white/10 bg-white/5 p-6 cursor-pointer transition-all duration-300"
+          style={{
+            borderColor: clickedBox === 'timeline-box' ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
+            boxShadow: clickedBox === 'timeline-box'
+              ? '0 0 30px rgba(196, 31, 216, 0.6), inset 0 0 30px rgba(196, 31, 216, 0.1)'
+              : 'none',
+          }}
+        >
+          <motion.div
+            className="absolute inset-0 rounded-3xl border-2 border-accent-400 pointer-events-none"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{
+              opacity: clickedBox === 'timeline-box' ? [0, 1, 0.6] : 0,
+              scale: clickedBox === 'timeline-box' ? [0.8, 1.1, 1] : 0.8,
+            }}
+            transition={{ duration: 0.5 }}
+          />
+          <div className="relative z-10">
+            <p className="text-xs uppercase tracking-[0.4em] text-muted">Career timeline</p>
+            <h3 className="mb-4 font-display text-2xl text-white">Toy walking the neon path</h3>
+            <div className="relative">
+              <div className="absolute left-4 top-0 h-full w-1 rounded-full bg-gradient-to-b from-accent-400 via-accent-500 to-transparent" />
+              <div className="space-y-6 pl-12">
+                {journeyMoments.map((moment, idx) => (
+                  <div key={moment.year} className="relative">
+                    <motion.div
+                      className="absolute -left-10 top-1 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-accent-500 to-purple-900 shadow-glow"
+                      animate={{ y: [0, idx % 2 === 0 ? -6 : 6, 0] }}
+                      transition={{ duration: 4, repeat: Infinity, delay: idx * 0.3 }}
+                    >
+                      <span className="text-lg">🧸</span>
+                    </motion.div>
+                    <motion.div
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setClickedBox(clickedBox === `moment-${moment.year}` ? null : `moment-${moment.year}`);
+                      }}
+                      className="rounded-2xl border border-white/5 bg-black/40 p-4 cursor-pointer transition-all duration-300"
+                      style={{
+                        borderColor: clickedBox === `moment-${moment.year}` ? 'rgba(196, 31, 216, 0.6)' : 'rgba(255, 255, 255, 0.05)',
+                        boxShadow: clickedBox === `moment-${moment.year}`
+                          ? '0 0 20px rgba(196, 31, 216, 0.4)'
+                          : 'none',
+                      }}
+                    >
+                      <p className="text-sm uppercase tracking-[0.3em] text-accent-200">{moment.year}</p>
+                      <p className="font-semibold text-white">{moment.title}</p>
+                      <p className="text-sm text-muted">{moment.description}</p>
+                    </motion.div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
+
+
     </section >
   );
 };
