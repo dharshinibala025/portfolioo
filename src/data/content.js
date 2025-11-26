@@ -6,6 +6,14 @@ import vit from '../assets/vit.jpg';
 import hp from '../assets/hp.jpg';
 import yukta from '../assets/yukta.jpg';
 import cert from '../assets/cert.jpg';
+
+
+
+
+
+
+
+
 import chatbot from '../assets/chatbot.jpg';
 import summ from '../assets/summ.jpg';
 import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaFigma } from 'react-icons/fa6';
@@ -21,7 +29,7 @@ export const personalInfo = {
   college: 'K.S.R. College of Engineering, Thiruchengode',
   email: 'dharshinibala001@gmail.com',
   description:
-    'I am Dharshini Balasubramaniam, a highly curious and driven second-year student at KSR College of Engineering. With a profound fascination for the transformative potential of AI—especially Generative AI—I experiment with the latest tools while sharpening full-stack fundamentals to craft meaningful, innovative solutions.',
+    'I am Dharshini Balasubramaniam, a second-year student at KSR College of Engineering. I explore Generative AI and build full-stack solutions.',
   technologies: ['Python', 'Java', 'C', 'HTML', 'c++'],
   profileImage,
 };
@@ -38,7 +46,7 @@ export const projects = [
     id: 1,
     title: 'AI Chatbot',
     description:
-      'A stylish AI-powered chatbot built to create smooth,real-time conversational experiences.',
+      'A stylish AI-powered chatbot for real-time conversations.',
     image: chatbot,
     link: 'https://github.com/dharshinibala025/ai-study-companion',
     tags: ['Javascript', 'OpenAI', 'Node.js', 'SQlite3', 'Express'],
@@ -47,7 +55,7 @@ export const projects = [
     id: 2,
     title: 'Krishi Sakthi',
     description:
-      'An Website for Kerala Farmers Queries Deployed on Streamlit',
+      'Streamlit app for Kerala Farmers Queries.',
     image: summ,
     link: 'https://krishi-sakhi-innovix-yp7whczthex5zaachik6gu.streamlit.app/',
     tags: ['Python', 'Streamlit'],
@@ -56,7 +64,7 @@ export const projects = [
     id: 3,
     title: 'Health Fitness Tracker',
     description:
-      'A smart health and fitness tracking application that monitors activities,workouts,and progrss to promote a healthier lifestyle.',
+      'Smart health tracking app for monitoring workouts and progress.',
     image: image,
     link: 'https://github.com/username/pulse-portfolio',
     tags: ['HTML', 'CSS', 'Javascript'],
@@ -99,19 +107,19 @@ export const journeyMoments = [
     year: '2020-21',
     title: 'Secondary School Leaving',
     description: 'VBMMS,Attayampatti-637501',
-    highlight: 'Girl toy explores the first milestone with spark trails.',
+    highlight: 'First milestone achieved.',
   },
   {
     year: '2023-24',
     title: 'Higher Secondary Leaving',
     description: 'SVM Hr.Sec School,Gurusamipalayam-',
-    highlight: 'Toy levels up with neon backpack LED pulses.',
+    highlight: 'Leveling up skills.',
   },
   {
     year: '2024-28',
     title: 'Bachelor Degree-B.E(CSE)',
     description: 'Targeting research internships, building human-centered AI Skill developing cgpa-8.19 till 3rd semester',
-    highlight: 'Toy rides a magenta comet toward future goals.',
+    highlight: 'Targeting research and AI skills.',
   },
 ];
 
@@ -128,17 +136,11 @@ export const skills = [
   { name: 'HTML5', icon: FaHtml5 },
   { name: 'CSS3', icon: FaCss3Alt },
   { name: 'JavaScript', icon: FaJs },
-];
-
-export const frameworks = [
   { name: 'React', icon: FaReact },
   { name: 'Node.js', icon: FaNodeJs },
   { name: 'Express', icon: SiExpress },
   { name: 'Tailwind CSS', icon: SiTailwindcss },
   { name: 'Streamlit', icon: SiStreamlit },
-];
-
-export const tools = [
   { name: 'Git', icon: FaGitAlt },
   { name: 'GitHub', icon: FaGithub },
   { name: 'VS Code', icon: VscVscode },
@@ -147,3 +149,6 @@ export const tools = [
   { name: 'MongoDB', icon: SiMongodb },
   { name: 'MySQL', icon: SiMysql },
 ];
+
+export const frameworks = [];
+export const tools = [];

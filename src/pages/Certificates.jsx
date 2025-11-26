@@ -26,7 +26,7 @@ const Certificates = () => {
         title="Skill Credentials"
         description="Completed recognized technical certifications that validate my skills in programming and AI workflows."
       />
-      <div className="rounded-3xl border border-white/10 bg-black/20 p-6 md:p-8">
+      <div className="rounded-3xl border border-white/10 bg-black/20 p-4 md:p-6">
         <div className="grid gap-6 md:grid-cols-3">
           {certificates.map((cert, index) => (
             <motion.div
@@ -55,7 +55,7 @@ const Certificates = () => {
                 }}
                 transition={{ duration: 0.5 }}
               />
-              <div className="relative h-56 overflow-hidden rounded-t-3xl">
+              <div className="relative h-48 overflow-hidden rounded-t-3xl">
                 <img src={cert.image} alt={cert.title} className="h-full w-full object-cover opacity-70" />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/80" />
                 <motion.span
@@ -64,9 +64,9 @@ const Certificates = () => {
                   transition={{ duration: 8, repeat: Infinity, delay: index * 0.3 }}
                 />
               </div>
-              <div className="space-y-2 p-6">
+              <div className="space-y-2 p-4">
                 <p className="text-xs uppercase tracking-[0.35em] text-accent-200">{cert.year}</p>
-                <h3 className="font-display text-2xl text-white">{cert.title}</h3>
+                <h3 className="font-display text-xl text-white">{cert.title}</h3>
                 <p className="text-sm text-muted">Issued by {cert.issuedBy}</p>
               </div>
             </motion.div>

@@ -41,13 +41,13 @@ const Home = () => {
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
         <motion.div
 
-          className="space-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl shadow-accent-500/10 backdrop-blur-2xl"
+          className="space-y-6 rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl shadow-accent-500/10 backdrop-blur-2xl"
         >
           <Reveal>
             <span className="inline-flex items-center rounded-full border border-white/10 bg-accent-500/15 px-4 py-1 text-xs uppercase tracking-[0.45em] text-accent-200">
               Hello
             </span>
-            <h1 className="font-display text-4xl leading-tight text-white md:text-5xl mt-4">
+            <h1 className="font-display text-3xl leading-tight text-white md:text-4xl mt-4">
               I am {personalInfo.fullName}
             </h1>
           </Reveal>
@@ -84,7 +84,7 @@ const Home = () => {
         </motion.div>
         <motion.div
 
-          className="relative overflow-hidden rounded-3xl border border-white/10 bg-base-800/80 p-8"
+          className="relative overflow-hidden rounded-3xl border border-white/10 bg-base-800/80 p-6"
         >
           <motion.div
             className="absolute inset-6 rounded-[2.5rem] border border-white/10"
@@ -93,7 +93,7 @@ const Home = () => {
           />
           <div className="relative flex h-full flex-col items-center justify-center gap-6">
             <motion.div
-              className="group relative flex h-56 w-56 items-center justify-center rounded-full border border-white/10 bg-black/30 shadow-glow"
+              className="group relative flex h-40 w-40 items-center justify-center rounded-full border border-white/10 bg-black/30 shadow-glow"
               animate={{ rotate: [0, 1.5, -1.5, 0] }}
               transition={{ duration: 12, repeat: Infinity }}
               whileHover={{
@@ -142,7 +142,7 @@ const Home = () => {
       </div>
 
       <Reveal width="100%">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
           <div className="mb-6 flex items-center justify-between gap-4">
             <div>
               <p className="text-xs uppercase tracking-[0.4em] text-muted">Experience the pages</p>
@@ -175,7 +175,7 @@ const Home = () => {
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${tile.accent} opacity-70 transition duration-500 group-hover:opacity-100`}
                 />
-                <img src={tile.image} alt={tile.label} className="h-64 w-full object-cover opacity-60 mix-blend-screen" />
+                <img src={tile.image} alt={tile.label} className="h-48 w-full object-cover opacity-60 mix-blend-screen" />
                 <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
                   <p className="text-xs uppercase tracking-[0.45em] text-white/70">{tile.label}</p>
                   <p className="font-display text-2xl text-white">Enter the {tile.label} world</p>

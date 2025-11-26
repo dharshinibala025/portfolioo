@@ -13,7 +13,7 @@ const Projects = () => {
         title="Innovation Hub"
         description="A space where creative ideas,smart automation,and AI driven solution come to life"
       />
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         {projects.map((project, index) => (
           <motion.article
             key={project.id}
@@ -23,7 +23,7 @@ const Projects = () => {
             whileTap={{ scale: 0.98 }}
             onClick={() => setClickedProject(clickedProject === project.id ? null : project.id)}
             transition={{ duration: 0.5, delay: index * 0.05 }}
-            className="relative flex flex-col gap-6 rounded-3xl border border-white/10 bg-black/30 p-6 transition-all duration-500 hover:-translate-y-2 hover:border-accent-400/40 cursor-pointer"
+            className="relative flex flex-col gap-4 rounded-3xl border border-white/10 bg-black/30 p-4 transition-all duration-500 hover:-translate-y-2 hover:border-accent-400/40 cursor-pointer"
             style={{
               borderColor: clickedProject === project.id ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
               boxShadow: clickedProject === project.id
@@ -40,7 +40,7 @@ const Projects = () => {
               }}
               transition={{ duration: 0.5 }}
             />
-            <div className="relative h-48 overflow-hidden rounded-2xl border border-white/5">
+            <div className="relative h-40 overflow-hidden rounded-2xl border border-white/5">
               <img src={project.image} alt={project.title} className="h-full w-full object-cover" />
               <motion.span
                 className="absolute inset-0 bg-gradient-to-br from-accent-500/50 to-transparent mix-blend-screen"
@@ -50,7 +50,7 @@ const Projects = () => {
             </div>
             <div className="space-y-4">
               <p className="text-sm uppercase tracking-[0.35em] text-accent-200">Project 0{index + 1}</p>
-              <h3 className="font-display text-3xl text-white">{project.title}</h3>
+              <h3 className="font-display text-2xl text-white">{project.title}</h3>
               <p className="text-base text-muted">{project.description}</p>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
