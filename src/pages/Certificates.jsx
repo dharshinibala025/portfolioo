@@ -27,7 +27,7 @@ const Certificates = () => {
         description="Completed recognized technical certifications that validate my skills in programming and AI workflows."
       />
       <div className="rounded-3xl border border-white/10 bg-black/20 p-6 md:p-8">
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-3">
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.id}
