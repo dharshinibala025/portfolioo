@@ -6,7 +6,7 @@ import yukta from '../assets/yukta.jpg';
 import cert from '../assets/cert.jpg';
 import chatbot from '../assets/chatbot.jpg';
 import summ from '../assets/summ.jpg';
-import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaFigma } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaFigma, FaBook, FaGamepad, FaPlane, FaMusic, FaCamera } from 'react-icons/fa6';
 import { SiCplusplus, SiTailwindcss, SiExpress, SiStreamlit, SiPostman, SiMongodb, SiMysql } from 'react-icons/si';
 import { VscVscode } from 'react-icons/vsc';
 
@@ -144,4 +144,19 @@ export const tools = [
   { name: 'Figma', icon: FaFigma },
   { name: 'MongoDB', icon: SiMongodb },
   { name: 'MySQL', icon: SiMysql },
+];
+
+export const hobbies = [
+  { name: 'Reading', icon: FaBook, description: 'Tech blogs & Sci-Fi' },
+  { name: 'Gaming', icon: FaGamepad, description: 'Strategy & RPGs' },
+  { name: 'Traveling', icon: FaPlane, description: 'Exploring new places' },
+  { name: 'Music', icon: FaMusic, description: 'Lo-fi for coding' },
+  { name: 'Photography', icon: FaCamera, description: 'Capturing moments' },
+];
+
+export const funFacts = [
+  "I can debug code in my sleep (literally).",
+  "I'm a night owl who loves early morning coding sessions.",
+  "I have a collection of over 50 tech stickers.",
+  "I built my first website when I was 15.",
 ];

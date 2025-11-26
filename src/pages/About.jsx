@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
-import { personalInfo, skills, journeyMoments } from '../data/content';
+import { personalInfo, skills, journeyMoments, hobbies, funFacts } from '../data/content';
 
 const highlightCards = [
   { label: 'Current Focus', value: 'Generative AI explorations' },
@@ -162,6 +162,53 @@ const About = () => {
             </div>
           </div>
         </motion.div>
+      </div>
+
+      {/* Interests Section */}
+      <div className="mt-20">
+        <h3 className="mb-10 font-display text-3xl text-white text-center">Interests & Hobbies</h3>
+        <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
+          {hobbies.map((hobby, index) => (
+            <motion.div
+              key={hobby.name}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="group flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-6 text-center transition-colors hover:bg-white/10 hover:border-accent-400/50"
+            >
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-500/20 text-accent-300 group-hover:bg-accent-500 group-hover:text-white transition-colors">
+                <hobby.icon className="text-xl" />
+              </div>
+              <h4 className="mb-1 font-semibold text-white">{hobby.name}</h4>
+              <p className="text-xs text-muted group-hover:text-white/80">{hobby.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Fun Facts Section */}
+      <div className="mt-20 mb-10">
+        <h3 className="mb-10 font-display text-3xl text-white text-center">Fun Facts</h3>
+        <div className="grid gap-6 sm:grid-cols-2">
+          {funFacts.map((fact, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+              className="flex items-center gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-6 backdrop-blur-sm hover:border-accent-400/30"
+            >
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-500 text-white font-bold text-sm">
+                {index + 1}
+              </span>
+              <p className="text-white/90">{fact}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
 
