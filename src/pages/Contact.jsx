@@ -26,9 +26,9 @@ const Contact = () => {
 
     // REPLACE THESE WITH YOUR ACTUAL EMAILJS KEYS
     // Sign up at https://www.emailjs.com/
-    const SERVICE_ID = 'YOUR_SERVICE_ID';
-    const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-    const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+    const SERVICE_ID = 'service_vxmn8w7';
+    const TEMPLATE_ID = 'template_vhf5fu4';
+    const PUBLIC_KEY = 'J2NqGKE7aoCuap0Ru';
 
     emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
       .then((result) => {
