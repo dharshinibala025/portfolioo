@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { heroStats, personalInfo } from '../data/content';
 import jor from '../assets/jor.jpg';
 import abb from '../assets/abb.jpg';
@@ -34,11 +34,17 @@ const showcaseTiles = [
 
 const Home = () => {
   const [clickedBox, setClickedBox] = useState(null);
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -100]);
 
   return (
     <section className="space-y-16">
       <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="space-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl shadow-accent-500/10 backdrop-blur-2xl">
+        <motion.div
+          style={{ y: y1 }}
+          className="space-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl shadow-accent-500/10 backdrop-blur-2xl"
+        >
           <span className="inline-flex items-center rounded-full border border-white/10 bg-accent-500/15 px-4 py-1 text-xs uppercase tracking-[0.45em] text-accent-200">
             Hello
           </span>
@@ -76,8 +82,11 @@ const Home = () => {
               </div>
             ))}
           </div>
-        </div>
-        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-base-800/80 p-8">
+        </motion.div>
+        <motion.div
+          style={{ y: y2 }}
+          className="relative overflow-hidden rounded-3xl border border-white/10 bg-base-800/80 p-8"
+        >
           <motion.div
             className="absolute inset-6 rounded-[2.5rem] border border-white/10"
             animate={{ opacity: [0.4, 0.7, 0.4] }}
@@ -130,7 +139,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
@@ -177,7 +186,7 @@ const Home = () => {
       </div>
 
 
-    </section>
+    </section >
   );
 };
 
