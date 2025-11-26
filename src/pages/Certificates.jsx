@@ -22,7 +22,7 @@ const Certificates = () => {
   return (
     <section>
       <PageHeader
-        eyebrow="Certifications"
+        eyebrow="Recognitions"
         title="Skill Credentials"
         description="Completed recognized technical certifications that validate my skills in programming and AI workflows."
       />

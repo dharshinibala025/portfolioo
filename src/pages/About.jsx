@@ -16,8 +16,8 @@ const About = () => {
   return (
     <section>
       <PageHeader
-        eyebrow="About"
-        title="The person behind the purple glow"
+        eyebrow="Who am i"
+        title="I build digital experiences with clarity, purpose, and simplicity."
       />
       <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
         <motion.div
@@ -126,7 +126,7 @@ const About = () => {
           />
           <div className="relative z-10">
             <p className="text-xs uppercase tracking-[0.4em] text-muted">Career timeline</p>
-            <h3 className="mb-4 font-display text-2xl text-white">Toy walking the neon path</h3>
+            <h3 className="mb-4 font-display text-2xl text-white">Education</h3>
             <div className="relative">
               <div className="absolute left-4 top-0 h-full w-1 rounded-full bg-gradient-to-b from-accent-400 via-accent-500 to-transparent" />
               <div className="space-y-6 pl-12">

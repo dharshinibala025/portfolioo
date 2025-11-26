@@ -9,7 +9,7 @@ const Projects = () => {
   return (
     <section>
       <PageHeader
-        eyebrow="Projects"
+        eyebrow="Recent Work"
         title="Innovation Hub"
         description="A space where creative ideas,smart automation,and AI driven solution come to life"
       />

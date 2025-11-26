@@ -9,9 +9,14 @@ const Contact = () => {
   return (
     <section>
       <PageHeader
-        eyebrow="Contact"
-        title="Let’s build bold experiences together"
-        description="Whether it’s collaborating on AI storytelling, crafting immersive UI, or mentoring, my inbox is always open. Drop a note and I’ll respond thoughtfully."
+        eyebrow="ReachOut"
+        description={
+          <>
+            Open to new projects, conversations, and collaborations.
+            <br />
+            Drop me a line below.
+          </>
+        }
       />
       <div className="grid gap-8 lg:grid-cols-2">
         <motion.div
@@ -138,10 +143,7 @@ const Contact = () => {
             >
               Send Message
             </button>
-            <p className="text-center text-xs text-muted">
-              This form is a visual prototype. Connect via email while I integrate backend automation.
-            </p>
-          </div>
+           </div>
         </motion.form>
       </div>
     </section>
