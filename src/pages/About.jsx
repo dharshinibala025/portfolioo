@@ -5,7 +5,7 @@ import { personalInfo, skills, journeyMoments, hobbies, funFacts } from '../data
 
 const highlightCards = [
   { label: 'Current Focus', value: 'Generative AI explorations' },
-  { label: 'Strength', value: 'Full-stack experimentation' },
+  { label: 'Strength', value: 'Positive minded' },
   { label: 'Mindset', value: 'Curiosity + momentum' },
 ];
 

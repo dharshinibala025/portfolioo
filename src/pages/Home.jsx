@@ -4,24 +4,26 @@ import { motion } from 'framer-motion';
 import { heroStats, personalInfo } from '../data/content';
 import jor from '../assets/jor.jpg';
 import abb from '../assets/abb.jpg';
+import chatbot from '../assets/chatbot.jpg';
+import cert from '../assets/cert.jpg';
 import Reveal from '../components/Reveal';
 
 const showcaseTiles = [
   {
     label: 'Projects',
     path: '/projects',
-
+    image: chatbot,
     accent: 'from-accent-500/30 via-transparent to-transparent',
   },
   {
     label: 'Certificates',
     path: '/certificates',
-
+    image: cert,
     accent: 'from-[#7C4DFF]/30 via-transparent to-transparent',
   },
   {
-    label: 'Journey',
-    path: '/journey',
+    label: 'Skills',
+    path: '/skills',
     image: jor,
     accent: 'from-[#FF5EDF]/30 via-transparent to-transparent',
   },

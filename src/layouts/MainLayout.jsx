@@ -30,7 +30,7 @@ const MainLayout = () => {
         const currentIndex = pages.indexOf(location.pathname);
         if (currentIndex !== -1 && currentIndex < pages.length - 1) {
           isThrottled = true;
-          setIsNavVisible(false);
+          // setIsNavVisible(false); // Disabled to keep navbar visible
           navigate(pages[currentIndex + 1]);
 
           // Reset throttle after a delay to prevent double-firing during transition
@@ -57,7 +57,7 @@ const MainLayout = () => {
               initial={{ opacity: 0, y: 20, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.98 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
               className="mx-auto w-full max-w-6xl"
             >
               <Outlet />
