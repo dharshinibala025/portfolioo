@@ -10,11 +10,11 @@ const navLinks = [
   { label: 'Contact', path: '/contact' },
 ];
 
-const NavBar = () => (
+const NavBar = ({ isVisible = true }) => (
   <header className="fixed inset-x-0 top-0 z-20">
     <motion.nav
       initial={{ opacity: 0, y: -16 }}
-      animate={{ opacity: 1, y: 0 }}
+      animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
       transition={{ duration: 0.6 }}
       className="mx-auto mt-4 w-[95%] max-w-6xl rounded-3xl border border-white/10 bg-base-900/80 px-6 py-4 backdrop-blur-xl"
     >

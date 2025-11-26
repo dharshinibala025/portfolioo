@@ -1,19 +1,9 @@
 import profileImage from '../assets/profile.jpg';
 import image from '../assets/image.png';
-
-
 import vit from '../assets/vit.jpg';
 import hp from '../assets/hp.jpg';
 import yukta from '../assets/yukta.jpg';
 import cert from '../assets/cert.jpg';
-
-
-
-
-
-
-
-
 import chatbot from '../assets/chatbot.jpg';
 import summ from '../assets/summ.jpg';
 import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaFigma } from 'react-icons/fa6';
@@ -136,11 +126,17 @@ export const skills = [
   { name: 'HTML5', icon: FaHtml5 },
   { name: 'CSS3', icon: FaCss3Alt },
   { name: 'JavaScript', icon: FaJs },
+];
+
+export const frameworks = [
   { name: 'React', icon: FaReact },
   { name: 'Node.js', icon: FaNodeJs },
   { name: 'Express', icon: SiExpress },
   { name: 'Tailwind CSS', icon: SiTailwindcss },
   { name: 'Streamlit', icon: SiStreamlit },
+];
+
+export const tools = [
   { name: 'Git', icon: FaGitAlt },
   { name: 'GitHub', icon: FaGithub },
   { name: 'VS Code', icon: VscVscode },
@@ -149,6 +145,3 @@ export const skills = [
   { name: 'MongoDB', icon: SiMongodb },
   { name: 'MySQL', icon: SiMysql },
 ];
-
-export const frameworks = [];
-export const tools = [];

@@ -1,5 +1,5 @@
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import AnimatedBackground from '../components/AnimatedBackground';
 import NavBar from '../components/NavBar';
@@ -8,11 +8,13 @@ import Footer from '../components/Footer';
 const MainLayout = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [isNavVisible, setIsNavVisible] = useState(true);
 
   const pages = ['/', '/projects', '/certificates', '/skills', '/about', '/contact'];
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setIsNavVisible(true);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -28,6 +30,7 @@ const MainLayout = () => {
         const currentIndex = pages.indexOf(location.pathname);
         if (currentIndex !== -1 && currentIndex < pages.length - 1) {
           isThrottled = true;
+          setIsNavVisible(false);
           navigate(pages[currentIndex + 1]);
 
           // Reset throttle after a delay to prevent double-firing during transition
@@ -46,7 +49,7 @@ const MainLayout = () => {
     <div className="relative min-h-screen overflow-hidden bg-base-900 text-white">
       <AnimatedBackground />
       <div className="relative z-10 flex min-h-screen flex-col">
-        <NavBar />
+        <NavBar isVisible={isNavVisible} />
         <main className="flex-1 px-4 pb-16 pt-28 md:px-10 lg:px-12">
           <AnimatePresence mode="wait">
             <motion.div
