@@ -19,7 +19,7 @@ export const personalInfo = {
   college: 'K.S.R. College of Engineering, Thiruchengode',
   email: 'dharshinibala001@gmail.com',
   description:
-    'I am Dharshini Balasubramaniam, a second-year student at KSR College of Engineering. I explore Generative AI and build full-stack solutions.',
+    'I’m Dharshini Balasubramaniam, a curious and forward-thinking Computer Science student with a growing passion for AI. I love exploring emerging technologies, experimenting with new ideas, and building simple yet meaningful digital experiences. I’m always excited to learn, create, and evolve with the fast-blooming tech world.',
   technologies: ['Python', 'Java', 'C', 'HTML', 'c++'],
   profileImage,
 };
@@ -147,10 +147,10 @@ export const tools = [
 ];
 
 export const hobbies = [
-  { name: 'Reading', icon: FaBook, description: 'Tech blogs & Sci-Fi' },
-  { name: 'Gaming', icon: FaGamepad, description: 'Strategy & RPGs' },
+  { name: 'Reading', icon: FaBook, description: 'Quotes&inspiring' },
+  { name: 'writing', icon: FaGamepad, description: 'Randon thoughts' },
   { name: 'Traveling', icon: FaPlane, description: 'Exploring new places' },
-  { name: 'Music', icon: FaMusic, description: 'Lo-fi for coding' },
+  { name: 'Music', icon: FaMusic, description: 'All genres' },
   { name: 'Photography', icon: FaCamera, description: 'Capturing moments' },
 ];
 

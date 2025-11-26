@@ -27,17 +27,31 @@ const Certificates = () => {
         description="Completed recognized technical certifications that validate my skills in programming and AI workflows."
       />
       <div className="rounded-3xl border border-white/10 bg-black/20 p-4 md:p-6">
-        <div className="grid gap-6 md:grid-cols-3">
+        <motion.div
+          className="grid gap-6 md:grid-cols-3"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+        >
           {certificates.map((cert, index) => (
             <motion.div
               key={cert.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+              }}
               whileHover={{ y: -8 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => setSelectedImage(cert.image)}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
               className="group relative overflow-hidden rounded-3xl border border-white/10 bg-black/30 cursor-pointer transition-all duration-300"
               style={{
                 borderColor: clickedCard === cert.id ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
@@ -71,7 +85,7 @@ const Certificates = () => {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <AnimatePresence>
@@ -105,7 +119,7 @@ const Certificates = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </section >
   );
 };
 

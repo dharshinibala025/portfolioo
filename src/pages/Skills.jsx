@@ -34,10 +34,21 @@ const Skills = () => {
                                     filter: "brightness(1.2)",
                                     borderColor: "rgba(196, 31, 216, 0.5)"
                                 }}
-                                className="group relative flex flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:shadow-glow"
+                                className="group relative flex flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:shadow-glow overflow-hidden"
                             >
-                                <skill.icon className="mb-4 text-5xl text-accent-300 transition-colors group-hover:text-accent-100" />
-                                <span className="text-sm font-medium tracking-wider text-white/80 group-hover:text-white">
+                                <motion.div
+                                    className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent z-10"
+                                    initial={{ x: '-100%' }}
+                                    animate={{ x: '200%' }}
+                                    transition={{
+                                        repeat: Infinity,
+                                        duration: 2,
+                                        repeatDelay: 1,
+                                        ease: "linear"
+                                    }}
+                                />
+                                <skill.icon className="mb-4 text-5xl text-accent-300 transition-colors group-hover:text-accent-100 relative z-20" />
+                                <span className="text-sm font-medium tracking-wider text-white/80 group-hover:text-white relative z-20">
                                     {skill.name}
                                 </span>
                             </motion.div>

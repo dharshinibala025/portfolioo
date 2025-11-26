@@ -19,9 +19,8 @@ const NavBar = ({ isVisible = true }) => (
       className="mx-auto mt-4 w-[95%] max-w-6xl rounded-3xl border border-white/10 bg-base-900/80 px-6 py-4 backdrop-blur-xl"
     >
       <div className="flex items-center justify-between gap-6">
-        <div className="flex flex-col">
+        <div className="flex items-center">
           <span className="font-display text-base uppercase tracking-[0.35em] text-accent-300">Dharshini</span>
-          <span className="text-xs text-muted">Portfolio 2025</span>
         </div>
         <div className="flex flex-1 justify-end">
           <div className="flex w-full max-w-3xl items-center justify-end gap-4 overflow-x-auto text-sm font-medium">

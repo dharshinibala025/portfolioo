@@ -3,10 +3,11 @@ import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import { personalInfo, skills, journeyMoments, hobbies, funFacts } from '../data/content';
 
+
 const highlightCards = [
   { label: 'Current Focus', value: 'Generative AI explorations' },
   { label: 'Strength', value: 'Positive minded' },
-  { label: 'Mindset', value: 'Curiosity + momentum' },
+  { label: 'Mindset', value: 'Curiosity' },
 ];
 
 const About = () => {
@@ -19,7 +20,7 @@ const About = () => {
         eyebrow="Who am i"
         title="I build digital experiences with clarity, purpose, and simplicity."
       />
-      <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+      <div className="grid gap-10 lg:grid-cols-1">
         <motion.div
           onClick={() => setClickedBox(clickedBox === 'bio' ? null : 'bio')}
           className="space-y-6 rounded-3xl border border-white/10 bg-black/30 p-8 cursor-pointer transition-all duration-300"
@@ -40,25 +41,21 @@ const About = () => {
             transition={{ duration: 0.5 }}
           />
           <div className="relative z-10">
+
             <h3 className="font-display text-2xl text-white">Bio</h3>
             <p className="text-muted text-lg leading-relaxed">
-              I’m {personalInfo.fullName}, a Computer Science student at {personalInfo.college}. I am fascinated by how
-              interfaces can feel alive through micro-animations, storytelling, and thoughtful engineering. I’m equally at
-              home prototyping front-end interactions, playing with GenAI APIs, or building the APIs that fuel them.
-            </p>
-            <p className="text-muted">
-              Beyond code, I document learnings, run design jams with friends, volunteer for community demos, and actively
-              seek mentorship that challenges my perspective.
+              {personalInfo.description}
             </p>
             <div className="grid gap-4 sm:grid-cols-3">
               {highlightCards.map((card, index) => (
                 <motion.div
                   key={card.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="rounded-2xl border border-white/5 bg-white/5 p-4"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: false }}
+                  whileHover={{ scale: 1.05, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+                  transition={{ duration: 0.5, delay: index * 0.1, type: 'spring', stiffness: 300 }}
+                  className="rounded-2xl border border-white/5 bg-white/5 p-6 cursor-default"
                 >
                   <p className="text-xs uppercase tracking-[0.35em] text-muted">{card.label}</p>
                   <p className="mt-2 text-white">{card.value}</p>
@@ -67,41 +64,7 @@ const About = () => {
             </div>
           </div>
         </motion.div>
-        <div className="space-y-6">
 
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            onClick={() => setClickedBox(clickedBox === 'values' ? null : 'values')}
-            className="relative rounded-3xl border border-white/10 bg-black/30 p-6 cursor-pointer transition-all duration-300"
-            style={{
-              borderColor: clickedBox === 'values' ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
-              boxShadow: clickedBox === 'values'
-                ? '0 0 30px rgba(196, 31, 216, 0.6), inset 0 0 30px rgba(196, 31, 216, 0.1)'
-                : 'none',
-            }}
-          >
-            <motion.div
-              className="absolute inset-0 rounded-3xl border-2 border-accent-400 pointer-events-none"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{
-                opacity: clickedBox === 'values' ? [0, 1, 0.6] : 0,
-                scale: clickedBox === 'values' ? [0.8, 1.1, 1] : 0.8,
-              }}
-              transition={{ duration: 0.5 }}
-            />
-            <div className="relative z-10">
-              <h3 className="font-display text-xl text-white">Values I live by</h3>
-              <ul className="mt-4 list-disc space-y-2 pl-6 text-muted">
-                <li>Lead with empathy and clarity in every collaboration.</li>
-                <li>Prototype brave ideas, even if they feel slightly impossible.</li>
-                <li>Keep the user story at the center of each technical decision.</li>
-              </ul>
-            </div>
-          </motion.div>
-        </div>
       </div>
 
       <div className="mt-16">
@@ -169,21 +132,21 @@ const About = () => {
         <h3 className="mb-10 font-display text-3xl text-white text-center">Interests & Hobbies</h3>
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
           {hobbies.map((hobby, index) => (
-            <motion.div
-              key={hobby.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="group flex flex-col items-center rounded-2xl border border-white/10 bg-white/5 p-6 text-center transition-colors hover:bg-white/10 hover:border-accent-400/50"
-            >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-500/20 text-accent-300 group-hover:bg-accent-500 group-hover:text-white transition-colors">
-                <hobby.icon className="text-xl" />
+            <div key={hobby.name} className="group h-48 [perspective:1000px]">
+              <div className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+                {/* Front Face */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-6 text-center [backface-visibility:hidden]">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-500/20 text-accent-300">
+                    <hobby.icon className="text-xl" />
+                  </div>
+                  <h4 className="mb-1 font-semibold text-white">{hobby.name}</h4>
+                </div>
+                {/* Back Face */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-accent-500/30 bg-accent-900/90 p-6 text-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
+                  <p className="text-sm text-white">{hobby.description}</p>
+                </div>
               </div>
-              <h4 className="mb-1 font-semibold text-white">{hobby.name}</h4>
-              <p className="text-xs text-muted group-hover:text-white/80">{hobby.description}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -195,10 +158,6 @@ const About = () => {
           {funFacts.map((fact, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
               whileHover={{ scale: 1.02 }}
               className="flex items-center gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-6 backdrop-blur-sm hover:border-accent-400/30"
             >

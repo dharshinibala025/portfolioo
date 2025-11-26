@@ -17,12 +17,8 @@ const Projects = () => {
         {projects.map((project, index) => (
           <motion.article
             key={project.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => setClickedProject(clickedProject === project.id ? null : project.id)}
-            transition={{ duration: 0.5, delay: index * 0.05 }}
             className="relative flex flex-col gap-4 rounded-3xl border border-white/10 bg-black/30 p-4 transition-all duration-500 hover:-translate-y-2 hover:border-accent-400/40 cursor-pointer"
             style={{
               borderColor: clickedProject === project.id ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',

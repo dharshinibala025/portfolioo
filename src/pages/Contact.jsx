@@ -57,10 +57,6 @@ const Contact = () => {
       />
       <div className="grid gap-8 lg:grid-cols-2">
         <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           onClick={() => setClickedBox(clickedBox === 'contact' ? null : 'contact')}
           className="relative space-y-6 rounded-3xl border border-white/10 bg-black/30 p-8 cursor-pointer transition-all duration-300"
           style={{
@@ -100,9 +96,6 @@ const Contact = () => {
                     href={social.url}
                     target="_blank"
                     rel="noreferrer"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.2, rotate: 10, color: '#d946ef' }}
                     className="text-2xl text-white/70 transition-colors hover:text-accent-300"
                   >
@@ -114,10 +107,6 @@ const Contact = () => {
           </div>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           onClick={() => setClickedBox(clickedBox === 'form' ? null : 'form')}
           className="relative space-y-4 rounded-3xl border border-white/10 bg-black/30 p-8 cursor-pointer transition-all duration-300"
           style={{
