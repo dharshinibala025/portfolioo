@@ -6,7 +6,7 @@ import yukta from '../assets/yukta.jpg';
 import cert from '../assets/cert.jpg';
 import chatbot from '../assets/chatbot.jpg';
 import summ from '../assets/summ.jpg';
-import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaFigma, FaBook, FaGamepad, FaPlane, FaMusic, FaCamera } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaFigma, FaBook, FaPenNib, FaPlane, FaMusic, FaCamera } from 'react-icons/fa6';
 import { SiCplusplus, SiTailwindcss, SiExpress, SiStreamlit, SiPostman, SiMongodb, SiMysql } from 'react-icons/si';
 import { VscVscode } from 'react-icons/vsc';
 
@@ -19,7 +19,7 @@ export const personalInfo = {
   college: 'K.S.R. College of Engineering, Thiruchengode',
   email: 'dharshinibala001@gmail.com',
   description:
-    'I’m Dharshini Balasubramaniam, a curious and forward-thinking Computer Science student with a growing passion for AI. I love exploring emerging technologies, experimenting with new ideas, and building simple yet meaningful digital experiences. I’m always excited to learn, create, and evolve with the fast-blooming tech world.',
+    'I’m a curious and forward-thinking Computer Science student with a growing passion for AI. I love exploring emerging technologies, experimenting with new ideas, and building simple yet meaningful digital experiences.',
   technologies: ['Python', 'Java', 'C', 'HTML', 'c++'],
   profileImage,
 };
@@ -43,7 +43,7 @@ export const projects = [
   },
   {
     id: 2,
-    title: 'Krishi Sakthi',
+    title: 'Krishi Sakhi',
     description:
       'Streamlit app for Kerala Farmers Queries.',
     image: summ,
@@ -148,7 +148,7 @@ export const tools = [
 
 export const hobbies = [
   { name: 'Reading', icon: FaBook, description: 'Quotes&inspiring' },
-  { name: 'writing', icon: FaGamepad, description: 'Randon thoughts' },
+  { name: 'writing', icon: FaPenNib, description: 'Randon thoughts' },
   { name: 'Traveling', icon: FaPlane, description: 'Exploring new places' },
   { name: 'Music', icon: FaMusic, description: 'All genres' },
   { name: 'Photography', icon: FaCamera, description: 'Capturing moments' },

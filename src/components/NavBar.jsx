@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 
 const navLinks = [
   { label: 'Home', path: '/' },
+
   { label: 'Projects', path: '/projects' },
   { label: 'Certificates', path: '/certificates' },
   { label: 'Skills', path: '/skills' },
-  { label: 'About', path: '/about' },
   { label: 'Contact', path: '/contact' },
 ];
 
@@ -23,7 +23,7 @@ const NavBar = ({ isVisible = true }) => (
           <span className="font-display text-base uppercase tracking-[0.35em] text-accent-300">Dharshini</span>
         </div>
         <div className="flex flex-1 justify-end">
-          <div className="flex w-full max-w-3xl items-center justify-end gap-4 overflow-x-auto text-sm font-medium">
+          <div className="flex w-full max-w-3xl items-center justify-end gap-4 text-sm font-medium">
             {navLinks.map((link) => (
               <NavLink
                 key={link.path}

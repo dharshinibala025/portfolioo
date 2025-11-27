@@ -21,3 +21,89 @@ body {
 #root {
   min-height: 100vh;
 }
+
+@keyframes border-dance {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.shadow-dash {
+  position: relative;
+  background: linear-gradient(90deg, rgba(196, 31, 216, 0.1), rgba(0, 0, 0, 0), rgba(196, 31, 216, 0.1));
+  background-size: 200% 200%;
+  animation: border-dance 4s ease infinite;
+  border: 1px solid rgba(196, 31, 216, 0.3) !important;
+  box-shadow: 0 0 20px rgba(196, 31, 216, 0.1);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 20px rgba(196, 31, 216, 0.5);
+  border-color: rgba(196, 31, 216, 0.8);
+}
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+.animate-float-up {
+  animation: float-up 8s ease-in infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes fade-up-soft {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up-soft {
+  animation: fade-up-soft 1s ease-out forwards;
+}

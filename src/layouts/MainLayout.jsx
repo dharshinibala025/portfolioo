@@ -1,56 +1,37 @@
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-// import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import AnimatedBackground from '../components/AnimatedBackground';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import CinematicIntro from '../components/CinematicIntro';
 
 const MainLayout = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isNavVisible, setIsNavVisible] = useState(true);
+  const [showIntro, setShowIntro] = useState(true);
 
-  const pages = ['/', '/projects', '/certificates', '/skills', '/about', '/contact'];
+  const pages = ['/', '/projects', '/certificates', '/skills', '/contact'];
 
   useEffect(() => {
     window.scrollTo(0, 0);
     setIsNavVisible(true);
   }, [location.pathname]);
 
-  useEffect(() => {
-    let isThrottled = false;
 
-    const handleScroll = () => {
-      if (isThrottled) return;
-
-      const scrollPosition = window.innerHeight + window.scrollY;
-      const documentHeight = document.documentElement.scrollHeight;
-
-      if (scrollPosition >= documentHeight - 20) {
-        const currentIndex = pages.indexOf(location.pathname);
-        if (currentIndex !== -1 && currentIndex < pages.length - 1) {
-          isThrottled = true;
-          // setIsNavVisible(false); // Disabled to keep navbar visible
-          navigate(pages[currentIndex + 1]);
-
-          // Reset throttle after a delay to prevent double-firing during transition
-          setTimeout(() => {
-            isThrottled = false;
-          }, 1000);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [location.pathname, navigate]);
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-base-900 text-white">
+      <AnimatePresence mode="wait">
+        {showIntro && (
+          <CinematicIntro onComplete={() => setShowIntro(false)} />
+        )}
+      </AnimatePresence>
       <AnimatedBackground />
       <div className="relative z-10 flex min-h-screen flex-col">
         <NavBar isVisible={isNavVisible} />
-        <main className="flex-1 px-4 pb-16 pt-28 md:px-10 lg:px-12">
+        <main className="flex-1 px-4 pb-16 pt-20 md:px-10 lg:px-12">
           <div className="mx-auto w-full max-w-6xl">
             <Outlet />
           </div>
@@ -62,10 +43,3 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
-
-
-
-
-
-
-

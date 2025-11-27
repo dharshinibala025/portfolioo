@@ -34,7 +34,7 @@ const Skills = () => {
                                     filter: "brightness(1.2)",
                                     borderColor: "rgba(196, 31, 216, 0.5)"
                                 }}
-                                className="group relative flex flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:shadow-glow overflow-hidden"
+                                className="group relative flex flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:shadow-glow overflow-hidden"
                             >
                                 <motion.div
                                     className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent z-10"
@@ -47,7 +47,7 @@ const Skills = () => {
                                         ease: "linear"
                                     }}
                                 />
-                                <skill.icon className="mb-4 text-5xl text-accent-300 transition-colors group-hover:text-accent-100 relative z-20" />
+                                <skill.icon className="mb-4 text-4xl text-accent-300 transition-colors group-hover:text-accent-100 relative z-20" />
                                 <span className="text-sm font-medium tracking-wider text-white/80 group-hover:text-white relative z-20">
                                     {skill.name}
                                 </span>
@@ -76,9 +76,9 @@ const Skills = () => {
                                     borderColor: "rgba(196, 31, 216, 0.5)",
                                     boxShadow: "0 10px 30px -10px rgba(196, 31, 216, 0.3)"
                                 }}
-                                className="group relative flex flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
+                                className="group relative flex flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
                             >
-                                <fw.icon className="mb-4 text-5xl text-accent-300 transition-colors group-hover:text-accent-100" />
+                                <fw.icon className="mb-4 text-4xl text-accent-300 transition-colors group-hover:text-accent-100" />
                                 <span className="text-sm font-medium tracking-wider text-white/80 group-hover:text-white">
                                     {fw.name}
                                 </span>
@@ -105,11 +105,14 @@ const Skills = () => {
                                 }}
                                 whileHover={{
                                     scale: 1.1,
-                                    borderColor: "rgba(196, 31, 216, 0.5)"
+                                    rotate: [0, -5, 5, -5, 5, 0],
+                                    filter: "brightness(1.5)",
+                                    borderColor: "rgba(196, 31, 216, 0.8)",
+                                    transition: { duration: 0.4 }
                                 }}
-                                className="group relative flex flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:shadow-glow"
+                                className="group relative flex flex-col items-center justify-center rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:shadow-glow"
                             >
-                                <tool.icon className="mb-4 text-5xl text-accent-300 transition-colors group-hover:text-accent-100" />
+                                <tool.icon className="mb-4 text-4xl text-accent-300 transition-colors group-hover:text-accent-100" />
                                 <span className="text-sm font-medium tracking-wider text-white/80 group-hover:text-white">
                                     {tool.name}
                                 </span>
