@@ -69,14 +69,14 @@ const CinematicIntro = ({ onComplete }) => {
                 <AnimatePresence mode="wait">
                     {step === 1 && (
                         <motion.span
-                            key="presenting"
+                            key="personal showcase"
                             className="text-sm uppercase tracking-[0.5em] text-accent-300/80"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20, transition: { duration: 0.5 } }}
                             transition={{ duration: 0.8 }}
                         >
-                            Presenting
+                            Personal Showcase
                         </motion.span>
                     )}
                 </AnimatePresence>
@@ -111,22 +111,24 @@ const CinematicIntro = ({ onComplete }) => {
 
 
             {/* Scroll Cue (Visual only, as we transition automatically) */}
-            {step >= 3 && (
-                <motion.div
-                    className="absolute bottom-10 left-1/2 -translate-x-1/2"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 1 }}
-                >
+            {
+                step >= 3 && (
                     <motion.div
-                        className="w-[1px] h-12 bg-gradient-to-b from-accent-500 to-transparent"
-                        animate={{ height: [0, 48, 0], y: [0, 0, 48] }}
-                        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                    />
-                </motion.div>
-            )}
+                        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 1, duration: 1 }}
+                    >
+                        <motion.div
+                            className="w-[1px] h-12 bg-gradient-to-b from-accent-500 to-transparent"
+                            animate={{ height: [0, 48, 0], y: [0, 0, 48] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                    </motion.div>
+                )
+            }
 
-        </motion.div>
+        </motion.div >
     );
 };
 

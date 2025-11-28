@@ -108,7 +108,7 @@ export const journeyMoments = [
   {
     year: '2024-28',
     title: 'Bachelor Degree-B.E(CSE)',
-    description: 'Targeting research internships, building human-centered AI Skill developing cgpa-8.19 till 3rd semester',
+    description: 'Targeting research internships, building human-centered AI Skill developing cgpa-8.16 till 2nd semester',
     highlight: 'Targeting research and AI skills.',
   },
 ];

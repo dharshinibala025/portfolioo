@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 
 const PageHeader = ({ eyebrow, title, description, trailing }) => (
-  <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+  <div className="mb-10 mt-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
     <div>
       {eyebrow && (
-        <span className="mb-2 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-muted">
+        <span className="mb-6 inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs uppercase tracking-[0.4em] text-muted">
           {eyebrow}
         </span>
       )}

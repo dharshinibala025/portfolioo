@@ -6,7 +6,7 @@ import jor from '../assets/jor.jpg';
 import abb from '../assets/abb.jpg';
 import chatbot from '../assets/chatbot.jpg';
 import cert from '../assets/cert.jpg';
-import Reveal from '../components/Reveal';
+import GsapReveal from '../components/GsapReveal';
 import CinematicAbout from '../components/CinematicAbout';
 import SilkType from '../components/SilkType';
 
@@ -47,16 +47,16 @@ const Home = () => {
         <motion.div
           className="flex flex-col justify-center space-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl shadow-accent-500/10 backdrop-blur-2xl"
         >
-          <Reveal>
+          <GsapReveal>
             <span className="inline-flex items-center rounded-full border border-white/10 bg-accent-500/15 px-4 py-1 text-xs uppercase tracking-[0.45em] text-accent-200">
               Hello
             </span>
             <h1 className="font-display text-3xl leading-tight text-white md:text-4xl mt-4">
               I am {personalInfo.fullName}
             </h1>
-          </Reveal>
+          </GsapReveal>
 
-          <Reveal>
+          <GsapReveal delay={0.2}>
             <div className="flex flex-wrap gap-4">
               <a
                 href="/resume/Dharshini s Resume.pdf"
@@ -73,7 +73,7 @@ const Home = () => {
                 Browse projects
               </Link>
             </div>
-          </Reveal>
+          </GsapReveal>
 
           <div className="w-full mt-8">
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -147,7 +147,7 @@ const Home = () => {
       <CinematicAbout />
 
       {/* Interests & Hobbies Section */}
-      <Reveal width="100%">
+      <GsapReveal width="100%">
         <div className="relative z-10">
           <h3 className="mb-10 font-display text-3xl text-white text-center">Interests & Hobbies</h3>
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
@@ -170,10 +170,10 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </Reveal>
+      </GsapReveal>
 
       {/* Fun Facts Section */}
-      <Reveal width="100%">
+      <GsapReveal width="100%">
         <div className="relative z-10">
           <h3 className="mb-10 font-display text-3xl text-white text-center">Fun Facts</h3>
           <div className="grid gap-6 sm:grid-cols-2">
@@ -194,10 +194,10 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </Reveal>
+      </GsapReveal>
 
       {/* Navigation Tiles */}
-      <Reveal width="100%">
+      <GsapReveal width="100%">
         <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
           <div className="mb-6 flex items-center justify-between gap-4">
             <div>
@@ -240,10 +240,10 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </Reveal>
+      </GsapReveal>
 
       {/* New Section: Let's Connect */}
-      <Reveal width="100%">
+      <GsapReveal width="100%">
         <div className="rounded-3xl border border-white/10 bg-gradient-to-r from-accent-900/50 to-base-900 p-10 text-center">
           <h2 className="mb-4 font-display text-3xl text-white">Let's Create Something Amazing</h2>
           <SilkType
@@ -254,7 +254,7 @@ const Home = () => {
           </SilkType>
 
         </div>
-      </Reveal>
+      </GsapReveal>
     </section >
   );
 };
