@@ -44,10 +44,10 @@ const SkillWebGraph = () => {
         };
     };
 
-    if (dimensions.width === 0) return <div ref={containerRef} className="h-[1000px] w-full" />;
+    if (dimensions.width === 0) return <div ref={containerRef} className="h-[800px] w-full" />;
 
     return (
-        <div ref={containerRef} className="relative h-[1000px] w-full overflow-hidden bg-transparent">
+        <div ref={containerRef} className="relative h-[800px] w-full overflow-hidden bg-transparent">
 
             {/* SVG Connections Layer */}
             <svg className="absolute inset-0 h-full w-full pointer-events-none z-0">
@@ -67,7 +67,7 @@ const SkillWebGraph = () => {
                                 y1={centerY}
                                 x2={catPos.x}
                                 y2={catPos.y}
-                                stroke="url(#webGradient)"
+                                stroke="rgba(168, 85, 247, 0.5)"
                                 strokeWidth="2"
                                 initial={{ pathLength: 0, opacity: 0 }}
                                 animate={{ pathLength: 1, opacity: 1 }}
@@ -78,7 +78,7 @@ const SkillWebGraph = () => {
                             {cat.items.map((item, index) => {
                                 const angleStep = 360 / cat.items.length;
                                 // Offset skill angle to fan out around the category, but pointing outwards
-                                const skillAngle = cat.angle + (index * angleStep);
+                                const skillAngle = cat.angle + (index * angleStep) + (angleStep / 2);
                                 const skillPos = getPosition(catPos.x, catPos.y, skillRadius, skillAngle);
 
                                 return (
@@ -111,7 +111,6 @@ const SkillWebGraph = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8, type: "spring", bounce: 0.5 }}
                 drag
-                dragConstraints={containerRef}
             >
                 <div className="text-center">
                     <span className="block text-3xl">🚀</span>
@@ -133,7 +132,6 @@ const SkillWebGraph = () => {
                             animate={{ scale: 1, opacity: 1 }}
                             transition={{ delay: 1 + (catIndex * 0.2), type: "spring", stiffness: 200 }}
                             drag
-                            dragConstraints={containerRef}
                             whileHover={{ scale: 1.1, boxShadow: "0 0 30px rgba(255,255,255,0.2)" }}
                         >
                             <span className={`font-bold ${cat.color} text-sm`}>{cat.label}</span>
@@ -142,7 +140,7 @@ const SkillWebGraph = () => {
                         {/* Skill Nodes */}
                         {cat.items.map((item, index) => {
                             const angleStep = 360 / cat.items.length;
-                            const skillAngle = cat.angle + (index * angleStep);
+                            const skillAngle = cat.angle + (index * angleStep) + (angleStep / 2);
                             const skillPos = getPosition(catPos.x, catPos.y, skillRadius, skillAngle);
 
                             return (
@@ -154,7 +152,6 @@ const SkillWebGraph = () => {
                                     animate={{ scale: 1, opacity: 1 }}
                                     transition={{ delay: 1.8 + (index * 0.15), type: "spring" }}
                                     drag
-                                    dragConstraints={containerRef}
                                     whileHover={{ scale: 1.2, zIndex: 30 }}
                                 >
                                     <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/5 backdrop-blur-sm transition-colors hover:bg-white/10 hover:border-accent-400">

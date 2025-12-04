@@ -6,8 +6,9 @@ import yukta from '../assets/yukta.jpg';
 import cert from '../assets/cert.jpg';
 import chatbot from '../assets/chatbot.jpg';
 import summ from '../assets/summ.jpg';
-import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaFigma, FaBook, FaPenNib, FaPlane, FaMusic, FaCamera } from 'react-icons/fa6';
-import { SiCplusplus, SiTailwindcss, SiExpress, SiStreamlit, SiPostman, SiMongodb, SiMysql } from 'react-icons/si';
+import info from '../assets/info.jpg';
+import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaBook, FaPenNib, FaPlane, FaMusic, FaCamera, FaMicrochip, FaMicrosoft } from 'react-icons/fa6';
+import { SiCplusplus, SiTailwindcss, SiExpress, SiStreamlit, SiC, SiCanva } from 'react-icons/si';
 import { VscVscode } from 'react-icons/vsc';
 
 export const personalInfo = {
@@ -38,7 +39,8 @@ export const projects = [
     description:
       'A stylish AI-powered chatbot for real-time conversations.',
     image: chatbot,
-    link: 'https://github.com/dharshinibala025/ai-study-companion',
+    github: 'https://github.com/dharshinibala025/ai-study-companion',
+    link: '#',
     tags: ['Javascript', 'OpenAI', 'Node.js', 'SQlite3', 'Express'],
   },
   {
@@ -47,6 +49,7 @@ export const projects = [
     description:
       'Streamlit app for Kerala Farmers Queries.',
     image: summ,
+    github: 'https://github.com/dharshinibala025',
     link: 'https://krishi-sakhi-innovix-yp7whczthex5zaachik6gu.streamlit.app/',
     tags: ['Python', 'Streamlit'],
   },
@@ -56,17 +59,25 @@ export const projects = [
     description:
       'Smart health tracking app for monitoring workouts and progress.',
     image: image,
-    link: 'https://github.com/username/pulse-portfolio',
+    github: 'https://github.com/username/pulse-portfolio',
+    link: '#',
     tags: ['HTML', 'CSS', 'Javascript'],
   },
 ];
 
 export const certificates = [
   {
+    id: 'cert-Infosys',
+    title: 'Infosys Springboard',
+    issuedBy: 'Infosys',
+    year: '2025',
+    image: info,
+  },
+  {
     id: 'cert-Workshop',
     title: 'Large Language Model in GenAI ',
     issuedBy: 'VIT,Vellore',
-    year: '2024',
+    year: '2025',
     image: vit,
   },
   {
@@ -80,7 +91,7 @@ export const certificates = [
     id: 'cert-sympo',
     title: 'Yuktha Paper presentation',
     issuedBy: 'PSGItech',
-    year: '2024',
+    year: '2025',
     image: yukta,
   },
   {
@@ -120,12 +131,12 @@ export const socials = [
 ];
 
 export const skills = [
-  { name: 'Python', icon: FaPython },
+  { name: 'HTML', icon: FaHtml5 },
+  { name: 'CSS', icon: FaCss3Alt },
   { name: 'Java', icon: FaJava },
   { name: 'C++', icon: SiCplusplus },
-  { name: 'HTML5', icon: FaHtml5 },
-  { name: 'CSS3', icon: FaCss3Alt },
-  { name: 'JavaScript', icon: FaJs },
+  { name: 'C', icon: SiC },
+  { name: 'Python', icon: FaPython },
 ];
 
 export const frameworks = [
@@ -137,21 +148,20 @@ export const frameworks = [
 ];
 
 export const tools = [
-  { name: 'Git', icon: FaGitAlt },
   { name: 'GitHub', icon: FaGithub },
+  { name: 'Git', icon: FaGitAlt },
   { name: 'VS Code', icon: VscVscode },
-  { name: 'Postman', icon: SiPostman },
-  { name: 'Figma', icon: FaFigma },
-  { name: 'MongoDB', icon: SiMongodb },
-  { name: 'MySQL', icon: SiMysql },
+  { name: 'Canva', icon: SiCanva },
+  { name: 'MS Office', icon: FaMicrosoft },
+  { name: 'Matlab', icon: FaMicrochip },
 ];
 
 export const hobbies = [
-  { name: 'Reading', icon: FaBook, description: 'Quotes&inspiring' },
-  { name: 'writing', icon: FaPenNib, description: 'Randon thoughts' },
+  { name: 'Reading', icon: FaBook, description: 'Quotes&Inspiring' },
+  { name: 'writing', icon: FaPenNib, description: 'Random Thoughts' },
   { name: 'Traveling', icon: FaPlane, description: 'Exploring new places' },
   { name: 'Music', icon: FaMusic, description: 'All genres' },
-  { name: 'Photography', icon: FaCamera, description: 'Capturing moments' },
+  { name: 'Photography', icon: FaCamera, description: 'Capturing Moments' },
 ];
 
 export const funFacts = [

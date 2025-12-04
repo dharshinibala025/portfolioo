@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const ProjectCard = ({ project, index }) => {
     return (
@@ -39,20 +40,30 @@ const ProjectCard = ({ project, index }) => {
                         {project.description}
                     </p>
 
-                    <div className="flex items-center justify-between opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
-
-
-                        <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="group/btn relative inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-black transition-transform hover:scale-105"
-                        >
-                            <span>View Project</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-4 w-4 transition-transform group-hover/btn:translate-x-1">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                            </svg>
-                        </a>
+                    <div className="flex items-center gap-4 opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+                        {project.github && (
+                            <a
+                                href={project.github}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="group/btn relative inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-white hover:text-black hover:scale-105"
+                            >
+                                <FaGithub className="text-lg" />
+                                <span>GitHub</span>
+                            </a>
+                        )}
+                        
+                        {project.link && (
+                            <a
+                                href={project.link}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="group/btn relative inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-black transition-transform hover:scale-105"
+                            >
+                                <span>Live Demo</span>
+                                <FaExternalLinkAlt className="text-xs" />
+                            </a>
+                        )}
                     </div>
                 </div>
             </div>

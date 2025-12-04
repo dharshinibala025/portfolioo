@@ -20,6 +20,14 @@ const MainLayout = () => {
   }, [location.pathname]);
 
 
+  useEffect(() => {
+    if (showIntro) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [showIntro]);
+
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-base-900 text-white">
