@@ -12,7 +12,7 @@ const PageHeader = ({ eyebrow, title, description, trailing }) => (
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="font-display text-3xl text-white md:text-5xl"
+        className="font-display text-2xl text-white md:text-4xl"
       >
         {title}
       </motion.h1>

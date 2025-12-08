@@ -8,7 +8,7 @@ const ProjectCard = ({ project, index }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="group relative h-[400px] w-full overflow-hidden rounded-3xl border border-white/10 bg-base-900 shadow-lg transition-all hover:shadow-accent-500/20"
+            className="group relative h-[320px] w-full overflow-hidden rounded-3xl border border-white/10 bg-base-900 shadow-lg transition-all hover:shadow-accent-500/20"
         >
             {/* Background Image */}
             <div className="absolute inset-0 h-full w-full">
@@ -32,7 +32,7 @@ const ProjectCard = ({ project, index }) => {
                         </span>
                     </div>
 
-                    <h3 className="mb-3 font-display text-3xl font-bold text-white">
+                    <h3 className="mb-3 font-display text-2xl font-bold text-white">
                         {project.title}
                     </h3>
 
@@ -52,7 +52,7 @@ const ProjectCard = ({ project, index }) => {
                                 <span>GitHub</span>
                             </a>
                         )}
-                        
+
                         {project.link && (
                             <a
                                 href={project.link}
