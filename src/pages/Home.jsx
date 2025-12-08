@@ -175,7 +175,7 @@ const Home = () => {
               {heroStats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
-                  className="relative rounded-2xl border border-white/10 bg-black/20 p-4 text-center cursor-pointer overflow-hidden group"
+                  className="relative rounded-2xl border border-white/10 bg-black/20 p-4 text-center overflow-hidden group"
                   initial={{ opacity: 0, rotateY: -90 }}
                   animate={{ opacity: 1, rotateY: 0 }}
                   transition={{
