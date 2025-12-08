@@ -53,43 +53,129 @@ const Home = () => {
       {/* Hero Section */}
       <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-stretch mt-8">
         <motion.div
-          className="flex flex-col justify-center space-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl shadow-accent-500/10 backdrop-blur-2xl"
+          className="relative flex flex-col justify-center space-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl shadow-accent-500/10 backdrop-blur-2xl overflow-hidden"
           style={{ perspective: '1000px' }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
+          {/* Floating particles background */}
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-accent-400/40 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                x: [0, Math.random() * 20 - 10, 0],
+                opacity: [0.2, 0.6, 0.2],
+                scale: [1, 1.5, 1],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: i * 0.2,
+                ease: "easeInOut"
+              }}
+            />
+          ))}
+
           <GsapReveal>
-            <span className="inline-flex items-center rounded-full border border-white/10 bg-accent-500/15 px-4 py-1 text-xs uppercase tracking-[0.45em] text-accent-200">
-              Hello
-            </span>
-            <h1 className="font-display text-3xl leading-tight text-white md:text-4xl mt-4">
+            <motion.span
+              className="inline-flex items-center rounded-full border border-white/10 bg-accent-500/15 px-4 py-1 text-xs uppercase tracking-[0.45em] text-accent-200 relative overflow-hidden"
+              whileHover={{ scale: 1.05 }}
+            >
+              {/* Pulsing effect */}
+              <motion.div
+                className="absolute inset-0 bg-accent-500/20"
+                animate={{
+                  opacity: [0, 0.5, 0],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+              <span className="relative z-10">Hello</span>
+            </motion.span>
+
+            <motion.h1
+              className="font-display text-3xl leading-tight md:text-4xl mt-4 bg-gradient-to-r from-white via-accent-200 to-white bg-clip-text text-transparent"
+              style={{
+                backgroundSize: '200% auto',
+              }}
+              animate={{
+                backgroundPosition: ['0% center', '100% center', '0% center'],
+              }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                ease: "linear"
+              }}
+            >
               I am {personalInfo.fullName}
-            </h1>
+            </motion.h1>
           </GsapReveal>
 
           <GsapReveal delay={0.2}>
             <div className="flex flex-wrap gap-4">
-              <a
+              <motion.a
                 href="/resume/Dharshini s Resume.pdf"
                 download="Dharshini_Resume.pdf"
-                className="group inline-flex items-center gap-3 rounded-full border border-transparent bg-accent-500 px-6 py-3 font-medium text-white shadow-glow transition hover:-translate-y-1 hover:bg-accent-400"
+                className="group relative inline-flex items-center gap-3 rounded-full border border-transparent bg-accent-500 px-6 py-3 font-medium text-white shadow-glow overflow-hidden"
+                whileHover={{ y: -5, scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Download CV
-                <span className="text-xl leading-none transition group-hover:translate-x-1">↗</span>
-              </a>
-              <Link
-                to="/projects"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white/80 transition hover:border-accent-300 hover:text-white"
-              >
-                Browse projects
-              </Link>
+                {/* Shimmer effect */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                  animate={{
+                    x: ['-100%', '100%'],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                />
+                <span className="relative z-10">Download CV</span>
+                <motion.span
+                  className="text-xl leading-none relative z-10"
+                  animate={{ rotate: [0, 15, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  ↗
+                </motion.span>
+              </motion.a>
+
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white/80 transition hover:border-accent-300 hover:text-white hover:shadow-lg hover:shadow-accent-500/20"
+                >
+                  Browse projects
+                  <motion.span
+                    animate={{ x: [0, 3, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    →
+                  </motion.span>
+                </Link>
+              </motion.div>
             </div>
           </GsapReveal>
 
-          <div className="w-full mt-8">
+          <div className="w-full mt-8 relative z-10">
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" style={{ perspective: '1000px' }}>
               {heroStats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
-                  className="rounded-2xl border border-white/10 bg-black/20 p-4 text-center cursor-pointer"
+                  className="relative rounded-2xl border border-white/10 bg-black/20 p-4 text-center cursor-pointer overflow-hidden group"
                   initial={{ opacity: 0, rotateY: -90 }}
                   animate={{ opacity: 1, rotateY: 0 }}
                   transition={{
@@ -111,14 +197,47 @@ const Home = () => {
                     transformStyle: 'preserve-3d',
                   }}
                 >
+                  {/* Floating particles on hover */}
+                  {[...Array(3)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-0.5 h-0.5 bg-accent-400 rounded-full opacity-0 group-hover:opacity-100"
+                      style={{
+                        left: `${30 + i * 20}%`,
+                        top: `${40 + i * 10}%`,
+                      }}
+                      animate={{
+                        y: [0, -15, 0],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        delay: i * 0.2,
+                      }}
+                    />
+                  ))}
+
                   <motion.p
-                    className="font-display text-3xl text-white"
+                    className="font-display text-3xl text-white relative z-10"
                     style={{ transform: 'translateZ(20px)' }}
+                    animate={{
+                      textShadow: [
+                        '0 0 10px rgba(196, 31, 216, 0.3)',
+                        '0 0 20px rgba(196, 31, 216, 0.5)',
+                        '0 0 10px rgba(196, 31, 216, 0.3)',
+                      ],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
                   >
                     {stat.value}
                   </motion.p>
                   <motion.p
-                    className="text-xs uppercase tracking-[0.05em] text-muted"
+                    className="text-xs uppercase tracking-[0.05em] text-muted relative z-10"
                     style={{ transform: 'translateZ(10px)' }}
                   >
                     {stat.label}
@@ -129,6 +248,19 @@ const Home = () => {
                     className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-500/20 to-transparent opacity-0"
                     whileHover={{ opacity: 1 }}
                     style={{ transform: 'translateZ(-10px)' }}
+                  />
+
+                  {/* Shimmer on hover */}
+                  <motion.div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100"
+                    initial={{ x: '-100%' }}
+                    whileHover={{
+                      x: '100%',
+                      transition: { duration: 0.8 }
+                    }}
+                    style={{
+                      background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
+                    }}
                   />
                 </motion.div>
               ))}
@@ -257,7 +389,7 @@ const Home = () => {
         <div className="relative z-10">
           <motion.h3
             className="mb-10 font-display text-3xl text-white text-center"
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -268,89 +400,228 @@ const Home = () => {
             {hobbies.map((hobby, index) => (
               <motion.div
                 key={hobby.name}
-                className="group h-48 [perspective:1000px]"
-                initial={{ opacity: 0, scale: 0.8, rotateY: -180 }}
-                whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                className="h-48 relative group"
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{
-                  duration: 0.6,
+                  duration: 0.5,
                   delay: index * 0.1,
-                  type: "spring",
-                  stiffness: 100
+                  ease: [0.22, 1, 0.36, 1]
+                }}
+                whileHover={{
+                  y: -10,
+                  scale: 1.05,
+                  transition: { duration: 0.3 }
                 }}
               >
+                {/* Rotating gradient border */}
                 <motion.div
-                  className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]"
+                  className="absolute -inset-[2px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: 'linear-gradient(45deg, #c41fd8, #7c4dff, #ff5edf, #c41fd8)',
+                    backgroundSize: '300% 300%',
+                  }}
                   animate={{
-                    y: [0, -8, 0],
+                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
                   }}
                   transition={{
-                    duration: 3 + (index * 0.2),
+                    duration: 3,
                     repeat: Infinity,
-                    ease: "easeInOut"
+                    ease: "linear"
                   }}
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { duration: 0.3 }
-                  }}
+                />
+
+                {/* Shimmer effect on hover */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl pointer-events-none overflow-hidden z-10"
+                  initial={{ opacity: 0 }}
+                  whileHover={{ opacity: 1 }}
                 >
-                  {/* Glowing border effect */}
                   <motion.div
-                    className="absolute -inset-[2px] rounded-2xl bg-gradient-to-r from-accent-500 via-purple-500 to-pink-500 opacity-0 blur-sm group-hover:opacity-100 transition-opacity duration-500"
-                    animate={{
-                      rotate: [0, 360],
+                    className="absolute inset-0"
+                    initial={{ x: '-100%' }}
+                    whileHover={{
+                      x: '100%',
+                      transition: { duration: 0.8, ease: "easeInOut" }
                     }}
-                    transition={{
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "linear"
+                    style={{
+                      background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)',
                     }}
                   />
+                </motion.div>
 
-                  {/* Front Face */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 text-center [backface-visibility:hidden] shadow-lg">
-                    <motion.div
-                      className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-accent-500/30 to-purple-500/30 text-accent-300 shadow-glow"
-                      whileHover={{
-                        rotate: 360,
-                        scale: 1.2,
-                      }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <hobby.icon className="text-xl" />
-                    </motion.div>
-                    <h4 className="mb-1 font-semibold text-white group-hover:text-accent-200 transition-colors duration-300">{hobby.name}</h4>
-                    <motion.div
-                      className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-transparent via-accent-400 to-transparent opacity-0 group-hover:opacity-100"
-                      initial={{ scaleX: 0 }}
-                      whileHover={{ scaleX: 1 }}
-                      transition={{ duration: 0.3 }}
-                    />
-                  </div>
+                {/* Floating particles on hover */}
+                {[...Array(4)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-accent-400 rounded-full opacity-0 group-hover:opacity-100 pointer-events-none"
+                    style={{
+                      left: `${25 + i * 20}%`,
+                      top: `${30 + i * 15}%`,
+                    }}
+                    animate={{
+                      y: [0, -20, 0],
+                      x: [0, (i % 2 === 0 ? 10 : -10), 0],
+                      opacity: [0, 1, 0],
+                      scale: [0, 1.5, 0],
+                    }}
+                    transition={{
+                      duration: 2 + i * 0.3,
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                    }}
+                  />
+                ))}
 
-                  {/* Back Face */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-accent-500/50 bg-gradient-to-br from-accent-900/95 to-purple-900/95 backdrop-blur-sm p-6 text-center [transform:rotateY(180deg)] [backface-visibility:hidden] shadow-xl">
-                    <motion.p
-                      className="text-sm text-white font-medium"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ delay: 0.2 }}
-                    >
-                      {hobby.description}
-                    </motion.p>
+                <div className="relative h-full w-full">
+                  <motion.div
+                    className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 text-center shadow-lg overflow-hidden"
+                    style={{
+                      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
+                    }}
+                    whileHover={{
+                      borderColor: 'rgba(196, 31, 216, 0.4)',
+                      boxShadow: '0 10px 40px rgba(196, 31, 216, 0.3)',
+                    }}
+                  >
+                    {/* Pulsing background glow */}
                     <motion.div
-                      className="absolute top-2 right-2 w-2 h-2 rounded-full bg-accent-300"
+                      className="absolute inset-0 bg-gradient-to-br from-accent-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100"
                       animate={{
-                        scale: [1, 1.5, 1],
-                        opacity: [0.5, 1, 0.5],
+                        opacity: [0, 0.3, 0],
+                        scale: [1, 1.1, 1],
                       }}
                       transition={{
                         duration: 2,
                         repeat: Infinity,
+                        ease: "easeInOut"
                       }}
                     />
-                  </div>
-                </motion.div>
+
+                    {/* Animated icon with bounce */}
+                    <motion.div
+                      className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-accent-500/30 to-purple-500/30 text-accent-300 shadow-glow relative z-10"
+                      animate={{
+                        boxShadow: [
+                          '0 0 10px rgba(196, 31, 216, 0.3)',
+                          '0 0 20px rgba(196, 31, 216, 0.5)',
+                          '0 0 10px rgba(196, 31, 216, 0.3)',
+                        ],
+                        y: [0, -5, 0],
+                      }}
+                      transition={{
+                        boxShadow: {
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        },
+                        y: {
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: index * 0.1
+                        }
+                      }}
+                      whileHover={{
+                        scale: 1.3,
+                        rotate: 360,
+                        transition: { duration: 0.5 }
+                      }}
+                    >
+                      <hobby.icon className="text-xl" />
+
+                      {/* Icon glow ring */}
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-2 border-accent-400"
+                        animate={{
+                          scale: [1, 1.5, 1],
+                          opacity: [0.5, 0, 0.5],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeOut",
+                          delay: index * 0.15
+                        }}
+                      />
+                    </motion.div>
+
+                    {/* Name with slide effect */}
+                    <motion.h4
+                      className="mb-1 font-semibold text-white relative z-10"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.2 + index * 0.05 }}
+                      whileHover={{
+                        color: 'rgb(196, 31, 216)',
+                        scale: 1.05,
+                        transition: { duration: 0.2 }
+                      }}
+                    >
+                      {hobby.name}
+                    </motion.h4>
+
+                    {/* Description with fade */}
+                    <motion.p
+                      className="text-xs text-muted mt-2 relative z-10"
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 0.7 }}
+                      transition={{ delay: 0.3 + index * 0.05 }}
+                      whileHover={{ opacity: 1 }}
+                    >
+                      {hobby.description}
+                    </motion.p>
+
+                    {/* Bottom accent line with wave effect */}
+                    <motion.div
+                      className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent-400 to-transparent"
+                      initial={{ scaleX: 0, opacity: 0 }}
+                      whileHover={{ scaleX: 1, opacity: 1 }}
+                      transition={{ duration: 0.4 }}
+                    />
+
+                    {/* Corner glow with pulse */}
+                    <motion.div
+                      className="absolute top-0 right-0 w-16 h-16 bg-accent-500/20 rounded-bl-full blur-xl"
+                      initial={{ opacity: 0, scale: 0 }}
+                      whileHover={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                      animate={{
+                        opacity: [0, 0.5, 0],
+                      }}
+                      style={{
+                        animationDelay: `${index * 0.2}s`
+                      }}
+                    />
+
+                    {/* Sparkle effect on corners */}
+                    <motion.div
+                      className="absolute top-2 left-2 w-1 h-1 bg-accent-300 rounded-full opacity-0 group-hover:opacity-100"
+                      animate={{
+                        scale: [0, 1.5, 0],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        delay: 0.5,
+                      }}
+                    />
+                    <motion.div
+                      className="absolute bottom-2 right-2 w-1 h-1 bg-purple-300 rounded-full opacity-0 group-hover:opacity-100"
+                      animate={{
+                        scale: [0, 1.5, 0],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        delay: 0.8,
+                      }}
+                    />
+                  </motion.div>
+                </div>
               </motion.div>
             ))}
           </div>
