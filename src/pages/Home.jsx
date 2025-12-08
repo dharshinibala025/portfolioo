@@ -39,6 +39,14 @@ const showcaseTiles = [
 
 const Home = () => {
   const [clickedBox, setClickedBox] = useState(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left - rect.width / 2) / rect.width;
+    const y = (e.clientY - rect.top - rect.height / 2) / rect.height;
+    setMousePosition({ x, y });
+  };
 
   return (
     <section className="space-y-16">
@@ -46,6 +54,7 @@ const Home = () => {
       <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] items-stretch mt-8">
         <motion.div
           className="flex flex-col justify-center space-y-8 rounded-3xl border border-white/10 bg-white/5 p-8 shadow-2xl shadow-accent-500/10 backdrop-blur-2xl"
+          style={{ perspective: '1000px' }}
         >
           <GsapReveal>
             <span className="inline-flex items-center rounded-full border border-white/10 bg-accent-500/15 px-4 py-1 text-xs uppercase tracking-[0.45em] text-accent-200">
@@ -76,35 +85,93 @@ const Home = () => {
           </GsapReveal>
 
           <div className="w-full mt-8">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" style={{ perspective: '1000px' }}>
               {heroStats.map((stat, index) => (
-                <div
+                <motion.div
                   key={stat.label}
-                  className="rounded-2xl border border-white/10 bg-black/20 p-4 text-center transition-all duration-300 hover:bg-white/10 hover:border-accent-500/50 hover:shadow-[0_10px_30px_-10px_rgba(196,31,216,0.3)] hover:-translate-y-1 hover:scale-105"
+                  className="rounded-2xl border border-white/10 bg-black/20 p-4 text-center cursor-pointer"
+                  initial={{ opacity: 0, rotateY: -90 }}
+                  animate={{ opacity: 1, rotateY: 0 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: index * 0.1,
+                    type: "spring",
+                    stiffness: 100
+                  }}
+                  whileHover={{
+                    rotateY: 10,
+                    rotateX: -10,
+                    scale: 1.05,
+                    z: 50,
+                    boxShadow: '0 20px 40px -10px rgba(196,31,216,0.5)',
+                    borderColor: 'rgba(196, 31, 216, 0.5)',
+                    transition: { duration: 0.3 }
+                  }}
+                  style={{
+                    transformStyle: 'preserve-3d',
+                  }}
                 >
-                  <p className="font-display text-3xl text-white">{stat.value}</p>
-                  <p className="text-xs uppercase tracking-[0.05em] text-muted">{stat.label}</p>
-                </div>
+                  <motion.p
+                    className="font-display text-3xl text-white"
+                    style={{ transform: 'translateZ(20px)' }}
+                  >
+                    {stat.value}
+                  </motion.p>
+                  <motion.p
+                    className="text-xs uppercase tracking-[0.05em] text-muted"
+                    style={{ transform: 'translateZ(10px)' }}
+                  >
+                    {stat.label}
+                  </motion.p>
+
+                  {/* 3D depth indicator */}
+                  <motion.div
+                    className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-500/20 to-transparent opacity-0"
+                    whileHover={{ opacity: 1 }}
+                    style={{ transform: 'translateZ(-10px)' }}
+                  />
+                </motion.div>
               ))}
             </div>
           </div>
         </motion.div>
+
         <motion.div
           className="relative overflow-hidden rounded-3xl border border-white/10 bg-base-800/80 p-6 h-full min-h-[400px]"
+          style={{ perspective: '1500px' }}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={() => setMousePosition({ x: 0, y: 0 })}
         >
           <motion.div
             className="absolute inset-6 rounded-[2.5rem] border border-white/10"
             animate={{ opacity: [0.4, 0.7, 0.4] }}
             transition={{ duration: 4, repeat: Infinity }}
           />
-          <div className="relative flex h-full flex-col items-center justify-center gap-6">
+          <motion.div
+            className="relative flex h-full flex-col items-center justify-center gap-6"
+            style={{
+              transformStyle: 'preserve-3d',
+            }}
+            animate={{
+              rotateY: mousePosition.x * 10,
+              rotateX: -mousePosition.y * 10,
+            }}
+            transition={{ type: 'spring', stiffness: 100, damping: 20 }}
+          >
             <motion.div
               className="group relative flex h-64 w-64 items-center justify-center rounded-full border border-white/10 bg-black/30 shadow-glow"
-              animate={{ rotate: [0, 1.5, -1.5, 0] }}
+              animate={{
+                rotate: [0, 1.5, -1.5, 0],
+              }}
               transition={{ duration: 12, repeat: Infinity }}
               whileHover={{
                 scale: 1.1,
                 rotate: 0,
+                z: 100,
+              }}
+              style={{
+                transformStyle: 'preserve-3d',
+                transform: 'translateZ(50px)',
               }}
             >
               <motion.img
@@ -114,6 +181,7 @@ const Home = () => {
                 whileHover={{
                   scale: 1.05,
                 }}
+                style={{ transform: 'translateZ(20px)' }}
               />
               <motion.div
                 className="absolute inset-0 rounded-full border-2 border-transparent transition-all duration-300"
@@ -128,18 +196,56 @@ const Home = () => {
                   backgroundColor: 'rgba(196, 31, 216, 0.2)',
                 }}
               />
+
+              {/* 3D orbital rings */}
+              {[...Array(3)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute inset-0 rounded-full border border-accent-500/20"
+                  style={{
+                    transform: `translateZ(${-20 - i * 15}px) scale(${1 + i * 0.1})`,
+                  }}
+                  animate={{
+                    rotate: [0, 360],
+                    opacity: [0.2, 0.5, 0.2],
+                  }}
+                  transition={{
+                    duration: 8 + i * 2,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: i * 0.5,
+                  }}
+                />
+              ))}
             </motion.div>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80">
-              <div className="rounded-2xl border border-white/10 bg-black/40 px-5 py-3 shadow-dash">
+
+            <div className="flex flex-wrap justify-center gap-4 text-sm text-white/80" style={{ transform: 'translateZ(30px)' }}>
+              <motion.div
+                className="rounded-2xl border border-white/10 bg-black/40 px-5 py-3 shadow-dash"
+                whileHover={{
+                  rotateY: 5,
+                  scale: 1.05,
+                  boxShadow: '0 10px 20px rgba(196, 31, 216, 0.3)',
+                }}
+                style={{ transformStyle: 'preserve-3d' }}
+              >
                 <p className="text-muted">DOB</p>
                 <p>{personalInfo.dob}</p>
-              </div>
-              <div className="rounded-2xl border border-white/10 bg-black/40 px-5 py-3 shadow-dash">
+              </motion.div>
+              <motion.div
+                className="rounded-2xl border border-white/10 bg-black/40 px-5 py-3 shadow-dash"
+                whileHover={{
+                  rotateY: -5,
+                  scale: 1.05,
+                  boxShadow: '0 10px 20px rgba(196, 31, 216, 0.3)',
+                }}
+                style={{ transformStyle: 'preserve-3d' }}
+              >
                 <p className="text-muted">College</p>
                 <p className="max-w-[140px]">{personalInfo.college}</p>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 
@@ -149,24 +255,103 @@ const Home = () => {
       {/* Interests & Hobbies Section */}
       <GsapReveal width="100%">
         <div className="relative z-10">
-          <h3 className="mb-10 font-display text-3xl text-white text-center">Interests & Hobbies</h3>
+          <motion.h3
+            className="mb-10 font-display text-3xl text-white text-center"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Interests & Hobbies
+          </motion.h3>
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
-            {hobbies.map((hobby) => (
-              <div key={hobby.name} className="group h-48 [perspective:1000px]">
-                <div className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+            {hobbies.map((hobby, index) => (
+              <motion.div
+                key={hobby.name}
+                className="group h-48 [perspective:1000px]"
+                initial={{ opacity: 0, scale: 0.8, rotateY: -180 }}
+                whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  type: "spring",
+                  stiffness: 100
+                }}
+              >
+                <motion.div
+                  className="relative h-full w-full transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]"
+                  animate={{
+                    y: [0, -8, 0],
+                  }}
+                  transition={{
+                    duration: 3 + (index * 0.2),
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  {/* Glowing border effect */}
+                  <motion.div
+                    className="absolute -inset-[2px] rounded-2xl bg-gradient-to-r from-accent-500 via-purple-500 to-pink-500 opacity-0 blur-sm group-hover:opacity-100 transition-opacity duration-500"
+                    animate={{
+                      rotate: [0, 360],
+                    }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  />
+
                   {/* Front Face */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-white/5 p-6 text-center [backface-visibility:hidden]">
-                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-accent-500/20 text-accent-300">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 text-center [backface-visibility:hidden] shadow-lg">
+                    <motion.div
+                      className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-accent-500/30 to-purple-500/30 text-accent-300 shadow-glow"
+                      whileHover={{
+                        rotate: 360,
+                        scale: 1.2,
+                      }}
+                      transition={{ duration: 0.5 }}
+                    >
                       <hobby.icon className="text-xl" />
-                    </div>
-                    <h4 className="mb-1 font-semibold text-white">{hobby.name}</h4>
+                    </motion.div>
+                    <h4 className="mb-1 font-semibold text-white group-hover:text-accent-200 transition-colors duration-300">{hobby.name}</h4>
+                    <motion.div
+                      className="absolute bottom-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-transparent via-accent-400 to-transparent opacity-0 group-hover:opacity-100"
+                      initial={{ scaleX: 0 }}
+                      whileHover={{ scaleX: 1 }}
+                      transition={{ duration: 0.3 }}
+                    />
                   </div>
+
                   {/* Back Face */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-accent-500/30 bg-accent-900/90 p-6 text-center [transform:rotateY(180deg)] [backface-visibility:hidden]">
-                    <p className="text-sm text-white">{hobby.description}</p>
+                  <div className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-accent-500/50 bg-gradient-to-br from-accent-900/95 to-purple-900/95 backdrop-blur-sm p-6 text-center [transform:rotateY(180deg)] [backface-visibility:hidden] shadow-xl">
+                    <motion.p
+                      className="text-sm text-white font-medium"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      {hobby.description}
+                    </motion.p>
+                    <motion.div
+                      className="absolute top-2 right-2 w-2 h-2 rounded-full bg-accent-300"
+                      animate={{
+                        scale: [1, 1.5, 1],
+                        opacity: [0.5, 1, 0.5],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                      }}
+                    />
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -175,21 +360,133 @@ const Home = () => {
       {/* Fun Facts Section */}
       <GsapReveal width="100%">
         <div className="relative z-10">
-          <h3 className="mb-10 font-display text-3xl text-white text-center">Fun Facts</h3>
+          <motion.h3
+            className="mb-10 font-display text-3xl text-white text-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+          >
+            Fun Facts
+          </motion.h3>
           <div className="grid gap-6 sm:grid-cols-2">
             {funFacts.map((fact, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
-                className="flex items-center gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-6 backdrop-blur-sm hover:border-accent-400/30"
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50, rotateY: -20 }}
+                whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  type: "spring",
+                  stiffness: 80
+                }}
+                whileHover={{
+                  scale: 1.03,
+                  y: -5,
+                  transition: { duration: 0.3 }
+                }}
+                className="relative flex items-center gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-6 backdrop-blur-sm hover:border-accent-400/50 overflow-hidden group"
               >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent-500 text-white font-bold text-sm">
+                {/* Animated gradient border on hover */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: 'linear-gradient(45deg, transparent 30%, rgba(196, 31, 216, 0.1) 50%, transparent 70%)',
+                    backgroundSize: '200% 200%',
+                  }}
+                  animate={{
+                    backgroundPosition: ['0% 0%', '100% 100%'],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                />
+
+                {/* Shine effect on hover */}
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100"
+                  initial={{ x: '-100%' }}
+                  whileHover={{
+                    x: '100%',
+                    transition: { duration: 0.8, ease: "easeInOut" }
+                  }}
+                  style={{
+                    background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
+                  }}
+                />
+
+                {/* Animated number badge */}
+                <motion.span
+                  className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent-500 to-purple-600 text-white font-bold text-sm shadow-lg z-10"
+                  animate={{
+                    boxShadow: [
+                      '0 0 20px rgba(196, 31, 216, 0.3)',
+                      '0 0 30px rgba(196, 31, 216, 0.6)',
+                      '0 0 20px rgba(196, 31, 216, 0.3)',
+                    ],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  whileHover={{
+                    rotate: 360,
+                    scale: 1.2,
+                    transition: { duration: 0.5 }
+                  }}
+                >
                   {index + 1}
-                </span>
-                <p className="text-white/90">{fact}</p>
+
+                  {/* Pulsing ring around badge */}
+                  <motion.span
+                    className="absolute inset-0 rounded-full border-2 border-accent-300"
+                    animate={{
+                      scale: [1, 1.4, 1],
+                      opacity: [0.8, 0, 0.8],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeOut",
+                      delay: index * 0.2
+                    }}
+                  />
+                </motion.span>
+
+                {/* Fact text with typing effect on hover */}
+                <motion.p
+                  className="text-white/90 group-hover:text-white transition-colors duration-300 relative z-10 flex-1"
+                  initial={{ opacity: 0.9 }}
+                  whileHover={{ opacity: 1 }}
+                >
+                  {fact}
+                </motion.p>
+
+                {/* Decorative corner accent */}
+                <motion.div
+                  className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-accent-500/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100"
+                  initial={{ scale: 0, rotate: -45 }}
+                  whileHover={{
+                    scale: 1,
+                    rotate: 0,
+                    transition: { duration: 0.4 }
+                  }}
+                />
+
+                {/* Bottom glow effect */}
+                <motion.div
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-accent-400 to-transparent opacity-0 group-hover:opacity-100"
+                  initial={{ scaleX: 0 }}
+                  whileHover={{
+                    scaleX: 1,
+                    transition: { duration: 0.5 }
+                  }}
+                />
               </motion.div>
             ))}
           </div>
@@ -198,45 +495,193 @@ const Home = () => {
 
       {/* Navigation Tiles */}
       <GsapReveal width="100%">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-4">
-          <div className="mb-6 flex items-center justify-between gap-4">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+          <motion.div
+            className="mb-6 flex items-center justify-between gap-4"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <div>
-              <p className="text-xs uppercase tracking-[0.4em] text-muted">Experience the pages</p>
-              <h2 className="font-display text-2xl text-white">Explore More</h2>
-            </div>
-          </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {showcaseTiles.map((tile) => (
-              <Link
-                key={tile.label}
-                to={tile.path}
-                onClick={() => setClickedBox(clickedBox === tile.label ? null : tile.label)}
-                className="group relative overflow-hidden rounded-2xl border border-white/5 bg-black/40 cursor-pointer transition-all duration-300"
+              <motion.p
+                className="text-xs uppercase tracking-[0.4em] text-muted"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                Experience the pages
+              </motion.p>
+              <motion.h2
+                className="font-display text-2xl text-white bg-gradient-to-r from-white via-accent-200 to-white bg-clip-text text-transparent"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
                 style={{
-                  borderColor: clickedBox === tile.label ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.05)',
-                  boxShadow: clickedBox === tile.label
-                    ? '0 0 30px rgba(196, 31, 216, 0.6), inset 0 0 30px rgba(196, 31, 216, 0.1)'
-                    : 'none',
+                  backgroundSize: '200% auto',
                 }}
               >
-                <motion.div
-                  className="absolute inset-0 rounded-2xl border-2 border-accent-400 pointer-events-none z-10"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{
-                    opacity: clickedBox === tile.label ? [0, 1, 0.6] : 0,
-                    scale: clickedBox === tile.label ? [0.8, 1.1, 1] : 0.8,
+                Explore More
+              </motion.h2>
+            </div>
+          </motion.div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {showcaseTiles.map((tile, index) => (
+              <motion.div
+                key={tile.label}
+                initial={{ opacity: 0, y: 50, rotateX: -15 }}
+                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{
+                  duration: 0.6,
+                  delay: index * 0.15,
+                  type: "spring",
+                  stiffness: 100
+                }}
+              >
+                <Link
+                  to={tile.path}
+                  onClick={() => setClickedBox(clickedBox === tile.label ? null : tile.label)}
+                  className="group relative overflow-hidden rounded-2xl border border-white/5 bg-black/40 cursor-pointer transition-all duration-500 block h-48"
+                  style={{
+                    borderColor: clickedBox === tile.label ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.05)',
+                    boxShadow: clickedBox === tile.label
+                      ? '0 0 30px rgba(196, 31, 216, 0.6), inset 0 0 30px rgba(196, 31, 216, 0.1)'
+                      : 'none',
                   }}
-                  transition={{ duration: 0.5 }}
-                />
-                <div
-                  className={`absolute inset-0 bg-gradient-to-br ${tile.accent} opacity-70 transition duration-500 group-hover:opacity-100`}
-                />
-                <img src={tile.image} alt={tile.label} className="h-48 w-full object-cover opacity-60 mix-blend-screen" />
-                <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-                  <p className="text-xs uppercase tracking-[0.45em] text-white/70">{tile.label}</p>
-                  <p className="font-display text-2xl text-white">Go to {tile.label}</p>
-                </div>
-              </Link>
+                >
+                  {/* Ripple effect on click */}
+                  <motion.div
+                    className="absolute inset-0 rounded-2xl border-2 border-accent-400 pointer-events-none z-20"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{
+                      opacity: clickedBox === tile.label ? [0, 1, 0] : 0,
+                      scale: clickedBox === tile.label ? [0.8, 1.3, 1.5] : 0.8,
+                    }}
+                    transition={{ duration: 0.8 }}
+                  />
+
+                  {/* Animated gradient border */}
+                  <motion.div
+                    className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"
+                    style={{
+                      background: `linear-gradient(45deg, ${tile.accent.replace('from-', '').replace('/30', '')}, transparent, ${tile.accent.replace('from-', '').replace('/30', '')})`,
+                      backgroundSize: '200% 200%',
+                    }}
+                    animate={{
+                      backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  />
+
+                  {/* Animated gradient overlay */}
+                  <motion.div
+                    className={`absolute inset-0 bg-gradient-to-br ${tile.accent} opacity-70 transition duration-500 group-hover:opacity-100`}
+                    animate={{
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+
+                  {/* Parallax image with zoom effect */}
+                  <motion.img
+                    src={tile.image}
+                    alt={tile.label}
+                    className="h-48 w-full object-cover opacity-60 mix-blend-screen"
+                    whileHover={{
+                      scale: 1.1,
+                      transition: { duration: 0.5 }
+                    }}
+                  />
+
+                  {/* Floating particles effect */}
+                  {[...Array(3)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-1 h-1 bg-accent-300 rounded-full opacity-0 group-hover:opacity-60"
+                      style={{
+                        left: `${20 + i * 30}%`,
+                        top: `${30 + i * 20}%`,
+                      }}
+                      animate={{
+                        y: [0, -30, 0],
+                        opacity: [0, 0.6, 0],
+                      }}
+                      transition={{
+                        duration: 2 + i * 0.5,
+                        repeat: Infinity,
+                        delay: i * 0.3,
+                      }}
+                    />
+                  ))}
+
+                  {/* Content overlay with slide-up animation */}
+                  <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6 z-10">
+                    <motion.p
+                      className="text-xs uppercase tracking-[0.45em] text-white/70 group-hover:text-accent-300 transition-colors duration-300"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 + index * 0.1 }}
+                    >
+                      {tile.label}
+                    </motion.p>
+                    <motion.p
+                      className="font-display text-2xl text-white group-hover:text-accent-100 transition-colors duration-300"
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3 + index * 0.1 }}
+                    >
+                      Go to {tile.label}
+                    </motion.p>
+
+                    {/* Animated arrow */}
+                    <motion.div
+                      className="absolute bottom-6 right-6 text-white opacity-0 group-hover:opacity-100"
+                      initial={{ x: -10, opacity: 0 }}
+                      whileHover={{ x: 0, opacity: 1 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <motion.span
+                        className="text-2xl"
+                        animate={{
+                          x: [0, 5, 0],
+                        }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        →
+                      </motion.span>
+                    </motion.div>
+                  </div>
+
+                  {/* Shine effect sweeping across */}
+                  <motion.div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none z-15"
+                    initial={{ x: '-100%', skewX: -20 }}
+                    whileHover={{
+                      x: '200%',
+                      transition: { duration: 1, ease: "easeInOut" }
+                    }}
+                    style={{
+                      background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent)',
+                      width: '50%',
+                    }}
+                  />
+                </Link>
+              </motion.div>
             ))}
           </div>
         </div>

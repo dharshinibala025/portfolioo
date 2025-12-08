@@ -60,7 +60,7 @@ export const projects = [
       'Smart health tracking app for monitoring workouts and progress.',
     image: image,
     github: 'https://github.com/username/pulse-portfolio',
-    link: '#',
+    link: 'https://fitness-tracker-nine-kohl.vercel.app',
     tags: ['HTML', 'CSS', 'Javascript'],
   },
 ];
