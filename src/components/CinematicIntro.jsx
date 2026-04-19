@@ -69,14 +69,14 @@ const CinematicIntro = ({ onComplete }) => {
                 <AnimatePresence mode="wait">
                     {step === 1 && (
                         <motion.span
-                            key="personal showcase"
+                            key="personal portfolio"
                             className="text-sm uppercase tracking-[0.5em] text-accent-300/80"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20, transition: { duration: 0.5 } }}
                             transition={{ duration: 0.8 }}
                         >
-                            Personal Showcase
+                            Personal Portfolio
                         </motion.span>
                     )}
                 </AnimatePresence>

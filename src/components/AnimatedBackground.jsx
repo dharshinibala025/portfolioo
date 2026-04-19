@@ -6,12 +6,13 @@ const blobs = [
   { position: 'bottom-16 left-12 w-56 h-56', delay: 0.6 },
 ];
 
-const particles = Array.from({ length: 24 }, (_, index) => ({
+const particles = Array.from({ length: 50 }, (_, index) => ({
   id: `particle-${index}`,
-  delay: index * 0.35,
-  duration: 6 + (index % 4),
-  top: `${(index * 17) % 100}%`,
-  left: `${(index * 29) % 100}%`,
+  delay: Math.random() * 5,
+  duration: 10 + Math.random() * 20,
+  top: `${Math.random() * 100}%`,
+  left: `${Math.random() * 100}%`,
+  size: Math.random() * 3 + 1,
 }));
 
 const AnimatedBackground = () => (
@@ -40,15 +41,18 @@ const AnimatedBackground = () => (
       {particles.map((particle) => (
         <motion.span
           key={particle.id}
-          className="absolute h-2 w-2 rounded-full bg-accent-400/70 shadow-glow"
+          className="absolute rounded-full bg-white shadow-glow"
           style={{
             top: particle.top,
             left: particle.left,
+            width: particle.size,
+            height: particle.size,
           }}
           animate={{
-            opacity: [0, 1, 0],
-            scale: [0.5, 1, 0.5],
-            y: [-10, 10, -10],
+            opacity: [0.2, 0.8, 0.2],
+            scale: [0.8, 1.2, 0.8],
+            y: [0, -50, 0],
+            x: [0, Math.random() * 40 - 20, 0],
           }}
           transition={{
             duration: particle.duration,

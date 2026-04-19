@@ -34,7 +34,7 @@ const CinematicAbout = () => {
                     <motion.h3
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className="text-3xl font-display font-bold text-center mb-8 relative z-10"
+                        className="text-3xl font-display font-bold text-center mb-8 relative z-10 cursor-default select-none"
                     >
                         The Journey So Far
                     </motion.h3>
@@ -46,25 +46,6 @@ const CinematicAbout = () => {
                     </div>
                 </div>
 
-                {/* Bio Text */}
-                <div className="mt-16 max-w-3xl mx-auto text-center">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        viewport={{ once: true }}
-                    >
-                        <span className="text-6xl text-accent-500/20 font-serif">"</span>
-                        <SilkTypeAnim
-                            className="text-2xl md:text-3xl font-light leading-relaxed text-white/90 font-display"
-                            delay={0.2}
-                            stagger={0.02}
-                        >
-                            {personalInfo.description}
-                        </SilkTypeAnim>
-                        <span className="text-6xl text-accent-500/20 font-serif block mt-6">"</span>
-                    </motion.div>
-                </div>
 
             </div>
         </div>

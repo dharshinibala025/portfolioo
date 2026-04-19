@@ -1,0 +1,219 @@
+.pc-card-wrapper {
+    --card-width: 320px;
+    --card-height: 480px;
+    --transition-easing: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    position: relative;
+    width: var(--card-width);
+    height: var(--card-height);
+    perspective: 1000px;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.pc-card-shell {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    border-radius: 20px;
+    transition: transform 0.1s;
+    transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+    will-change: transform;
+}
+
+.pc-card-shell.entering {
+    transition: transform 0.6s var(--transition-easing);
+}
+
+/* Electric Border Effect */
+.pc-electric-border {
+    position: absolute;
+    inset: -3px;
+    /* Slightly larger than the card */
+    border-radius: 22px;
+    /* Matching radius + inset */
+    background: conic-gradient(from 0deg,
+            transparent 0%,
+            rgba(196, 31, 216, 0.4) 20%,
+            rgba(196, 31, 216, 1) 40%,
+            transparent 50%,
+            transparent 100%);
+    animation: rotateBorder 4s linear infinite;
+    z-index: -1;
+    /* Behind the card content */
+    filter: blur(8px);
+    /* Glow effect */
+    opacity: 0.8;
+}
+
+/* Specific keyframes for the rotation */
+@keyframes rotateBorder {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Add a sharper internal border for definition */
+.pc-electric-border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    background: conic-gradient(from 0deg,
+            transparent 0%,
+            #c41fd8 25%,
+            transparent 50%,
+            transparent 100%);
+    animation: rotateBorder 4s linear infinite;
+    filter: none;
+    /* Sharp line */
+    opacity: 1;
+}
+
+.pc-card {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: #000;
+    /* faster fallback */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform-style: preserve-3d;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    user-select: none;
+    /* Ensure the card background covers the center of the border effect */
+}
+
+.pc-inside {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    /* Remove padding to let image fill */
+    z-index: 2;
+    transform-style: preserve-3d;
+}
+
+/* Background/Glow Effects - simplified for image card */
+.pc-behind {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--behind-glow-size, 60%);
+    height: var(--behind-glow-size, 60%);
+    background: var(--behind-glow-color, rgba(125, 190, 255, 0.67));
+    filter: blur(70px);
+    border-radius: 50%;
+    z-index: -2;
+    /* Moved further back */
+    opacity: 0.5;
+}
+
+/* Image that fills the card */
+.pc-avatar-content {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    /* Push content to bottom */
+    padding-bottom: 30px;
+}
+
+.pc-avatar-content .avatar {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: -1;
+    transition: transform 0.3s ease;
+}
+
+.pc-card-shell:hover .avatar {
+    transform: scale(1.05);
+}
+
+/* Gradient Overlay so text is visible */
+.pc-avatar-content::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            transparent 40%,
+            rgba(0, 0, 0, 0.6) 70%,
+            rgba(0, 0, 0, 0.9) 100%);
+    z-index: 0;
+    pointer-events: none;
+    border-radius: 20px;
+}
+
+/* Title Styling */
+.pc-details {
+    position: absolute;
+    bottom: 40px;
+    /* Above the button */
+    left: 0;
+    width: 100%;
+    text-align: center;
+    transform: translateZ(20px);
+    z-index: 10;
+    padding: 0 20px;
+}
+
+.pc-details p {
+    color: #fff;
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    user-select: none;
+    cursor: default;
+}
+
+/* Contact Button */
+.pc-contact-btn {
+    /* It is inside pc-avatar-content so flex layout handles it, or we can absolute it */
+    position: relative;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.95);
+    color: #000;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    /* Space from bottom handled by flex padding */
+}
+
+.pc-contact-btn:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Shine Effects */
+.pc-shine,
+.pc-glare {
+    border-radius: 20px;
+    z-index: 30;
+    /* Above image */
+}

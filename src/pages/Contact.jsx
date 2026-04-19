@@ -130,14 +130,21 @@ const Contact = () => {
         <motion.div
           onClick={() => setClickedBox(clickedBox === 'contact' ? null : 'contact')}
           whileHover={{ y: -5, scale: 1.02 }}
-          transition={{ duration: 0.3 }}
-          className="relative space-y-6 rounded-3xl border border-white/10 bg-black/30 p-8 cursor-pointer backdrop-blur-sm overflow-hidden"
-          style={{
+          animate={{
             borderColor: clickedBox === 'contact' ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
             boxShadow: clickedBox === 'contact'
-              ? '0 0 40px rgba(196, 31, 216, 0.6), inset 0 0 30px rgba(196, 31, 216, 0.1)'
+              ? ['0 0 20px rgba(196, 31, 216, 0.4), inset 0 0 10px rgba(196, 31, 216, 0.1)', '0 0 40px rgba(196, 31, 216, 0.8), inset 0 0 30px rgba(196, 31, 216, 0.2)', '0 0 20px rgba(196, 31, 216, 0.4), inset 0 0 10px rgba(196, 31, 216, 0.1)']
               : '0 4px 20px rgba(0, 0, 0, 0.3)',
           }}
+          transition={{
+            duration: 0.3,
+            boxShadow: {
+              duration: 2,
+              repeat: clickedBox === 'contact' ? Infinity : 0,
+              ease: "easeInOut"
+            }
+          }}
+          className="relative space-y-6 rounded-3xl border bg-black/30 p-8 cursor-pointer backdrop-blur-sm overflow-hidden"
         >
           {/* Shimmer effect on hover */}
           <motion.div
@@ -153,16 +160,7 @@ const Contact = () => {
             }}
           />
 
-          {/* Pulsing border */}
-          <motion.div
-            className="absolute inset-0 rounded-3xl border-2 border-accent-400 pointer-events-none"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{
-              opacity: clickedBox === 'contact' ? [0, 1, 0.6] : 0,
-              scale: clickedBox === 'contact' ? [0.8, 1.1, 1] : 0.8,
-            }}
-            transition={{ duration: 0.5 }}
-          />
+          {/* Removed inner pulsing border to fix radius misalignment */}
 
           <div className="relative z-10">
             <motion.h3
@@ -262,14 +260,21 @@ const Contact = () => {
         <motion.div
           onClick={() => setClickedBox(clickedBox === 'form' ? null : 'form')}
           whileHover={{ y: -5, scale: 1.02 }}
-          transition={{ duration: 0.3 }}
-          className="relative space-y-4 rounded-3xl border border-white/10 bg-black/30 p-8 backdrop-blur-sm overflow-hidden"
-          style={{
+          animate={{
             borderColor: clickedBox === 'form' ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
             boxShadow: clickedBox === 'form'
-              ? '0 0 40px rgba(196, 31, 216, 0.6), inset 0 0 30px rgba(196, 31, 216, 0.1)'
+              ? ['0 0 20px rgba(196, 31, 216, 0.4), inset 0 0 10px rgba(196, 31, 216, 0.1)', '0 0 40px rgba(196, 31, 216, 0.8), inset 0 0 30px rgba(196, 31, 216, 0.2)', '0 0 20px rgba(196, 31, 216, 0.4), inset 0 0 10px rgba(196, 31, 216, 0.1)']
               : '0 4px 20px rgba(0, 0, 0, 0.3)',
           }}
+          transition={{
+            duration: 0.3,
+            boxShadow: {
+              duration: 2,
+              repeat: clickedBox === 'form' ? Infinity : 0,
+              ease: "easeInOut"
+            }
+          }}
+          className="relative space-y-4 rounded-3xl border bg-black/30 p-8 backdrop-blur-sm overflow-hidden"
         >
           {/* Shimmer effect */}
           <motion.div
@@ -285,15 +290,7 @@ const Contact = () => {
             }}
           />
 
-          <motion.div
-            className="absolute inset-0 rounded-3xl border-2 border-accent-400 pointer-events-none"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{
-              opacity: clickedBox === 'form' ? [0, 1, 0.6] : 0,
-              scale: clickedBox === 'form' ? [0.8, 1.1, 1] : 0.8,
-            }}
-            transition={{ duration: 0.5 }}
-          />
+          {/* Removed inner pulsing border to fix radius misalignment */}
 
           <div className="relative z-10">
             <AnimatePresence mode="wait">

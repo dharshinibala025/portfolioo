@@ -1,4 +1,5 @@
 import profileImage from '../assets/profile.jpg';
+import habitImg from '../assets/abb.jpg';
 import image from '../assets/image.png';
 import vit from '../assets/vit.jpg';
 import hp from '../assets/hp.jpg';
@@ -35,13 +36,13 @@ export const heroStats = [
 export const projects = [
   {
     id: 1,
-    title: 'AI Chatbot',
+    title: 'Habit Tracker',
     description:
-      'A stylish AI-powered chatbot for real-time conversations.',
-    image: chatbot,
-    github: 'https://github.com/dharshinibala025/ai-study-companion',
-    link: '#',
-    tags: ['Javascript', 'OpenAI', 'Node.js', 'SQlite3', 'Express'],
+      'Turning small daily actions into meaningful long-term achievements.',
+    image: habitImg,
+    github: 'https://github.com/dharshinibala025/habit-tracker',
+    link: 'https://habit-tracker-ten-navy.vercel.app',
+    tags: ['React', 'Java', 'Spring Boot', 'MongoDB'],
   },
   {
     id: 2,
@@ -59,7 +60,7 @@ export const projects = [
     description:
       'Smart health tracking app for monitoring workouts and progress.',
     image: image,
-    github: 'https://github.com/username/pulse-portfolio',
+    github: 'https://github.com/dharshinibala025/fitness_tracker.git',
     link: 'https://fitness-tracker-nine-kohl.vercel.app',
     tags: ['HTML', 'CSS', 'Javascript'],
   },

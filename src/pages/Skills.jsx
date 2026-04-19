@@ -207,14 +207,14 @@ const Skills = () => {
                                 animate={hoveredCard === 'deep-learning' ? { x: [0, 3, 0] } : {}}
                                 transition={{ duration: 0.3 }}
                             >
-                                Deep Learning
+                                Machine Learning
                             </motion.h3>
                             <motion.p
                                 className="text-accent-300 text-sm"
                                 animate={hoveredCard === 'deep-learning' ? { x: [0, 3, 0] } : {}}
                                 transition={{ duration: 0.3, delay: 0.05 }}
                             >
-                                Mastering Neural Networks & Transformers
+                                Exploring Predictive Models & Algorithms
                             </motion.p>
                         </div>
 
