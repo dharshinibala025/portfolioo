@@ -13,8 +13,8 @@ import { SiCplusplus, SiTailwindcss, SiExpress, SiStreamlit, SiC, SiCanva } from
 import { VscVscode } from 'react-icons/vsc';
 
 export const personalInfo = {
-  name: 'Dharshini B',
-  fullName: 'Dharshini Balasubramaniam',
+  name: 'Dharshini',
+  fullName: 'Dharshini',
   title: 'Generative AI Explorer & Full-Stack Developer',
   dob: '25 May 2007',
   location: 'Salem, Tamil Nadu',

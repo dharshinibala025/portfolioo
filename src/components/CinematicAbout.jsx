@@ -18,7 +18,7 @@ const CinematicAbout = () => {
     });
 
     return (
-        <div ref={containerRef} className="relative min-h-screen overflow-hidden text-white selection:bg-accent-500/30">
+        <div ref={containerRef} className="relative min-h-screen overflow-hidden text-primary selection:bg-accent/30">
 
 
             {/* Glow Particles Container - Positioned relative to the main container */}
@@ -65,18 +65,18 @@ const TimelineItem = ({ moment, index }) => {
             <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-accent-500 ring-4 ring-black group-hover:ring-accent-500/20 transition-all duration-500" />
 
             <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8">
-                <span className="text-accent-400 font-mono text-sm tracking-wider min-w-[80px]">
+                <span className="text-accent font-mono text-sm tracking-wider min-w-[80px]">
                     {moment.year}
                 </span>
                 <div>
-                    <h4 className="text-xl font-bold text-white mb-2 group-hover:text-accent-300 transition-colors">
+                    <h4 className="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">
                         {moment.title}
                     </h4>
                     <p className="text-muted leading-relaxed max-w-xl">
                         {moment.description}
                     </p>
                     {moment.highlight && (
-                        <p className="mt-2 text-sm text-accent-200/80 italic">
+                        <p className="mt-2 text-sm text-accent-600/80 italic">
                             — {moment.highlight}
                         </p>
                     )}

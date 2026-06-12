@@ -31,7 +31,7 @@ const FloatingParticles = () => {
             ease: "linear",
           }}
           style={{
-            boxShadow: '0 0 8px rgba(196, 31, 216, 0.4)',
+            boxShadow: '0 0 8px rgba(154, 123, 79, 0.4)',
           }}
         />
       ))}
@@ -131,10 +131,10 @@ const Contact = () => {
           onClick={() => setClickedBox(clickedBox === 'contact' ? null : 'contact')}
           whileHover={{ y: -5, scale: 1.02 }}
           animate={{
-            borderColor: clickedBox === 'contact' ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
+            borderColor: clickedBox === 'contact' ? 'rgba(154, 123, 79, 0.8)' : 'var(--border)',
             boxShadow: clickedBox === 'contact'
-              ? ['0 0 20px rgba(196, 31, 216, 0.4), inset 0 0 10px rgba(196, 31, 216, 0.1)', '0 0 40px rgba(196, 31, 216, 0.8), inset 0 0 30px rgba(196, 31, 216, 0.2)', '0 0 20px rgba(196, 31, 216, 0.4), inset 0 0 10px rgba(196, 31, 216, 0.1)']
-              : '0 4px 20px rgba(0, 0, 0, 0.3)',
+              ? ['0 0 20px rgba(154, 123, 79, 0.4), inset 0 0 10px rgba(154, 123, 79, 0.1)', '0 0 40px rgba(154, 123, 79, 0.8), inset 0 0 30px rgba(154, 123, 79, 0.2)', '0 0 20px rgba(154, 123, 79, 0.4), inset 0 0 10px rgba(154, 123, 79, 0.1)']
+              : '0 4px 20px var(--shadow)',
           }}
           transition={{
             duration: 0.3,
@@ -144,7 +144,7 @@ const Contact = () => {
               ease: "easeInOut"
             }
           }}
-          className="relative space-y-6 rounded-3xl border bg-black/30 p-8 cursor-pointer backdrop-blur-sm overflow-hidden"
+          className="relative space-y-6 rounded-3xl border bg-base-700 p-8 cursor-pointer backdrop-blur-sm overflow-hidden"
         >
           {/* Shimmer effect on hover */}
           <motion.div
@@ -156,7 +156,7 @@ const Contact = () => {
             } : {}}
             transition={{ duration: 1.5 }}
             style={{
-              background: 'linear-gradient(90deg, transparent, rgba(196, 31, 216, 0.3), transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(154, 123, 79, 0.3), transparent)',
             }}
           />
 
@@ -164,7 +164,7 @@ const Contact = () => {
 
           <div className="relative z-10">
             <motion.h3
-              className="font-display text-2xl text-white mb-4"
+              className="font-display text-2xl text-primary mb-4"
               animate={clickedBox === 'contact' ? { x: [0, 3, 0] } : {}}
               transition={{ duration: 0.3 }}
             >
@@ -177,7 +177,7 @@ const Contact = () => {
               transition={{ duration: 0.3, delay: 0.05 }}
             >
               Prefer email? Reach me at{' '}
-              <a href={`mailto:${personalInfo.email}`} className="text-accent-300 underline hover:text-accent-200 transition-colors">
+              <a href={`mailto:${personalInfo.email}`} className="text-accent underline hover:text-accent-dark transition-colors">
                 {personalInfo.email}
               </a>
             </motion.p>
@@ -231,12 +231,12 @@ const Contact = () => {
                       transition: { duration: 0.3 }
                     }}
                     whileTap={{ scale: 0.9 }}
-                    className="relative text-3xl text-white/70 transition-colors hover:text-accent-300"
+                    className="relative text-3xl text-secondary transition-colors hover:text-accent"
                   >
                     <social.icon />
                     {/* Icon glow on hover */}
                     <motion.div
-                      className="absolute inset-0 rounded-full bg-accent-400/30 blur-xl"
+                      className="absolute inset-0 rounded-full bg-accent-light/30 blur-xl"
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                       transition={{ duration: 0.2 }}
@@ -249,7 +249,7 @@ const Contact = () => {
 
           {/* Corner decoration */}
           <motion.div
-            className="absolute bottom-0 right-0 w-32 h-32 bg-accent-500/10 rounded-tl-full"
+            className="absolute bottom-0 right-0 w-32 h-32 bg-accent/10 rounded-tl-full"
             initial={{ scale: 0 }}
             animate={clickedBox === 'contact' ? { scale: 1 } : { scale: 0 }}
             transition={{ duration: 0.3 }}
@@ -261,10 +261,10 @@ const Contact = () => {
           onClick={() => setClickedBox(clickedBox === 'form' ? null : 'form')}
           whileHover={{ y: -5, scale: 1.02 }}
           animate={{
-            borderColor: clickedBox === 'form' ? 'rgba(196, 31, 216, 0.8)' : 'rgba(255, 255, 255, 0.1)',
+            borderColor: clickedBox === 'form' ? 'rgba(154, 123, 79, 0.8)' : 'var(--border)',
             boxShadow: clickedBox === 'form'
-              ? ['0 0 20px rgba(196, 31, 216, 0.4), inset 0 0 10px rgba(196, 31, 216, 0.1)', '0 0 40px rgba(196, 31, 216, 0.8), inset 0 0 30px rgba(196, 31, 216, 0.2)', '0 0 20px rgba(196, 31, 216, 0.4), inset 0 0 10px rgba(196, 31, 216, 0.1)']
-              : '0 4px 20px rgba(0, 0, 0, 0.3)',
+              ? ['0 0 20px rgba(154, 123, 79, 0.4), inset 0 0 10px rgba(154, 123, 79, 0.1)', '0 0 40px rgba(154, 123, 79, 0.8), inset 0 0 30px rgba(154, 123, 79, 0.2)', '0 0 20px rgba(154, 123, 79, 0.4), inset 0 0 10px rgba(154, 123, 79, 0.1)']
+              : '0 4px 20px var(--shadow)',
           }}
           transition={{
             duration: 0.3,
@@ -274,7 +274,7 @@ const Contact = () => {
               ease: "easeInOut"
             }
           }}
-          className="relative space-y-4 rounded-3xl border bg-black/30 p-8 backdrop-blur-sm overflow-hidden"
+          className="relative space-y-4 rounded-3xl border bg-base-700 p-8 backdrop-blur-sm overflow-hidden"
         >
           {/* Shimmer effect */}
           <motion.div
@@ -286,7 +286,7 @@ const Contact = () => {
             } : {}}
             transition={{ duration: 1.5 }}
             style={{
-              background: 'linear-gradient(90deg, transparent, rgba(196, 31, 216, 0.3), transparent)',
+              background: 'linear-gradient(90deg, transparent, rgba(154, 123, 79, 0.3), transparent)',
             }}
           />
 
@@ -334,7 +334,7 @@ const Contact = () => {
                   </motion.div>
 
                   <motion.h3
-                    className="mb-3 font-display text-3xl text-white"
+                    className="mb-3 font-display text-3xl text-primary"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
@@ -407,9 +407,9 @@ const Contact = () => {
                       placeholder="Your name"
                       autoComplete="name"
                       whileFocus={{ scale: 1.02 }}
-                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white transition focus:border-accent-300 focus:outline-none focus:ring-2 focus:ring-accent-400/60"
+                      className="mt-2 w-full rounded-2xl border border-border bg-base-900/50 px-4 py-3 text-primary transition focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/60"
                       style={{
-                        boxShadow: focusedField === 'name' ? '0 0 20px rgba(196, 31, 216, 0.3)' : 'none',
+                        boxShadow: focusedField === 'name' ? '0 0 20px rgba(154, 123, 79, 0.3)' : 'none',
                       }}
                     />
                   </motion.div>
@@ -444,9 +444,9 @@ const Contact = () => {
                       placeholder="you@email.com"
                       autoComplete="email"
                       whileFocus={{ scale: 1.02 }}
-                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white transition focus:border-accent-300 focus:outline-none focus:ring-2 focus:ring-accent-400/60"
+                      className="mt-2 w-full rounded-2xl border border-border bg-base-900/50 px-4 py-3 text-primary transition focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/60"
                       style={{
-                        boxShadow: focusedField === 'email' ? '0 0 20px rgba(196, 31, 216, 0.3)' : 'none',
+                        boxShadow: focusedField === 'email' ? '0 0 20px rgba(154, 123, 79, 0.3)' : 'none',
                       }}
                     />
                   </motion.div>
@@ -480,9 +480,9 @@ const Contact = () => {
                       required
                       placeholder="Tell me about your idea…"
                       whileFocus={{ scale: 1.02 }}
-                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-white transition focus:border-accent-300 focus:outline-none focus:ring-2 focus:ring-accent-400/60 resize-none"
+                      className="mt-2 w-full rounded-2xl border border-border bg-base-900/50 px-4 py-3 text-primary transition focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/60 resize-none"
                       style={{
-                        boxShadow: focusedField === 'message' ? '0 0 20px rgba(196, 31, 216, 0.3)' : 'none',
+                        boxShadow: focusedField === 'message' ? '0 0 20px rgba(154, 123, 79, 0.3)' : 'none',
                       }}
                     />
                   </motion.div>
@@ -496,10 +496,10 @@ const Contact = () => {
                     transition={{ delay: 0.4 }}
                     whileHover={{
                       scale: 1.03,
-                      boxShadow: "0 0 30px rgba(196, 31, 216, 0.5)",
+                      boxShadow: "0 0 30px rgba(154, 123, 79, 0.5)",
                     }}
                     whileTap={{ scale: 0.97 }}
-                    className="relative w-full rounded-2xl bg-gradient-to-r from-accent-500 to-accent-600 py-3.5 font-semibold text-white shadow-glow transition disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden"
+                    className="relative w-full rounded-2xl bg-gradient-to-r from-accent to-accent-dark py-3.5 font-semibold text-white shadow-glow transition disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden"
                   >
                     {/* Button shimmer effect */}
                     <motion.div

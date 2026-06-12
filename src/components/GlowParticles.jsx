@@ -13,7 +13,7 @@ const GlowParticles = () => {
             delay: Math.random() * 5, // Random animation delay
             duration: 8 + Math.random() * 10, // Slower, more gentle float
             size: 6 + Math.random() * 8, // Slightly larger (6-14px)
-            color: Math.random() > 0.5 ? '#b043ff' : '#d580ff', // Random purple shade
+            color: Math.random() > 0.5 ? '#9A7B4F' : '#C2AB8A', // Random gold/beige shade
         }));
         setParticles(newParticles);
     }, []);

@@ -13,7 +13,7 @@ const About = () => {
             <GsapReveal width="100%">
                 <div className="relative z-10 px-6">
                     <motion.h3
-                        className="mb-10 font-display text-3xl text-white text-center"
+                        className="mb-10 font-display text-3xl text-primary text-center"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -44,7 +44,7 @@ const About = () => {
                                 <motion.div
                                     className="absolute -inset-[2px] rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
                                     style={{
-                                        background: 'linear-gradient(45deg, #c41fd8, #7c4dff, #ff5edf, #c41fd8)',
+                                        background: 'linear-gradient(45deg, #B08D57, #D4B483, #8C6A3A, #B08D57)',
                                         backgroundSize: '300% 300%',
                                     }}
                                     animate={{
@@ -106,13 +106,13 @@ const About = () => {
                                             boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
                                         }}
                                         whileHover={{
-                                            borderColor: 'rgba(196, 31, 216, 0.4)',
-                                            boxShadow: '0 10px 40px rgba(196, 31, 216, 0.3)',
+                                            borderColor: 'rgba(154, 123, 79, 0.4)',
+                                            boxShadow: '0 10px 40px rgba(154, 123, 79, 0.3)',
                                         }}
                                     >
                                         {/* Pulsing background glow */}
                                         <motion.div
-                                            className="absolute inset-0 bg-gradient-to-br from-accent-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100"
+                                            className="absolute inset-0 bg-gradient-to-br from-accent-500/10 to-accent-300/10 opacity-0 group-hover:opacity-100"
                                             animate={{
                                                 opacity: [0, 0.3, 0],
                                                 scale: [1, 1.1, 1],
@@ -126,12 +126,12 @@ const About = () => {
 
                                         {/* Animated icon with bounce */}
                                         <motion.div
-                                            className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-accent-500/30 to-purple-500/30 text-accent-300 shadow-glow relative z-10"
+                                            className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-accent-500/30 to-accent-300/30 text-accent-300 shadow-glow relative z-10"
                                             animate={{
                                                 boxShadow: [
-                                                    '0 0 10px rgba(196, 31, 216, 0.3)',
-                                                    '0 0 20px rgba(196, 31, 216, 0.5)',
-                                                    '0 0 10px rgba(196, 31, 216, 0.3)',
+                                                    '0 0 10px rgba(154, 123, 79, 0.3)',
+                                                    '0 0 20px rgba(154, 123, 79, 0.5)',
+                                                    '0 0 10px rgba(154, 123, 79, 0.3)',
                                                 ],
                                                 y: [0, -5, 0],
                                             }}
@@ -174,12 +174,12 @@ const About = () => {
 
                                         {/* Name with slide effect */}
                                         <motion.h4
-                                            className="mb-1 font-semibold text-white relative z-10"
+                                            className="mb-1 font-semibold text-primary relative z-10"
                                             initial={{ opacity: 0, x: -10 }}
                                             whileInView={{ opacity: 1, x: 0 }}
                                             transition={{ delay: 0.2 + index * 0.05 }}
                                             whileHover={{
-                                                color: 'rgb(196, 31, 216)',
+                                                color: 'var(--accent)',
                                                 scale: 1.05,
                                                 transition: { duration: 0.2 }
                                             }}
@@ -234,7 +234,7 @@ const About = () => {
                                             }}
                                         />
                                         <motion.div
-                                            className="absolute bottom-2 right-2 w-1 h-1 bg-purple-300 rounded-full opacity-0 group-hover:opacity-100"
+                                            className="absolute bottom-2 right-2 w-1 h-1 bg-accent-300 rounded-full opacity-0 group-hover:opacity-100"
                                             animate={{
                                                 scale: [0, 1.5, 0],
                                                 opacity: [0, 1, 0],
@@ -257,7 +257,7 @@ const About = () => {
             <GsapReveal width="100%">
                 <div className="relative z-10 px-6">
                     <motion.h3
-                        className="mb-10 font-display text-3xl text-white text-center"
+                        className="mb-10 font-display text-3xl text-primary text-center"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
@@ -289,7 +289,7 @@ const About = () => {
                                 <motion.div
                                     className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                                     style={{
-                                        background: 'linear-gradient(45deg, transparent 30%, rgba(196, 31, 216, 0.1) 50%, transparent 70%)',
+                                        background: 'linear-gradient(45deg, transparent 30%, rgba(154, 123, 79, 0.1) 50%, transparent 70%)',
                                         backgroundSize: '200% 200%',
                                     }}
                                     animate={{
@@ -317,12 +317,12 @@ const About = () => {
 
                                 {/* Animated number badge */}
                                 <motion.span
-                                    className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent-500 to-purple-600 text-white font-bold text-sm shadow-lg z-10"
+                                    className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent-500 to-accent-600 text-white font-bold text-sm shadow-lg z-10"
                                     animate={{
                                         boxShadow: [
-                                            '0 0 20px rgba(196, 31, 216, 0.3)',
-                                            '0 0 30px rgba(196, 31, 216, 0.6)',
-                                            '0 0 20px rgba(196, 31, 216, 0.3)',
+                                            '0 0 20px rgba(154, 123, 79, 0.3)',
+                                            '0 0 30px rgba(154, 123, 79, 0.6)',
+                                            '0 0 20px rgba(154, 123, 79, 0.3)',
                                         ],
                                     }}
                                     transition={{
@@ -356,7 +356,7 @@ const About = () => {
 
                                 {/* Fact text with typing effect on hover */}
                                 <motion.p
-                                    className="text-white/90 group-hover:text-white transition-colors duration-300 relative z-10 flex-1"
+                                    className="text-primary/95 group-hover:text-primary transition-colors duration-300 relative z-10 flex-1"
                                     initial={{ opacity: 0.9 }}
                                     whileHover={{ opacity: 1 }}
                                 >

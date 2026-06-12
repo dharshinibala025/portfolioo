@@ -30,7 +30,7 @@ const MainLayout = () => {
 
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-base-900 text-white">
+    <div className="relative min-h-screen overflow-hidden bg-base-900 text-primary">
       <AnimatePresence mode="wait">
         {showIntro && (
           <CinematicIntro onComplete={() => setShowIntro(false)} />

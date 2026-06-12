@@ -8,23 +8,28 @@ export default {
     extend: {
       colors: {
         base: {
-          900: '#05010A',
-          800: '#0F0A1A',
-          700: '#1A1230',
+          900: 'var(--bg-primary)',
+          800: 'var(--bg-tertiary)',
+          700: 'var(--bg-secondary)',
         },
         accent: {
-          500: '#C41FD8',
-          400: '#D451ED',
-          300: '#E27AFE',
+          500: 'var(--accent)',
+          400: 'var(--accent-light)',
+          300: 'var(--accent-dark)',
+          200: 'var(--accent-light)',
+          600: 'var(--accent-dark)',
         },
-        muted: '#A0A0B3',
+        muted: 'var(--text-secondary)',
+        primary: 'var(--text-primary)',
+        secondary: 'var(--text-secondary)',
+        borderTheme: 'var(--border)',
       },
       fontFamily: {
         display: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
         body: ['"Inter"', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        glow: '0 0 60px rgba(196, 31, 216, 0.25)',
+        glow: '0 0 60px rgba(176, 141, 87, 0.25)',
       },
       animation: {
         float: 'float 6s ease-in-out infinite',

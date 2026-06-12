@@ -52,7 +52,7 @@ const Home = () => {
 
             <GsapReveal>
               <motion.span
-                className="inline-flex items-center rounded-full border border-white/10 bg-accent-500/15 px-4 py-1 text-xs uppercase tracking-[0.45em] text-accent-200 relative overflow-hidden cursor-default select-none"
+                className="inline-flex items-center rounded-full border border-white/10 bg-accent-500/15 px-4 py-1 text-xs uppercase tracking-[0.45em] text-accent relative overflow-hidden cursor-default select-none"
                 whileHover={{ scale: 1.05 }}
               >
                 {/* Pulsing effect */}
@@ -72,7 +72,7 @@ const Home = () => {
               </motion.span>
 
               <motion.h1
-                className="font-display text-3xl leading-tight md:text-4xl mt-4 bg-gradient-to-r from-white via-accent-200 to-white bg-clip-text text-transparent cursor-default select-none"
+                className="font-display text-3xl leading-tight md:text-4xl mt-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent cursor-default select-none"
                 style={{
                   backgroundSize: '200% auto',
                 }}
@@ -88,7 +88,7 @@ const Home = () => {
                 I am {personalInfo.fullName}
               </motion.h1>
             </GsapReveal>
-
+ 
             <GsapReveal delay={0.2}>
               <div className="flex flex-wrap gap-4">
                 <motion.a
@@ -119,11 +119,11 @@ const Home = () => {
                     ↗
                   </motion.span>
                 </motion.a>
-
+ 
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   <a
                     href="#projects"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/30 px-5 py-3 text-sm font-semibold text-white/80 transition hover:border-accent-300 hover:text-white hover:shadow-lg hover:shadow-accent-500/20"
+                    className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold text-primary transition hover:border-accent hover:text-accent hover:shadow-lg hover:shadow-accent/20"
                   >
                     Browse projects
                     <motion.span
@@ -186,7 +186,7 @@ const Home = () => {
                     ))}
 
                     <motion.p
-                      className="font-display text-3xl text-white relative z-10"
+                      className="font-display text-3xl text-primary relative z-10"
                       style={{ transform: 'translateZ(20px)' }}
                       animate={{
                         textShadow: [
@@ -250,7 +250,7 @@ const Home = () => {
               showUserInfo={false}
               status="Open to Work"
               contactText="Get in Touch"
-              behindGlowColor="rgba(196, 31, 216, 0.6)"
+              behindGlowColor="rgba(154, 123, 79, 0.6)"
               onContactClick={() => {
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}

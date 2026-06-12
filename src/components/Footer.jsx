@@ -3,7 +3,7 @@ import { socials } from '../data/content';
 const Footer = () => (
   <footer className="border-t border-white/5 bg-base-900/80 py-8 backdrop-blur-xl">
     <div className="mx-auto flex w-[95%] max-w-6xl flex-col gap-4 text-lg text-muted md:flex-row md:items-center md:justify-between">
-      <p>© {new Date().getFullYear()} Dharshini Balasubramaniam. Crafted with passion.</p>
+      <p>© {new Date().getFullYear()} Dharshini. Crafted with passion.</p>
       <div className="flex items-center gap-4">
         {socials.map(({ label, url, icon: Icon }) => (
           <a

@@ -60,7 +60,7 @@ const Certificates = () => {
               onClick={(e) => e.stopPropagation()}
               className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl border-2 border-accent-400/40 bg-black/95 shadow-2xl"
               style={{
-                boxShadow: '0 0 80px rgba(196, 31, 216, 0.5), 0 0 40px rgba(196, 31, 216, 0.3)',
+                boxShadow: '0 0 80px rgba(154, 123, 79, 0.5), 0 0 40px rgba(154, 123, 79, 0.3)',
               }}
             >
               {/* Animated border */}
@@ -68,9 +68,9 @@ const Certificates = () => {
                 className="absolute inset-0 rounded-2xl pointer-events-none"
                 animate={{
                   boxShadow: [
-                    '0 0 20px rgba(196, 31, 216, 0.3)',
-                    '0 0 40px rgba(196, 31, 216, 0.6)',
-                    '0 0 20px rgba(196, 31, 216, 0.3)',
+                    '0 0 20px rgba(154, 123, 79, 0.3)',
+                    '0 0 40px rgba(154, 123, 79, 0.6)',
+                    '0 0 20px rgba(154, 123, 79, 0.3)',
                   ],
                 }}
                 transition={{ duration: 2, repeat: Infinity }}

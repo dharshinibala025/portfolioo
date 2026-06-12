@@ -24,7 +24,7 @@ const ProjectCard = ({ project, index }) => {
             <div className="absolute inset-0 flex flex-col justify-end p-8">
                 <div className="transform transition-transform duration-500 group-hover:-translate-y-2">
                     <div className="mb-4 flex items-center justify-between">
-                        <span className="inline-flex items-center rounded-full border border-white/10 bg-accent-500/20 px-3 py-1 text-xs font-medium text-accent-200 backdrop-blur-md">
+                        <span className="inline-flex items-center rounded-full border border-white/10 bg-accent-500/20 px-3 py-1 text-xs font-medium text-accent backdrop-blur-md">
                             {project.tags[0]}
                         </span>
                         <span className="text-xs font-bold tracking-widest text-white/40 uppercase">
@@ -32,11 +32,11 @@ const ProjectCard = ({ project, index }) => {
                         </span>
                     </div>
 
-                    <h3 className="mb-3 font-display text-2xl font-bold text-white">
+                    <h3 className="mb-3 font-display text-2xl font-bold text-primary">
                         {project.title}
                     </h3>
 
-                    <p className="mb-6 line-clamp-2 text-sm leading-relaxed text-muted group-hover:line-clamp-none group-hover:text-white/90 transition-colors duration-300">
+                    <p className="mb-6 line-clamp-2 text-sm leading-relaxed text-muted group-hover:line-clamp-none group-hover:text-primary transition-colors duration-300">
                         {project.description}
                     </p>
 
@@ -46,7 +46,7 @@ const ProjectCard = ({ project, index }) => {
                                 href={project.github}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="group/btn relative inline-flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md border border-white/10 px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-white hover:text-black hover:scale-105"
+                                className="group/btn relative inline-flex items-center gap-2 rounded-full bg-primary border border-border px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-accent hover:border-accent hover:scale-105"
                             >
                                 <FaGithub className="text-lg" />
                                 <span>GitHub</span>
@@ -58,7 +58,7 @@ const ProjectCard = ({ project, index }) => {
                                 href={project.link}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="group/btn relative inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-black transition-transform hover:scale-105"
+                                className="group/btn relative inline-flex items-center gap-2 rounded-full bg-white border border-border px-5 py-2.5 text-sm font-bold text-primary transition-transform hover:scale-105"
                             >
                                 <span>Live Demo</span>
                                 <FaExternalLinkAlt className="text-xs" />

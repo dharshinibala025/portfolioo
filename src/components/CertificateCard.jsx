@@ -24,7 +24,7 @@ const CertificateCard = ({ certificate, index, onViewClick }) => {
             <div className="absolute inset-0 flex flex-col justify-end p-8">
                 <div className="transform transition-transform duration-500 group-hover:-translate-y-2">
                     <div className="mb-4 flex items-center justify-between">
-                        <span className="inline-flex items-center rounded-full border border-white/10 bg-accent-500/20 px-3 py-1 text-xs font-medium text-accent-200 backdrop-blur-md">
+                        <span className="inline-flex items-center rounded-full border border-white/10 bg-accent-500/20 px-3 py-1 text-xs font-medium text-accent backdrop-blur-md">
                             {certificate.year}
                         </span>
                         <span className="text-xs font-bold tracking-widest text-white/40 uppercase">
@@ -32,18 +32,18 @@ const CertificateCard = ({ certificate, index, onViewClick }) => {
                         </span>
                     </div>
 
-                    <h3 className="mb-2 font-display text-2xl font-bold text-white">
+                    <h3 className="mb-2 font-display text-2xl font-bold text-primary">
                         {certificate.title}
                     </h3>
 
-                    <p className="mb-6 text-sm leading-relaxed text-muted group-hover:text-white/90 transition-colors duration-300">
+                    <p className="mb-6 text-sm leading-relaxed text-muted group-hover:text-primary transition-colors duration-300">
                         Issued by {certificate.issuedBy}
                     </p>
 
                     <div className="flex items-center gap-4 opacity-0 transform translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
                         <button
                             onClick={() => onViewClick(certificate.image)}
-                            className="group/btn relative inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-bold text-black transition-transform hover:scale-105"
+                            className="group/btn relative inline-flex items-center gap-2 rounded-full bg-primary border border-border px-5 py-2.5 text-sm font-bold text-white transition-all hover:bg-accent hover:border-accent hover:scale-105"
                         >
                             <FaAward className="text-lg" />
                             <span>View Certificate</span>

@@ -25,12 +25,12 @@ const Skills = () => {
             <div className="container mx-auto px-4 mt-4 max-w-5xl">
                 <GsapReveal>
                     <motion.h2
-                        className="text-3xl font-bold text-center mb-8 text-white"
+                        className="text-3xl font-bold text-center mb-8 text-primary"
                         animate={{
                             textShadow: [
-                                '0 0 20px rgba(196, 31, 216, 0.3)',
-                                '0 0 40px rgba(196, 31, 216, 0.6)',
-                                '0 0 20px rgba(196, 31, 216, 0.3)',
+                                '0 0 20px rgba(154, 123, 79, 0.3)',
+                                '0 0 40px rgba(154, 123, 79, 0.6)',
+                                '0 0 20px rgba(154, 123, 79, 0.3)',
                             ],
                         }}
                         transition={{ duration: 3, repeat: Infinity }}
@@ -130,14 +130,14 @@ const Skills = () => {
 
                         <div>
                             <motion.h3
-                                className="text-xl font-bold text-white mb-2"
+                                className="text-xl font-bold text-primary mb-2"
                                 animate={hoveredCard === 'ai-architect' ? { x: [0, 3, 0] } : {}}
                                 transition={{ duration: 0.3 }}
                             >
                                 AI Architect
                             </motion.h3>
                             <motion.p
-                                className="text-white/60 text-sm"
+                                className="text-secondary text-sm"
                                 animate={hoveredCard === 'ai-architect' ? { x: [0, 3, 0] } : {}}
                                 transition={{ duration: 0.3, delay: 0.05 }}
                             >
@@ -170,7 +170,7 @@ const Skills = () => {
                         className="md:col-span-2 p-6 rounded-2xl bg-gradient-to-r from-purple-900/40 via-blue-900/40 to-purple-900/40 border border-white/10 backdrop-blur-sm flex items-center justify-between group relative overflow-hidden cursor-pointer"
                         style={{
                             boxShadow: hoveredCard === 'deep-learning'
-                                ? '0 20px 60px rgba(196, 31, 216, 0.4), 0 0 40px rgba(196, 31, 216, 0.2)'
+                                ? '0 20px 60px rgba(154, 123, 79, 0.4), 0 0 40px rgba(154, 123, 79, 0.2)'
                                 : '0 4px 20px rgba(0, 0, 0, 0.3)',
                         }}
                     >
@@ -179,9 +179,9 @@ const Skills = () => {
                             className="absolute inset-0"
                             animate={{
                                 background: [
-                                    'radial-gradient(circle at 20% 50%, rgba(196, 31, 216, 0.2) 0%, transparent 50%)',
+                                    'radial-gradient(circle at 20% 50%, rgba(154, 123, 79, 0.2) 0%, transparent 50%)',
                                     'radial-gradient(circle at 80% 50%, rgba(59, 130, 246, 0.2) 0%, transparent 50%)',
-                                    'radial-gradient(circle at 20% 50%, rgba(196, 31, 216, 0.2) 0%, transparent 50%)',
+                                    'radial-gradient(circle at 20% 50%, rgba(154, 123, 79, 0.2) 0%, transparent 50%)',
                                 ],
                             }}
                             transition={{ duration: 4, repeat: Infinity }}
@@ -219,7 +219,7 @@ const Skills = () => {
                         </div>
 
                         <motion.div
-                            className="text-6xl text-white/10 group-hover:text-white/20 transition-colors relative z-10"
+                            className="text-6xl text-primary/10 group-hover:text-primary/20 transition-colors relative z-10"
                             animate={hoveredCard === 'deep-learning' ? {
                                 scale: [1, 1.2, 1],
                                 rotate: [0, 10, -10, 0],
@@ -233,7 +233,7 @@ const Skills = () => {
                         <motion.div
                             className="absolute inset-0 rounded-2xl border-2 border-accent-400/0 pointer-events-none"
                             animate={hoveredCard === 'deep-learning' ? {
-                                borderColor: 'rgba(196, 31, 216, 0.4)',
+                                borderColor: 'rgba(154, 123, 79, 0.4)',
                             } : {}}
                             transition={{ duration: 0.3 }}
                         />
@@ -283,7 +283,7 @@ const Skills = () => {
                         </motion.div>
 
                         <motion.span
-                            className="text-white font-medium text-base relative z-10"
+                            className="text-primary font-medium text-base relative z-10"
                             animate={hoveredCard === 'ui-ux' ? { scale: [1, 1.05, 1] } : {}}
                             transition={{ duration: 0.5 }}
                         >
@@ -370,7 +370,7 @@ const Skills = () => {
                         </motion.div>
 
                         <motion.span
-                            className="text-white font-medium text-base relative z-10"
+                            className="text-primary font-medium text-base relative z-10"
                             animate={hoveredCard === 'gen-ai' ? { scale: [1, 1.05, 1] } : {}}
                             transition={{ duration: 0.5 }}
                         >

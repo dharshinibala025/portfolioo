@@ -30,9 +30,9 @@ const SkillWebGraph = () => {
 
     // Data Structure
     const categories = [
-        { id: 'languages', label: 'Languages', items: skills, angle: 0, color: 'text-blue-400', borderColor: 'border-blue-500/50' },
-        { id: 'frameworks', label: 'Frameworks', items: frameworks, angle: 120, color: 'text-purple-400', borderColor: 'border-purple-500/50' },
-        { id: 'tools', label: 'Tools', items: tools, angle: 240, color: 'text-green-400', borderColor: 'border-green-500/50' }
+        { id: 'languages', label: 'Languages', items: skills, angle: 0, color: 'text-accent-400', borderColor: 'border-accent-400/50' },
+        { id: 'frameworks', label: 'Frameworks', items: frameworks, angle: 120, color: 'text-accent-500', borderColor: 'border-accent-500/50' },
+        { id: 'tools', label: 'Tools', items: tools, angle: 240, color: 'text-accent-600', borderColor: 'border-accent-600/50' }
     ];
 
     // Helper to calculate position
@@ -53,8 +53,8 @@ const SkillWebGraph = () => {
             <svg className="absolute inset-0 h-full w-full pointer-events-none z-0">
                 <defs>
                     <linearGradient id="webGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="rgba(168, 85, 247, 0.2)" />
-                        <stop offset="100%" stopColor="rgba(59, 130, 246, 0.2)" />
+                        <stop offset="0%" stopColor="rgba(154, 123, 79, 0.2)" />
+                        <stop offset="100%" stopColor="rgba(194, 171, 138, 0.2)" />
                     </linearGradient>
                 </defs>
                 {categories.map((cat) => {
@@ -67,7 +67,7 @@ const SkillWebGraph = () => {
                                 y1={centerY}
                                 x2={catPos.x}
                                 y2={catPos.y}
-                                stroke="rgba(168, 85, 247, 0.5)"
+                                stroke="rgba(154, 123, 79, 0.5)"
                                 strokeWidth="2"
                                 initial={{ pathLength: 0, opacity: 0 }}
                                 animate={{ pathLength: 1, opacity: 1 }}
@@ -105,7 +105,7 @@ const SkillWebGraph = () => {
 
             {/* Central Node */}
             <motion.div
-                className="absolute z-20 flex h-32 w-32 items-center justify-center rounded-full border-4 border-accent-500 bg-black/80 shadow-[0_0_50px_rgba(168,85,247,0.6)] backdrop-blur-xl"
+                className="absolute z-20 flex h-32 w-32 items-center justify-center rounded-full border-4 border-accent-500 bg-black/80 shadow-[0_0_50px_rgba(154, 123, 79, 0.6)] backdrop-blur-xl"
                 style={{ left: centerX - 64, top: centerY - 64 }}
                 initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
