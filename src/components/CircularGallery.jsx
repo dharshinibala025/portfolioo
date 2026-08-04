@@ -24,13 +24,18 @@ function autoBind(instance) {
     });
 }
 
-function createTextTexture(gl, text, font = 'bold 30px monospace', color = 'black') {
+function createTextTexture(gl, text, font = 'bold 30px sans-serif', color = 'black') {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
     context.font = font;
     const metrics = context.measureText(text);
     const textWidth = Math.ceil(metrics.width);
-    const textHeight = Math.ceil(parseInt(font, 10) * 1.2);
+    
+    // Parse numeric font size safely (supporting modifiers like 'bold')
+    const sizeMatch = font.match(/(\d+)px/);
+    const fontSize = sizeMatch ? parseInt(sizeMatch[1], 10) : 30;
+    const textHeight = Math.ceil(fontSize * 1.2);
+    
     canvas.width = textWidth + 20;
     canvas.height = textHeight + 20;
     context.font = font;
@@ -45,10 +50,10 @@ function createTextTexture(gl, text, font = 'bold 30px monospace', color = 'blac
 }
 
 class Title {
-    constructor({ gl, plane, renderer, text, textColor = '#545050', font = '30px sans-serif' }) {
+    constructor({ gl, parent, renderer, text, textColor = '#545050', font = '30px sans-serif' }) {
         autoBind(this);
         this.gl = gl;
-        this.plane = plane;
+        this.parent = parent;
         this.renderer = renderer;
         this.text = text;
         this.textColor = textColor;
@@ -84,12 +89,8 @@ class Title {
             transparent: true
         });
         this.mesh = new Mesh(this.gl, { geometry, program });
-        const aspect = width / height;
-        const textHeight = this.plane.scale.y * 0.15;
-        const textWidth = textHeight * aspect;
-        this.mesh.scale.set(textWidth, textHeight, 1);
-        this.mesh.position.y = -this.plane.scale.y * 0.5 - textHeight * 0.5 - 0.05;
-        this.mesh.setParent(this.plane);
+        this.aspect = width / height;
+        this.mesh.setParent(this.parent);
     }
 }
 
@@ -222,11 +223,11 @@ class Media {
     createTitle() {
         this.title = new Title({
             gl: this.gl,
-            plane: this.plane,
+            parent: this.scene,
             renderer: this.renderer,
             text: this.text,
             textColor: this.textColor,
-            fontFamily: this.font
+            font: this.font
         });
     }
     update(scroll, direction) {
@@ -270,8 +271,14 @@ class Media {
 
             // Adjust title position based on new scale
             if (this.title && this.title.mesh) {
-                const textHeight = this.plane.scale.y * 0.15;
-                this.title.mesh.position.y = -this.plane.scale.y * 0.5 - textHeight * 0.5 - 0.05;
+                const textHeight = this.plane.scale.y * 0.08;
+                const textWidth = textHeight * this.title.aspect;
+                this.title.mesh.scale.set(textWidth, textHeight, 1);
+                
+                this.title.mesh.position.x = this.plane.position.x;
+                this.title.mesh.position.y = this.plane.position.y - this.plane.scale.y * 0.5 - textHeight * 0.5 - 0.15;
+                this.title.mesh.position.z = this.plane.position.z + 0.1;
+                this.title.mesh.rotation.z = this.plane.rotation.z;
             }
         }
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { House, User, GraduationCap, Folder, Mail } from 'lucide-react';
 
 const navLinks = [
@@ -21,7 +21,6 @@ const NavBar = ({ isVisible = true }) => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          // Check if section is currently in viewport focus
           return rect.top >= -150 && rect.top <= window.innerHeight / 2;
         }
         return false;
@@ -52,19 +51,20 @@ const NavBar = ({ isVisible = true }) => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
         transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-        className="mx-auto flex w-full max-w-6xl items-center justify-between rounded-3xl border border-[#ECE7DE] bg-[rgba(255,255,255,0.85)] px-6 py-4 shadow-[0_8px_30px_rgba(23,23,23,0.04)] backdrop-blur-xl md:px-8"
+        className="mx-auto flex w-full max-w-6xl items-center justify-between rounded-full border border-[#ECE7DE] bg-[rgba(252,251,248,0.85)] px-6 py-3.5 shadow-[0_8px_30px_rgba(23,23,23,0.04)] backdrop-blur-xl md:px-8"
       >
-        {/* Logo / Name */}
+        {/* Brand Logo / Name */}
         <a
           href="#home"
           onClick={(e) => handleClick(e, '#home')}
-          className="font-serif text-2xl font-bold tracking-tight text-[#9A7B4F] transition-opacity hover:opacity-80"
+          className="font-serif-display text-2xl font-bold tracking-tight text-[#171717] transition-opacity hover:opacity-80 flex items-center gap-1.5"
         >
-          Dharshini
+          <span>Dharshini</span>
+          <span className="text-[#9A7B4F] text-xs font-sans font-semibold tracking-widest uppercase">.ai</span>
         </a>
 
-        {/* Navigation Links */}
-        <div className="flex items-center gap-1 md:gap-3 text-sm font-medium">
+        {/* Minimal Navigation Links on Right */}
+        <div className="flex items-center gap-1 sm:gap-2 text-sm font-medium">
           {navLinks.map((link) => {
             const isActive = activeSection === link.path.substring(1);
             const Icon = link.icon;
@@ -73,30 +73,24 @@ const NavBar = ({ isVisible = true }) => {
                 key={link.path}
                 href={link.path}
                 onClick={(e) => handleClick(e, link.path)}
-                className={`relative flex items-center gap-2 rounded-xl px-3 py-2 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#9A7B4F] ${
+                className={`relative flex items-center gap-2 rounded-full px-3.5 py-1.5 transition-all duration-200 focus:outline-none ${
                   isActive
-                    ? 'text-[#9A7B4F]'
-                    : 'text-[#171717] hover:bg-[#F6F2EA] hover:text-[#9A7B4F]'
+                    ? 'text-[#9A7B4F] font-semibold bg-[#9A7B4F]/10'
+                    : 'text-[#6B6B6B] hover:text-[#171717] hover:bg-[#ECE7DE]/50'
                 }`}
               >
-                {/* Icon */}
                 <Icon
-                  size={18}
-                  strokeWidth={1.5}
-                  className="transition-colors duration-300"
-                  style={{
-                    color: isActive ? '#9A7B4F' : '#171717',
-                  }}
+                  size={16}
+                  strokeWidth={1.75}
+                  className="transition-colors duration-200"
                 />
                 
-                {/* Label text */}
-                <span className="hidden md:inline">{link.label}</span>
+                <span className="hidden sm:inline text-xs md:text-sm">{link.label}</span>
 
-                {/* Animated active dot below item */}
                 {isActive && (
                   <motion.span
                     layoutId="navbar-active-dot"
-                    className="absolute -bottom-1.5 left-1/2 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-[#9A7B4F]"
+                    className="absolute -bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-[#9A7B4F]"
                     transition={{ type: 'spring', stiffness: 300, damping: 22 }}
                   />
                 )}
