@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Sparkles, MapPin, GraduationCap, ExternalLink, Code2, Cpu, Trophy, Activity, ArrowUpRight } from 'lucide-react';
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa6';
 import { personalInfo, heroStats, projects, socials } from '../data/content';
+import CircularTextBadge from './CircularTextBadge';
 
 const BentoDashboard = () => {
   return (
@@ -150,19 +151,32 @@ const BentoDashboard = () => {
           </div>
         </motion.div>
 
-        {/* Tile 4: Philosophy Quote (1 col wide, 1 row tall) */}
+        {/* Tile 4: Philosophy & Circular Badge */}
         <motion.div
           whileHover={{ y: -4 }}
           transition={{ duration: 0.2 }}
-          className="rounded-3xl border border-[#ECE7DE] bg-[#171717] p-5 flex flex-col justify-between text-[#FCFBF8] shadow-md relative overflow-hidden"
+          className="rounded-3xl border border-[#ECE7DE] bg-gradient-to-br from-[#FCFBF8] to-[#F6F2EA] p-4 sm:p-5 flex items-center justify-between shadow-sm relative overflow-hidden group"
         >
-          <div className="flex items-center gap-1.5 text-xs text-[#C2AB8A] font-semibold uppercase tracking-wider">
-            <Sparkles size={12} /> Philosophy
+          <div className="flex flex-col justify-between h-full pr-2">
+            <div className="flex items-center gap-1.5 text-xs text-[#9A7B4F] font-semibold uppercase tracking-wider">
+              <Sparkles size={12} /> Philosophy
+            </div>
+            <p className="font-serif-display italic text-xs sm:text-sm text-[#171717] font-medium leading-relaxed my-2">
+              "Dream big, work hard, succeed."
+            </p>
+            <span className="text-[10px] text-[#6B6B6B] font-mono">— Dharshini</span>
           </div>
-          <p className="font-serif-display italic text-xs sm:text-sm text-[#ECE7DE] leading-relaxed my-2">
-            "Turning small daily actions into meaningful long-term achievements and human-centered AI."
-          </p>
-          <span className="text-[10px] text-[#C2AB8A] font-mono">— Dharshini</span>
+
+          <div className="shrink-0">
+            <CircularTextBadge
+              text="DREAM BIG • WORK HARD • SUCCEED • "
+              dotColor="#9A7B4F"
+              bgColor="#FCFBF8"
+              textColor="#171717"
+              size={95}
+              isRotating={false}
+            />
+          </div>
         </motion.div>
 
         {/* Tile 5: Connect & Socials (1 col wide, 1 row tall) */}

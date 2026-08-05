@@ -1,8 +1,4 @@
-import { motion } from 'framer-motion';
-
-// AI Chat Hero & Bento Dashboard Components
-import AiChatHero from '../components/AiChatHero';
-import BentoDashboard from '../components/BentoDashboard';
+import HeroSection from '../components/HeroSection';
 
 // Detailed Page Components
 import About from './About';
@@ -14,32 +10,33 @@ import Contact from './Contact';
 const Home = () => {
   return (
     <div className="space-y-16">
-      {/* 1. Interactive AI-Chat Hero Section */}
-      <section id="home" className="pt-6 sm:pt-10 min-h-[calc(100vh-5rem)] flex flex-col justify-center">
-        <AiChatHero />
-        <BentoDashboard />
+      {/* 1. Full-Bleed Home / Hero Section */}
+      <section id="home" className="w-full">
+        <HeroSection />
       </section>
 
-      {/* 2. Detailed Scroll Sections */}
-      <section id="about" className="pt-8">
-        <About />
-      </section>
+      {/* 2. Detailed Scroll Sections Container */}
+      <div className="max-w-6xl mx-auto px-4 md:px-10 lg:px-12 space-y-16">
+        <section id="about" className="pt-8">
+          <About />
+        </section>
 
-      <section id="projects" className="pt-8">
-        <Projects />
-      </section>
+        <section id="projects" className="pt-8">
+          <Projects />
+        </section>
 
-      <section id="certificates" className="pt-8">
-        <Certificates />
-      </section>
+        <section id="certificates" className="pt-8">
+          <Certificates />
+        </section>
 
-      <section id="skills" className="pt-8">
-        <Skills />
-      </section>
+        <section id="skills" className="pt-8">
+          <Skills />
+        </section>
 
-      <section id="contact" className="pt-8">
-        <Contact />
-      </section>
+        <section id="contact" className="pt-8">
+          <Contact />
+        </section>
+      </div>
     </div>
   );
 };

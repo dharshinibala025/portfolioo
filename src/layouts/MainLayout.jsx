@@ -26,7 +26,7 @@ const MainLayout = () => {
   }, [showIntro]);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#FCFBF8] text-[#171717]">
+    <div className="relative min-h-screen overflow-hidden bg-[#FAF8F3] text-[#1E1E1E]">
       <AnimatePresence mode="wait">
         {showIntro && (
           <CinematicIntro onComplete={() => setShowIntro(false)} />
@@ -41,14 +41,9 @@ const MainLayout = () => {
         <NavBar isVisible={isNavVisible} />
 
         {/* Main Content Area */}
-        <main className="flex-1 px-4 pb-16 pt-20 md:px-10 lg:px-12">
-          <div className="mx-auto w-full max-w-6xl">
-            <Outlet />
-          </div>
+        <main className="flex-1 pb-16 pt-20">
+          <Outlet />
         </main>
-
-        {/* Floating Download CV Pill */}
-        <FloatingDownloadCv />
 
         {/* Footer */}
         <Footer />

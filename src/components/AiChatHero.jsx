@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Send, Bot, User, ExternalLink, Code, Award, Target, MessageSquare, ArrowRight, RotateCcw, CheckCircle2 } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa6';
 import { personalInfo, projects, certificates, heroStats, skills, frameworks, tools, journeyMoments } from '../data/content';
+import CircularTextBadge from './CircularTextBadge';
 
 const PROMPT_SUGGESTIONS = [
   { id: 'projects', label: '⚡ Show me her projects', query: 'Show me her projects' },
@@ -103,7 +104,23 @@ const AiChatHero = () => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#9A7B4F]/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Main Header Container */}
-      <div className="text-center space-y-4 mb-8">
+      <div className="relative text-center space-y-4 mb-8">
+        {/* Prominent Circular Badge in Left Corner */}
+        <div className="flex justify-start md:absolute md:-top-4 md:left-0 lg:-left-12 z-30 mb-4 md:mb-0">
+          <CircularTextBadge
+            text="DREAM BIG • WORK HARD • SUCCEED •"
+            dotColor="#9A7B4F"
+            bgColor="#F6F2EA"
+            textColor="#171717"
+            size={125}
+            isRotating={false}
+            onClick={() => {
+              const el = document.getElementById('about');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+          />
+        </div>
+
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
