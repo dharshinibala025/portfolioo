@@ -30,7 +30,6 @@ export const heroStats = [
   { label: 'Internship', value: '01' },
   { label: 'Projects Shipped', value: '03' },
   { label: 'Tech Stacks', value: '06' },
-  { label: 'Certifications', value: '05' },
 ];
 
 export const projects = [

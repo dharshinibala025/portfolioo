@@ -3,7 +3,6 @@ import HeroSection from '../components/HeroSection';
 // Detailed Page Components
 import About from './About';
 import Projects from './Projects';
-import Certificates from './Certificates';
 import Skills from './Skills';
 import Contact from './Contact';
 
@@ -23,10 +22,6 @@ const Home = () => {
 
         <section id="projects" className="pt-8">
           <Projects />
-        </section>
-
-        <section id="certificates" className="pt-8">
-          <Certificates />
         </section>
 
         <section id="skills" className="pt-8">

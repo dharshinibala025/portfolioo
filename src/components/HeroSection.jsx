@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Download } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import profileImg from '../assets/profile.jpg';
 
 const HeroSection = () => {
@@ -11,7 +11,7 @@ const HeroSection = () => {
     }
   };
 
-  // One-time smooth entrance animation (no continuous motion loops)
+  // Entrance animation variants (one-time smooth fade-up, no continuous motion loops)
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -33,32 +33,58 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative w-full bg-[#FAF8F3] overflow-hidden min-h-[85vh] flex items-center">
+    <div className="relative w-full bg-[#FAF8F3] overflow-hidden min-h-[75vh] flex items-start sm:items-center">
       
       {/* ---------------------------------------------------- */}
-      {/* Static Curved Fluid Wave Background behind the Right Image */}
+      {/* Subtle Sharp Zig-Zag / Angular Geometric Background behind Right Image */}
+      {/* Layered geometric shapes with sharp diagonal edges and soft drop shadow */}
       {/* ---------------------------------------------------- */}
       <div className="absolute top-0 right-0 w-full lg:w-[52%] h-full pointer-events-none z-0 overflow-hidden">
         <svg
           viewBox="0 0 600 700"
-          className="h-full w-auto min-w-[125%] object-cover text-[#B8893D] opacity-95"
+          className="h-full w-full object-cover"
           preserveAspectRatio="none"
         >
           <defs>
-            <linearGradient id="staticGoldWave" x1="0%" y1="0%" x2="100%" y2="100%">
+            {/* Primary Golden Gradient */}
+            <linearGradient id="geoGoldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#B8893D" />
               <stop offset="60%" stopColor="#A67B34" />
+              <stop offset="100%" stopColor="#8C6424" />
+            </linearGradient>
+
+            {/* Subtle Accent Light Gold Gradient */}
+            <linearGradient id="geoGoldLight" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#D4C3A3" />
               <stop offset="100%" stopColor="#C2AB8A" />
             </linearGradient>
+
+            {/* Elegant Drop Shadow for Depth */}
+            <filter id="geoShadow" x="-20%" y="-20%" width="150%" height="150%">
+              <feDropShadow dx="-8" dy="12" stdDeviation="14" floodColor="#1E1E1E" floodOpacity="0.10" />
+            </filter>
           </defs>
-          <path
-            d="M 160,0 
-               C 300,90 100,260 270,420 
-               C 370,520 200,600 330,700 
-               L 600,700 
-               L 600,0 
-               Z"
-            fill="url(#staticGoldWave)"
+
+          {/* Layer 1: Darker Accent Base Layer (First Sharp Zig-Zag Angle) */}
+          <polygon
+            points="120,0 600,0 600,700 180,700 70,460 210,220"
+            fill="#8C6424"
+            opacity="0.25"
+          />
+
+          {/* Layer 2: Primary Gold Geometric Layer (Sharp Zig-Zag Angle with Shadow) */}
+          <polygon
+            points="150,0 600,0 600,700 220,700 90,470 240,230"
+            fill="url(#geoGoldGradient)"
+            filter="url(#geoShadow)"
+            opacity="0.95"
+          />
+
+          {/* Layer 3: Top Highlight Light Gold Accent Layer */}
+          <polygon
+            points="200,0 600,0 600,700 300,700 160,500 290,240"
+            fill="url(#geoGoldLight)"
+            opacity="0.35"
           />
         </svg>
       </div>
@@ -66,7 +92,7 @@ const HeroSection = () => {
       {/* ---------------------------------------------------- */}
       {/* Hero Content aligned inside Max-W-1400px Container */}
       {/* ---------------------------------------------------- */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20 pt-10 pb-10">
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20 pt-2 sm:pt-4 pb-8 sm:pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
 
           {/* ==================================================== */}
@@ -127,25 +153,13 @@ const HeroSection = () => {
                 <span>Explore Projects</span>
                 <ArrowRight size={16} />
               </motion.a>
-
-              {/* Secondary Button */}
-              <motion.a
-                href="/resume/Dharshini Resume.pdf"
-                download="Dharshini_Resume.pdf"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-[#1E1E1E] hover:border-[#B8893D] text-[#1E1E1E] hover:text-[#B8893D] bg-transparent px-7 py-3 text-sm font-medium shadow-sm transition-colors duration-200 cursor-pointer"
-              >
-                <span>Download Resume</span>
-                <Download size={16} />
-              </motion.a>
             </motion.div>
           </motion.div>
 
 
           {/* ==================================================== */}
           {/* RIGHT SIDE (45% Width on Desktop) */}
-          {/* Profile Image floating over Fluid Wave Background */}
+          {/* Profile Image floating seamlessly over Fluid Wave */}
           {/* ==================================================== */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -155,19 +169,13 @@ const HeroSection = () => {
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg flex items-center justify-center lg:justify-end">
 
-              {/* Profile Image with 32px Rounded Corners & Soft Shadow over the Fluid Wave */}
-              <div className="relative z-10 w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[400px] overflow-hidden rounded-[32px] shadow-[0_20px_45px_rgba(30,30,30,0.15)] border-2 border-white/60">
+              {/* Profile Image with 32px Rounded Corners & Soft Shadow over Fluid Wave */}
+              <div className="relative z-10 w-full max-w-[270px] sm:max-w-[300px] lg:max-w-[320px] overflow-hidden rounded-[32px] shadow-[0_20px_40px_rgba(30,30,30,0.15)] border-2 border-white/70">
                 <img
                   src={profileImg}
                   alt="Dharshini"
-                  className="h-auto w-full max-h-[480px] object-cover"
+                  className="h-auto w-full max-h-[380px] object-cover"
                 />
-              </div>
-
-              {/* Minimal Status Badge */}
-              <div className="absolute -bottom-3 left-4 sm:left-6 z-20 inline-flex items-center gap-2 rounded-full border border-emerald-500/20 bg-white/95 px-3.5 py-1.5 text-xs font-medium text-emerald-800 backdrop-blur-md shadow-sm">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Available for Internship</span>
               </div>
 
             </div>

@@ -2,13 +2,12 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles, Send, Bot, User, ExternalLink, Code, Award, Target, MessageSquare, ArrowRight, RotateCcw, CheckCircle2 } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa6';
-import { personalInfo, projects, certificates, heroStats, skills, frameworks, tools, journeyMoments } from '../data/content';
+import { personalInfo, projects, heroStats, skills, frameworks, tools, journeyMoments } from '../data/content';
 import CircularTextBadge from './CircularTextBadge';
 
 const PROMPT_SUGGESTIONS = [
   { id: 'projects', label: '⚡ Show me her projects', query: 'Show me her projects' },
   { id: 'stack', label: '🛠️ What\'s her tech stack?', query: 'What is her tech stack?' },
-  { id: 'certs', label: '📜 How many certifications?', query: 'How many certifications does she have?' },
   { id: 'background', label: '🎯 What\'s her background & vision?', query: 'What is her background and vision?' },
 ];
 
@@ -53,12 +52,6 @@ const AiChatHero = () => {
           text: "Dharshini specializes in full-stack engineering and Generative AI tools. Here is her core technical matrix:",
           data: { skills, frameworks, tools },
         };
-      } else if (lower.includes('cert') || lower.includes('course') || lower.includes('award') || lower.includes('infosys')) {
-        botResponse = {
-          type: 'certs',
-          text: `Dharshini holds ${certificates.length} verified certifications across Generative AI, LLMs, Programming, and Paper Presentations:`,
-          data: certificates,
-        };
       } else if (lower.includes('background') || lower.includes('vision') || lower.includes('who') || lower.includes('about') || lower.includes('education')) {
         botResponse = {
           type: 'background',
@@ -75,7 +68,7 @@ const AiChatHero = () => {
         // Fallback natural language answer
         botResponse = {
           type: 'general',
-          text: `Dharshini is a ${personalInfo.title} based in ${personalInfo.location}. She has shipped ${heroStats[1].value} projects, earned ${heroStats[3].value} certifications, and maintains a ${journeyMoments[2].description.split('cgpa-')[1] || '8.16 CGPA'}.`,
+          text: `Dharshini is a ${personalInfo.title} based in ${personalInfo.location}. She has shipped ${heroStats[1].value} projects and maintains a ${journeyMoments[2].description.split('cgpa-')[1] || '8.16 CGPA'}.`,
           data: personalInfo,
         };
       }
@@ -145,7 +138,7 @@ const AiChatHero = () => {
           transition={{ delay: 0.2 }}
           className="text-base sm:text-lg text-[#6B6B6B] max-w-xl mx-auto font-normal leading-relaxed"
         >
-          An interactive conversational interface into Dharshini's code, projects, certifications, and AI vision.
+          An interactive conversational interface into Dharshini's code, projects, skills, and AI vision.
         </motion.p>
       </div>
 
@@ -358,25 +351,7 @@ const AiChatHero = () => {
                         </div>
                       )}
 
-                      {/* 3. Certifications Cards */}
-                      {msg.type === 'certs' && (
-                        <div className="grid gap-2.5 pt-2">
-                          {msg.data.map((cert) => (
-                            <div key={cert.id} className="flex items-center justify-between rounded-xl border border-[#ECE7DE] bg-[#FCFBF8] p-3 transition-colors hover:border-[#9A7B4F]">
-                              <div className="flex items-center gap-3">
-                                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#9A7B4F]/10 text-[#9A7B4F]">
-                                  <Award size={16} />
-                                </div>
-                                <div>
-                                  <h5 className="font-semibold text-xs text-[#171717]">{cert.title}</h5>
-                                  <span className="text-[11px] text-[#6B6B6B]">{cert.issuedBy} • {cert.year}</span>
-                                </div>
-                              </div>
-                              <span className="rounded-md bg-[#9A7B4F]/10 px-2 py-0.5 text-[10px] font-semibold text-[#9A7B4F]">Verified</span>
-                            </div>
-                          ))}
-                        </div>
-                      )}
+
 
                       {/* 4. Background & Vision */}
                       {msg.type === 'background' && (
@@ -422,7 +397,7 @@ const AiChatHero = () => {
                       <div className="pt-2 border-t border-[#ECE7DE]/50 flex items-center justify-between text-[11px] text-[#8A8A8A]">
                         <span>Want full details?</span>
                         <a
-                          href={`#${msg.type === 'certs' ? 'certificates' : msg.type === 'stack' ? 'skills' : msg.type || 'about'}`}
+                          href={`#${msg.type === 'stack' ? 'skills' : msg.type || 'about'}`}
                           className="font-semibold text-[#9A7B4F] hover:underline inline-flex items-center gap-1"
                         >
                           Jump to section <ArrowRight size={10} />
@@ -448,7 +423,7 @@ const AiChatHero = () => {
                 <div className="rounded-2xl border border-[#ECE7DE] bg-white px-4 py-3 shadow-sm">
                   <div className="flex items-center gap-1.5 text-xs text-[#8A8A8A] font-medium">
                     <span className="h-2 w-2 rounded-full bg-[#9A7B4F] animate-ping" />
-                    <span>Dharshini AI is typing...</span>
+                    <span>Dharshini is typing...</span>
                   </div>
                 </div>
               </div>

@@ -5,7 +5,6 @@ import AnimatedBackground from '../components/AnimatedBackground';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import CinematicIntro from '../components/CinematicIntro';
-import FloatingDownloadCv from '../components/FloatingDownloadCv';
 
 const MainLayout = () => {
   const location = useLocation();
