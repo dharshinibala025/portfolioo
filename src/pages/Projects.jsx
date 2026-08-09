@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
 import PageHeader from '../components/PageHeader';
 import { projects } from '../data/content';
-import ProjectCard from '../components/ProjectCard';
+import AccordionGallery from '../components/AccordionGallery';
 import GsapReveal from '../components/GsapReveal';
 
 const Projects = () => {
   return (
-    <section>
+    <section id="projects" className="py-12">
       <GsapReveal>
         <PageHeader
           eyebrow="Recent Work"
@@ -15,10 +15,8 @@ const Projects = () => {
         />
       </GsapReveal>
 
-      <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-12">
-        {projects.map((project, index) => (
-          <ProjectCard key={project.id} project={project} index={index} />
-        ))}
+      <div className="mt-8">
+        <AccordionGallery projects={projects} />
       </div>
     </section>
   );

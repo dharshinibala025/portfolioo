@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import profileImg from '../assets/profile.jpg';
+import profileImg from '../assets/profile.png';
 
 const HeroSection = () => {
   const handleClickExplore = (e) => {
@@ -11,7 +11,7 @@ const HeroSection = () => {
     }
   };
 
-  // Entrance animation variants (one-time smooth fade-up, no continuous motion loops)
+  // Entrance animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -36,55 +36,29 @@ const HeroSection = () => {
     <div className="relative w-full bg-[#FAF8F3] overflow-hidden min-h-[75vh] flex items-start sm:items-center">
       
       {/* ---------------------------------------------------- */}
-      {/* Subtle Sharp Zig-Zag / Angular Geometric Background behind Right Image */}
-      {/* Layered geometric shapes with sharp diagonal edges and soft drop shadow */}
+      {/* Smooth Organic Fluid Wave Background (Matching Reference Design) */}
       {/* ---------------------------------------------------- */}
-      <div className="absolute top-0 right-0 w-full lg:w-[52%] h-full pointer-events-none z-0 overflow-hidden">
+      <div className="absolute top-0 right-0 w-full lg:w-[50%] h-full pointer-events-none z-0 overflow-hidden">
         <svg
           viewBox="0 0 600 700"
           className="h-full w-full object-cover"
           preserveAspectRatio="none"
         >
           <defs>
-            {/* Primary Golden Gradient */}
-            <linearGradient id="geoGoldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#B8893D" />
-              <stop offset="60%" stopColor="#A67B34" />
-              <stop offset="100%" stopColor="#8C6424" />
+            <linearGradient id="refGoldWave" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#C99846" />
+              <stop offset="50%" stopColor="#B8893D" />
+              <stop offset="100%" stopColor="#A67B34" />
             </linearGradient>
-
-            {/* Subtle Accent Light Gold Gradient */}
-            <linearGradient id="geoGoldLight" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#D4C3A3" />
-              <stop offset="100%" stopColor="#C2AB8A" />
-            </linearGradient>
-
-            {/* Elegant Drop Shadow for Depth */}
-            <filter id="geoShadow" x="-20%" y="-20%" width="150%" height="150%">
-              <feDropShadow dx="-8" dy="12" stdDeviation="14" floodColor="#1E1E1E" floodOpacity="0.10" />
-            </filter>
           </defs>
-
-          {/* Layer 1: Darker Accent Base Layer (First Sharp Zig-Zag Angle) */}
-          <polygon
-            points="120,0 600,0 600,700 180,700 70,460 210,220"
-            fill="#8C6424"
-            opacity="0.25"
-          />
-
-          {/* Layer 2: Primary Gold Geometric Layer (Sharp Zig-Zag Angle with Shadow) */}
-          <polygon
-            points="150,0 600,0 600,700 220,700 90,470 240,230"
-            fill="url(#geoGoldGradient)"
-            filter="url(#geoShadow)"
-            opacity="0.95"
-          />
-
-          {/* Layer 3: Top Highlight Light Gold Accent Layer */}
-          <polygon
-            points="200,0 600,0 600,700 300,700 160,500 290,240"
-            fill="url(#geoGoldLight)"
-            opacity="0.35"
+          <path
+            d="M 120,0 
+               C 240,120 20,280 160,450 
+               C 260,580 100,700 350,700 
+               L 600,700 
+               L 600,0 
+               Z"
+            fill="url(#refGoldWave)"
           />
         </svg>
       </div>
@@ -159,7 +133,7 @@ const HeroSection = () => {
 
           {/* ==================================================== */}
           {/* RIGHT SIDE (45% Width on Desktop) */}
-          {/* Profile Image floating seamlessly over Fluid Wave */}
+          {/* Profile Image in Crisp Circle View (Clips Dark Canvas Out Cleanly) */}
           {/* ==================================================== */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -169,12 +143,19 @@ const HeroSection = () => {
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg flex items-center justify-center lg:justify-end">
 
-              {/* Profile Image with 32px Rounded Corners & Soft Shadow over Fluid Wave */}
-              <div className="relative z-10 w-full max-w-[270px] sm:max-w-[300px] lg:max-w-[320px] overflow-hidden rounded-[32px] shadow-[0_20px_40px_rgba(30,30,30,0.15)] border-2 border-white/70">
+              {/* Gold Glow Ring behind Circle */}
+              <div className="absolute -inset-3 sm:-inset-4 rounded-full bg-gradient-to-tr from-[#B8893D]/30 via-[#A67B34]/20 to-[#C2AB8A]/40 blur-xl -z-10" />
+
+              {/* Profile Image - Crisp Circle View with CSS Clip-Path */}
+              <div className="relative z-10 w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-white shadow-[0_25px_50px_rgba(30,30,30,0.18)] overflow-hidden bg-white flex items-center justify-center">
                 <img
                   src={profileImg}
                   alt="Dharshini"
-                  className="h-auto w-full max-h-[380px] object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  style={{
+                    clipPath: 'circle(43.5% at 50% 50%)',
+                    transform: 'scale(1.15)',
+                  }}
                 />
               </div>
 
