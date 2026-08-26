@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles, Code2 } from 'lucide-react';
 import profileImg from '../assets/profile.png';
+import TypewriterText from './TypewriterText';
 
 const HeroSection = () => {
   const handleClickExplore = (e) => {
@@ -92,7 +93,15 @@ const HeroSection = () => {
               className="font-serif-display text-4xl sm:text-5xl lg:text-[64px] font-bold text-[#1E1E1E] leading-[1.08] mb-3 tracking-tight"
             >
               Hello,<br />
-              I'm Dharshini.
+              I'm{' '}
+              <span className="text-[#B8893D]">
+                <TypewriterText
+                  text="Dharshini."
+                  speed={120}
+                  loop={false}
+                  cursorColor="#B8893D"
+                />
+              </span>
             </motion.h1>
 
             {/* Subheading (28px) */}
@@ -133,33 +142,79 @@ const HeroSection = () => {
 
           {/* ==================================================== */}
           {/* RIGHT SIDE (45% Width on Desktop) */}
-          {/* Profile Image in Crisp Circle View (Clips Dark Canvas Out Cleanly) */}
+          {/* Professional Animated Profile Display */}
           {/* ==================================================== */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-5 flex justify-center lg:justify-end relative mt-6 lg:mt-0"
           >
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg flex items-center justify-center lg:justify-end">
+            {/* Smooth Floating Container */}
+            <motion.div
+              animate={{ y: [-7, 7, -7] }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+              className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg flex items-center justify-center lg:justify-end"
+            >
+              {/* Spinning Golden Accent Orbit Ring */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+                className="absolute -inset-3 sm:-inset-4 rounded-full bg-gradient-to-tr from-[#B8893D] via-[#D4B36D] to-[#966E2E] opacity-35 blur-lg -z-10"
+              />
 
-              {/* Gold Glow Ring behind Circle */}
-              <div className="absolute -inset-3 sm:-inset-4 rounded-full bg-gradient-to-tr from-[#B8893D]/30 via-[#A67B34]/20 to-[#C2AB8A]/40 blur-xl -z-10" />
+              {/* Ambient Glow Aura */}
+              <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-[#B8893D]/25 blur-2xl -z-20 animate-pulse" />
 
-              {/* Profile Image - Crisp Circle View with CSS Clip-Path */}
-              <div className="relative z-10 w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-white shadow-[0_25px_50px_rgba(30,30,30,0.18)] overflow-hidden bg-white flex items-center justify-center">
+              {/* Profile Card Container with Interactive Hover Lift */}
+              <motion.div
+                whileHover={{ scale: 1.03 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                className="relative z-10 w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-white shadow-[0_25px_60px_rgba(30,30,30,0.16)] hover:shadow-[0_30px_70px_rgba(184,137,61,0.28)] transition-shadow duration-500 overflow-hidden bg-white flex items-center justify-center group"
+              >
                 <img
                   src={profileImg}
                   alt="Dharshini"
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   style={{
                     clipPath: 'circle(43.5% at 50% 50%)',
                     transform: 'scale(1.15)',
                   }}
                 />
-              </div>
 
-            </div>
+                {/* Subtle Professional Light Shine Pass on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none" />
+              </motion.div>
+
+              {/* Floating Glass Pill Badge 1: Top Right */}
+              <motion.div
+                animate={{ y: [4, -4, 4] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
+                className="absolute -top-2 right-2 sm:right-6 z-20 flex items-center gap-2 rounded-full bg-white/90 backdrop-blur-md px-4 py-2 shadow-lg border border-[#ECE7DE]"
+              >
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#B8893D]/15 text-[#B8893D]">
+                  <Sparkles size={13} />
+                </div>
+                <span className="text-xs font-semibold text-[#1E1E1E] tracking-wide font-sans">
+                  GenAI Explorer
+                </span>
+              </motion.div>
+
+              {/* Floating Glass Pill Badge 2: Bottom Left */}
+              <motion.div
+                animate={{ y: [-4, 4, -4] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                className="absolute -bottom-2 left-2 sm:left-6 z-20 flex items-center gap-2 rounded-full bg-white/90 backdrop-blur-md px-4 py-2 shadow-lg border border-[#ECE7DE]"
+              >
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#1E1E1E]/10 text-[#1E1E1E]">
+                  <Code2 size={13} />
+                </div>
+                <span className="text-xs font-semibold text-[#1E1E1E] tracking-wide font-sans">
+                  Full Stack Developer
+                </span>
+              </motion.div>
+
+            </motion.div>
           </motion.div>
 
         </div>

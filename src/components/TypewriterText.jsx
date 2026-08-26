@@ -1,36 +1,73 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 
-const TypewriterText = ({ text, speed = 28, className = '' }) => {
-  const [displayed, setDisplayed] = useState('');
+const TypewriterText = ({
+  text,
+  words,
+  speed = 100,
+  deleteSpeed = 50,
+  delay = 2000,
+  loop = true,
+  cursor = true,
+  cursorChar = '|',
+  cursorColor = '#B8893D',
+  className = '',
+}) => {
+  const wordsKey = words ? words.join('||') : text || '';
+  const textArray = useMemo(() => {
+    if (words && words.length > 0) return words;
+    if (text) return [text];
+    return ['Dharshini.'];
+  }, [wordsKey]);
+
+  const [wordIndex, setWordIndex] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    let frame;
-    let index = 0;
+    const currentWord = textArray[wordIndex % textArray.length];
 
-    const type = () => {
-      setDisplayed(text.slice(0, index));
-      if (index <= text.length) {
-        index += 1;
-        frame = setTimeout(type, speed);
+    let timer;
+    if (!isDeleting) {
+      if (displayedText.length < currentWord.length) {
+        timer = setTimeout(() => {
+          setDisplayedText(currentWord.substring(0, displayedText.length + 1));
+        }, speed);
+      } else if (loop || wordIndex < textArray.length - 1) {
+        timer = setTimeout(() => {
+          setIsDeleting(true);
+        }, delay);
       }
-    };
+    } else {
+      if (displayedText.length > 0) {
+        timer = setTimeout(() => {
+          setDisplayedText(currentWord.substring(0, displayedText.length - 1));
+        }, deleteSpeed);
+      } else {
+        setIsDeleting(false);
+        setWordIndex((prev) => (prev + 1) % textArray.length);
+      }
+    }
 
-    type();
-
-    return () => {
-      clearTimeout(frame);
-    };
-  }, [text, speed]);
+    return () => clearTimeout(timer);
+  }, [displayedText, isDeleting, wordIndex, textArray, speed, deleteSpeed, delay, loop]);
 
   return (
-    <span className={`whitespace-pre-line text-left ${className}`}>
-      {displayed}
-      <span className="ml-1 inline-block h-4 w-[2px] animate-pulse bg-accent-400 align-middle" />
+    <span className={`inline-inline flex-wrap items-baseline ${className}`}>
+      <span>{displayedText}</span>
+      {cursor && (
+        <span
+          className="ml-1 inline-block animate-pulse font-light select-none"
+          style={{ color: cursorColor }}
+        >
+          {cursorChar}
+        </span>
+      )}
     </span>
   );
 };
 
 export default TypewriterText;
+
 
 
 
