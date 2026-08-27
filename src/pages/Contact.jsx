@@ -118,7 +118,7 @@ const Contact = () => {
                 <Briefcase size={14} /> Focus Area
               </div>
               <p className="font-semibold text-sm text-[#1E1E1E]">
-                GenAI & Full-Stack
+                Software Development
               </p>
             </div>
           </div>

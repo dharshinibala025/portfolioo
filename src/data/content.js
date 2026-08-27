@@ -15,7 +15,7 @@ import { VscVscode } from 'react-icons/vsc';
 export const personalInfo = {
   name: 'Dharshini',
   fullName: 'Dharshini',
-  title: 'Generative AI Explorer & Full-Stack Developer',
+  title: 'Software Developer & Computer Science Student',
   dob: '25 May 2007',
   location: 'Salem, Tamil Nadu',
   college: 'K.S.R. College of Engineering, Thiruchengode',

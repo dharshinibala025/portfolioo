@@ -120,7 +120,7 @@ const AiChatHero = () => {
           className="inline-flex items-center gap-2 rounded-full border border-[#9A7B4F]/30 bg-[#9A7B4F]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-[#9A7B4F]"
         >
           <Sparkles size={14} className="animate-spin-slow text-[#9A7B4F]" />
-          <span>Generative AI Explorer & Full-Stack Engineer</span>
+          <span>Software Developer & Computer Science Student</span>
         </motion.div>
 
         <motion.h1
