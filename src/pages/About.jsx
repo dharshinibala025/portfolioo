@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
 import { hobbies, funFacts } from '../data/content';
 import GsapReveal from '../components/GsapReveal';
-import CinematicAbout from '../components/CinematicAbout';
+import ProfessionalAbout from '../components/ProfessionalAbout';
 
 const About = () => {
     return (
         <section className="space-y-16 pt-24 pb-12">
-            {/* Cinematic About Section */}
-            <CinematicAbout />
+            {/* Professional About Section */}
+            <ProfessionalAbout />
 
             {/* Interests & Hobbies Section */}
             <GsapReveal width="100%">
