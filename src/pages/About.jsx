@@ -1,395 +1,103 @@
 import { motion } from 'framer-motion';
 import { hobbies, funFacts } from '../data/content';
-import GsapReveal from '../components/GsapReveal';
 import ProfessionalAbout from '../components/ProfessionalAbout';
+import { Sparkles, Heart } from 'lucide-react';
 
 const About = () => {
-    return (
-        <section className="space-y-16 pt-24 pb-12">
-            {/* Professional About Section */}
-            <ProfessionalAbout />
+  return (
+    <div className="space-y-16 py-4">
+      {/* 1. Primary Professional Overview */}
+      <ProfessionalAbout />
 
-            {/* Interests & Hobbies Section */}
-            <GsapReveal width="100%">
-                <div className="relative z-10 px-6">
-                    <motion.h3
-                        className="mb-10 font-display text-3xl text-primary text-center"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        Interests & Hobbies
-                    </motion.h3>
-                    <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-5">
-                        {hobbies.map((hobby, index) => (
-                            <motion.div
-                                key={hobby.name}
-                                className="h-48 relative group"
-                                initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                transition={{
-                                    duration: 0.5,
-                                    delay: index * 0.1,
-                                    ease: [0.22, 1, 0.36, 1]
-                                }}
-                                whileHover={{
-                                    y: -10,
-                                    scale: 1.05,
-                                    transition: { duration: 0.3 }
-                                }}
-                            >
-                                {/* Rotating gradient border */}
-                                <motion.div
-                                    className="absolute -inset-[2px] rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"
-                                    style={{
-                                        background: 'linear-gradient(45deg, #B08D57, #D4B483, #8C6A3A, #B08D57)',
-                                        backgroundSize: '300% 300%',
-                                    }}
-                                    animate={{
-                                        backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-                                    }}
-                                    transition={{
-                                        duration: 3,
-                                        repeat: Infinity,
-                                        ease: "linear"
-                                    }}
-                                />
+      {/* 2. Beyond the Code / Interests */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="pt-8 border-t border-[#ECE7DE]"
+      >
+        <div className="text-center mb-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#B8893D]/10 border border-[#B8893D]/20 mb-3">
+            <Heart className="w-3.5 h-3.5 text-[#B8893D]" />
+            <span className="text-xs font-semibold tracking-widest uppercase text-[#B8893D]">
+              Beyond the Code
+            </span>
+          </div>
+          <h3 className="text-2xl sm:text-3xl font-serif-display font-bold text-[#171717]">
+            Interests & Passions
+          </h3>
+          <p className="text-sm text-[#6B6B6B] mt-2 max-w-lg mx-auto leading-relaxed">
+            What keeps me inspired, creative, and balanced outside of software development.
+          </p>
+        </div>
 
-                                {/* Shimmer effect on hover */}
-                                <motion.div
-                                    className="absolute inset-0 rounded-2xl pointer-events-none overflow-hidden z-10"
-                                    initial={{ opacity: 0 }}
-                                    whileHover={{ opacity: 1 }}
-                                >
-                                    <motion.div
-                                        className="absolute inset-0"
-                                        initial={{ x: '-100%' }}
-                                        whileHover={{
-                                            x: '100%',
-                                            transition: { duration: 0.8, ease: "easeInOut" }
-                                        }}
-                                        style={{
-                                            background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)',
-                                        }}
-                                    />
-                                </motion.div>
-
-                                {/* Floating particles on hover */}
-                                {[...Array(4)].map((_, i) => (
-                                    <motion.div
-                                        key={i}
-                                        className="absolute w-1 h-1 bg-accent-400 rounded-full opacity-0 group-hover:opacity-100 pointer-events-none"
-                                        style={{
-                                            left: `${25 + i * 20}%`,
-                                            top: `${30 + i * 15}%`,
-                                        }}
-                                        animate={{
-                                            y: [0, -20, 0],
-                                            x: [0, (i % 2 === 0 ? 10 : -10), 0],
-                                            opacity: [0, 1, 0],
-                                            scale: [0, 1.5, 0],
-                                        }}
-                                        transition={{
-                                            duration: 2 + i * 0.3,
-                                            repeat: Infinity,
-                                            delay: i * 0.2,
-                                        }}
-                                    />
-                                ))}
-
-                                <div className="relative h-full w-full">
-                                    <motion.div
-                                        className="absolute inset-0 flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 text-center shadow-lg overflow-hidden"
-                                        style={{
-                                            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.3)',
-                                        }}
-                                        whileHover={{
-                                            borderColor: 'rgba(154, 123, 79, 0.4)',
-                                            boxShadow: '0 10px 40px rgba(154, 123, 79, 0.3)',
-                                        }}
-                                    >
-                                        {/* Pulsing background glow */}
-                                        <motion.div
-                                            className="absolute inset-0 bg-gradient-to-br from-accent-500/10 to-accent-300/10 opacity-0 group-hover:opacity-100"
-                                            animate={{
-                                                opacity: [0, 0.3, 0],
-                                                scale: [1, 1.1, 1],
-                                            }}
-                                            transition={{
-                                                duration: 2,
-                                                repeat: Infinity,
-                                                ease: "easeInOut"
-                                            }}
-                                        />
-
-                                        {/* Animated icon with bounce */}
-                                        <motion.div
-                                            className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-accent-500/30 to-accent-300/30 text-accent-300 shadow-glow relative z-10"
-                                            animate={{
-                                                boxShadow: [
-                                                    '0 0 10px rgba(154, 123, 79, 0.3)',
-                                                    '0 0 20px rgba(154, 123, 79, 0.5)',
-                                                    '0 0 10px rgba(154, 123, 79, 0.3)',
-                                                ],
-                                                y: [0, -5, 0],
-                                            }}
-                                            transition={{
-                                                boxShadow: {
-                                                    duration: 2,
-                                                    repeat: Infinity,
-                                                    ease: "easeInOut"
-                                                },
-                                                y: {
-                                                    duration: 1.5,
-                                                    repeat: Infinity,
-                                                    ease: "easeInOut",
-                                                    delay: index * 0.1
-                                                }
-                                            }}
-                                            whileHover={{
-                                                scale: 1.3,
-                                                rotate: 360,
-                                                transition: { duration: 0.5 }
-                                            }}
-                                        >
-                                            <hobby.icon className="text-xl" />
-
-                                            {/* Icon glow ring */}
-                                            <motion.div
-                                                className="absolute inset-0 rounded-full border-2 border-accent-400"
-                                                animate={{
-                                                    scale: [1, 1.5, 1],
-                                                    opacity: [0.5, 0, 0.5],
-                                                }}
-                                                transition={{
-                                                    duration: 2,
-                                                    repeat: Infinity,
-                                                    ease: "easeOut",
-                                                    delay: index * 0.15
-                                                }}
-                                            />
-                                        </motion.div>
-
-                                        {/* Name with slide effect */}
-                                        <motion.h4
-                                            className="mb-1 font-semibold text-primary relative z-10"
-                                            initial={{ opacity: 0, x: -10 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            transition={{ delay: 0.2 + index * 0.05 }}
-                                            whileHover={{
-                                                color: 'var(--accent)',
-                                                scale: 1.05,
-                                                transition: { duration: 0.2 }
-                                            }}
-                                        >
-                                            {hobby.name}
-                                        </motion.h4>
-
-                                        {/* Description with fade */}
-                                        <motion.p
-                                            className="text-xs text-muted mt-2 relative z-10"
-                                            initial={{ opacity: 0 }}
-                                            whileInView={{ opacity: 0.7 }}
-                                            transition={{ delay: 0.3 + index * 0.05 }}
-                                            whileHover={{ opacity: 1 }}
-                                        >
-                                            {hobby.description}
-                                        </motion.p>
-
-                                        {/* Bottom accent line with wave effect */}
-                                        <motion.div
-                                            className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent-400 to-transparent"
-                                            initial={{ scaleX: 0, opacity: 0 }}
-                                            whileHover={{ scaleX: 1, opacity: 1 }}
-                                            transition={{ duration: 0.4 }}
-                                        />
-
-                                        {/* Corner glow with pulse */}
-                                        <motion.div
-                                            className="absolute top-0 right-0 w-16 h-16 bg-accent-500/20 rounded-bl-full blur-xl"
-                                            initial={{ opacity: 0, scale: 0 }}
-                                            whileHover={{ opacity: 1, scale: 1 }}
-                                            transition={{ duration: 0.3 }}
-                                            animate={{
-                                                opacity: [0, 0.5, 0],
-                                            }}
-                                            style={{
-                                                animationDelay: `${index * 0.2}s`
-                                            }}
-                                        />
-
-                                        {/* Sparkle effect on corners */}
-                                        <motion.div
-                                            className="absolute top-2 left-2 w-1 h-1 bg-accent-300 rounded-full opacity-0 group-hover:opacity-100"
-                                            animate={{
-                                                scale: [0, 1.5, 0],
-                                                opacity: [0, 1, 0],
-                                            }}
-                                            transition={{
-                                                duration: 1.5,
-                                                repeat: Infinity,
-                                                delay: 0.5,
-                                            }}
-                                        />
-                                        <motion.div
-                                            className="absolute bottom-2 right-2 w-1 h-1 bg-accent-300 rounded-full opacity-0 group-hover:opacity-100"
-                                            animate={{
-                                                scale: [0, 1.5, 0],
-                                                opacity: [0, 1, 0],
-                                            }}
-                                            transition={{
-                                                duration: 1.5,
-                                                repeat: Infinity,
-                                                delay: 0.8,
-                                            }}
-                                        />
-                                    </motion.div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
+        {/* Clean Hobbies Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          {hobbies.map((hobby, index) => {
+            const Icon = hobby.icon;
+            return (
+              <motion.div
+                key={hobby.name}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                whileHover={{ y: -4 }}
+                className="p-5 rounded-2xl bg-white border border-[#ECE7DE] shadow-sm hover:border-[#B8893D]/40 transition-all duration-300 flex flex-col items-center text-center group"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[#B8893D]/10 text-[#B8893D] flex items-center justify-center mb-3 group-hover:bg-[#B8893D] group-hover:text-white transition-colors duration-300">
+                  <Icon className="text-xl" />
                 </div>
-            </GsapReveal>
+                <h4 className="font-semibold text-[#171717] text-sm mb-1">
+                  {hobby.name}
+                </h4>
+                <p className="text-xs text-[#6B6B6B]">
+                  {hobby.description}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </motion.div>
 
-            {/* Fun Facts Section */}
-            <GsapReveal width="100%">
-                <div className="relative z-10 px-6">
-                    <motion.h3
-                        className="mb-10 font-display text-3xl text-primary text-center"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-                    >
-                        Fun Facts
-                    </motion.h3>
-                    <div className="grid gap-6 sm:grid-cols-2">
-                        {funFacts.map((fact, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50, rotateY: -20 }}
-                                whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                transition={{
-                                    duration: 0.6,
-                                    delay: index * 0.15,
-                                    type: "spring",
-                                    stiffness: 80
-                                }}
-                                whileHover={{
-                                    scale: 1.03,
-                                    y: -5,
-                                    transition: { duration: 0.3 }
-                                }}
-                                className="relative flex items-center gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-6 backdrop-blur-sm hover:border-accent-400/50 overflow-hidden group"
-                            >
-                                {/* Animated gradient border on hover */}
-                                <motion.div
-                                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                                    style={{
-                                        background: 'linear-gradient(45deg, transparent 30%, rgba(154, 123, 79, 0.1) 50%, transparent 70%)',
-                                        backgroundSize: '200% 200%',
-                                    }}
-                                    animate={{
-                                        backgroundPosition: ['0% 0%', '100% 100%'],
-                                    }}
-                                    transition={{
-                                        duration: 3,
-                                        repeat: Infinity,
-                                        ease: "linear"
-                                    }}
-                                />
+      {/* 3. Personal Insights & Fun Facts */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="p-6 sm:p-8 rounded-2xl bg-white border border-[#ECE7DE] shadow-sm"
+      >
+        <div className="flex items-center gap-2 mb-6">
+          <Sparkles className="w-5 h-5 text-[#B8893D]" />
+          <h3 className="text-xl font-serif-display font-semibold text-[#171717]">
+            Personal Insights & Fun Facts
+          </h3>
+        </div>
 
-                                {/* Shine effect on hover */}
-                                <motion.div
-                                    className="absolute inset-0 opacity-0 group-hover:opacity-100"
-                                    initial={{ x: '-100%' }}
-                                    whileHover={{
-                                        x: '100%',
-                                        transition: { duration: 0.8, ease: "easeInOut" }
-                                    }}
-                                    style={{
-                                        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
-                                    }}
-                                />
-
-                                {/* Animated number badge */}
-                                <motion.span
-                                    className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-accent-500 to-accent-600 text-white font-bold text-sm shadow-lg z-10"
-                                    animate={{
-                                        boxShadow: [
-                                            '0 0 20px rgba(154, 123, 79, 0.3)',
-                                            '0 0 30px rgba(154, 123, 79, 0.6)',
-                                            '0 0 20px rgba(154, 123, 79, 0.3)',
-                                        ],
-                                    }}
-                                    transition={{
-                                        duration: 2,
-                                        repeat: Infinity,
-                                        ease: "easeInOut"
-                                    }}
-                                    whileHover={{
-                                        rotate: 360,
-                                        scale: 1.2,
-                                        transition: { duration: 0.5 }
-                                    }}
-                                >
-                                    {index + 1}
-
-                                    {/* Pulsing ring around badge */}
-                                    <motion.span
-                                        className="absolute inset-0 rounded-full border-2 border-accent-300"
-                                        animate={{
-                                            scale: [1, 1.4, 1],
-                                            opacity: [0.8, 0, 0.8],
-                                        }}
-                                        transition={{
-                                            duration: 2,
-                                            repeat: Infinity,
-                                            ease: "easeOut",
-                                            delay: index * 0.2
-                                        }}
-                                    />
-                                </motion.span>
-
-                                {/* Fact text with typing effect on hover */}
-                                <motion.p
-                                    className="text-primary/95 group-hover:text-primary transition-colors duration-300 relative z-10 flex-1"
-                                    initial={{ opacity: 0.9 }}
-                                    whileHover={{ opacity: 1 }}
-                                >
-                                    {fact}
-                                </motion.p>
-
-                                {/* Decorative corner accent */}
-                                <motion.div
-                                    className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-accent-500/20 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100"
-                                    initial={{ scale: 0, rotate: -45 }}
-                                    whileHover={{
-                                        scale: 1,
-                                        rotate: 0,
-                                        transition: { duration: 0.4 }
-                                    }}
-                                />
-
-                                {/* Bottom glow effect */}
-                                <motion.div
-                                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3/4 h-[2px] bg-gradient-to-r from-transparent via-accent-400 to-transparent opacity-0 group-hover:opacity-100"
-                                    initial={{ scaleX: 0 }}
-                                    whileHover={{
-                                        scaleX: 1,
-                                        transition: { duration: 0.5 }
-                                    }}
-                                />
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </GsapReveal>
-        </section>
-    );
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {funFacts.map((fact, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.08 }}
+              className="flex items-start gap-3 p-4 rounded-xl bg-[#FCFBF8] border border-[#ECE7DE]"
+            >
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#B8893D]/10 text-[#B8893D] font-bold text-xs mt-0.5">
+                0{index + 1}
+              </span>
+              <p className="text-sm text-[#171717] leading-relaxed">
+                {fact}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div>
+    </div>
+  );
 };
 
 export default About;
