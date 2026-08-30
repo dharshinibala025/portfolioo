@@ -97,8 +97,10 @@ const HeroSection = () => {
               <span className="text-[#B8893D]">
                 <TypewriterText
                   text="Dharshini."
-                  speed={120}
-                  loop={false}
+                  speed={110}
+                  deleteSpeed={50}
+                  delay={2500}
+                  loop={true}
                   cursorColor="#B8893D"
                 />
               </span>

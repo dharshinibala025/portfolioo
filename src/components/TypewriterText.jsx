@@ -52,11 +52,11 @@ const TypewriterText = ({
   }, [displayedText, isDeleting, wordIndex, textArray, speed, deleteSpeed, delay, loop]);
 
   return (
-    <span className={`inline-inline flex-wrap items-baseline ${className}`}>
+    <span className={`inline-flex items-baseline ${className}`}>
       <span>{displayedText}</span>
       {cursor && (
         <span
-          className="ml-1 inline-block animate-pulse font-light select-none"
+          className="ml-1 inline-block animate-typewriter-cursor select-none font-light"
           style={{ color: cursorColor }}
         >
           {cursorChar}

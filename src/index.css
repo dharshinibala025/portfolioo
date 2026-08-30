@@ -185,3 +185,16 @@ body {
 .animate-fade-up-soft {
   animation: fade-up-soft 1s ease-out forwards;
 }
+
+@keyframes cursor-blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-typewriter-cursor {
+  animation: cursor-blink 0.8s step-end infinite;
+}
