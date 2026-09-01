@@ -1,18 +1,11 @@
 import { motion } from 'framer-motion';
 import { 
   GraduationCap, 
-  Code2, 
-  BrainCircuit, 
-  Rocket, 
-  MapPin, 
-  Mail, 
   Briefcase, 
   Award, 
   Sparkles,
   BookOpen,
-  Cpu,
   CheckCircle2,
-  Phone,
   Building2
 } from 'lucide-react';
 import { personalInfo, internship } from '../data/content';
@@ -37,36 +30,6 @@ const ProfessionalAbout = () => {
       transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
     },
   };
-
-  const pillars = [
-    {
-      icon: Code2,
-      title: 'Backend Development',
-      description: 'Practical experience building RESTful backend services using Node.js, Express.js, MongoDB, JWT, Mongoose, and SQLite.',
-    },
-    {
-      icon: BrainCircuit,
-      title: 'Generative AI & Prompt Engineering',
-      description: 'Hands-on training from AICTE EduSkills & Infosys Springboard in LLMs, prompt engineering, and building AI chatbots.',
-    },
-    {
-      icon: Cpu,
-      title: 'Core Programming',
-      description: 'Strong foundation in C, Java, and Python with object-oriented programming principles and algorithm design.',
-    },
-    {
-      icon: Rocket,
-      title: 'Full-Stack Web Engineering',
-      description: 'Crafting responsive user interfaces with HTML, CSS, React.js, and Tailwind CSS integrated with robust backend APIs.',
-    },
-  ];
-
-  const highlights = [
-    { label: 'AICTE EduSkills', sub: 'Gen AI Virtual Internship (2026)' },
-    { label: 'NPTEL Elite+Silver', sub: 'Internet of Things (79% Score, 2025)' },
-    { label: 'Infosys Springboard', sub: 'Generative AI for All (2025)' },
-    { label: 'Bharathidasan Univ (IECD)', sub: 'Programming in C and C++ (First Class)' },
-  ];
 
   return (
     <div className="relative w-full text-[#171717]">
@@ -161,33 +124,6 @@ const ProfessionalAbout = () => {
               ))}
             </div>
           </motion.div>
-
-          {/* Competency Pillars Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {pillars.map((pillar, index) => {
-              const Icon = pillar.icon;
-              return (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ y: -4 }}
-                  className="p-5 rounded-2xl bg-white border border-[#ECE7DE] shadow-sm hover:border-[#B8893D]/40 transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-[#B8893D]/10 text-[#B8893D] flex items-center justify-center mb-3 group-hover:bg-[#B8893D] group-hover:text-white transition-colors duration-300">
-                      <Icon className="w-5 h-5" />
-                    </div>
-                    <h4 className="font-semibold text-[#171717] text-lg mb-2">
-                      {pillar.title}
-                    </h4>
-                    <p className="text-xs sm:text-sm text-[#6B6B6B] leading-relaxed">
-                      {pillar.description}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
         </div>
 
         {/* Right Column: Academic Snapshot (5 Cols) */}
