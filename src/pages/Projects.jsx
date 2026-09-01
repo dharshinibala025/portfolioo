@@ -9,9 +9,9 @@ const Projects = () => {
     <section id="projects" className="py-4">
       <GsapReveal>
         <PageHeader
-          eyebrow="Recent Work"
-          title="Innovation Hub"
-          description="A space where creative ideas, smart automation, and AI driven solutions come to life"
+          eyebrow="Featured Engineering"
+          title="Dharshini's Innovation Hub"
+          description="Explore my AI-powered chatbots, health trackers, hostel management platforms, and habit tracking applications."
         />
       </GsapReveal>
 
