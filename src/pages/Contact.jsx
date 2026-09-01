@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, MapPin, Send, Check, ArrowUpRight, Copy, Globe, Briefcase } from 'lucide-react';
+import { Mail, MapPin, Send, Check, ArrowUpRight, Copy, Globe, Briefcase, Phone } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import PageHeader from '../components/PageHeader';
 import { personalInfo, socials } from '../data/content';
@@ -54,7 +54,7 @@ const Contact = () => {
         <PageHeader
           eyebrow="Contact"
           title="Get in Touch"
-          description="Feel free to reach out directly via email, connect on professional networks, or leave a quick message."
+          description="Feel free to reach out directly via email, phone, connect on professional networks, or leave a quick message."
         />
       </GsapReveal>
 
@@ -102,23 +102,23 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Location & Professional Status */}
+          {/* Phone & Location */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="rounded-2xl border border-[#ECE7DE] bg-white/80 p-5 shadow-sm space-y-1.5">
+              <div className="flex items-center gap-2 text-[#B8893D] text-xs font-semibold uppercase tracking-wider">
+                <Phone size={14} /> Phone / WhatsApp
+              </div>
+              <a href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`} className="font-semibold text-sm text-[#1E1E1E] hover:text-[#B8893D] transition-colors block">
+                {personalInfo.phone}
+              </a>
+            </div>
+
             <div className="rounded-2xl border border-[#ECE7DE] bg-white/80 p-5 shadow-sm space-y-1.5">
               <div className="flex items-center gap-2 text-[#B8893D] text-xs font-semibold uppercase tracking-wider">
                 <MapPin size={14} /> Location
               </div>
               <p className="font-semibold text-sm text-[#1E1E1E]">
                 {personalInfo.location}
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-[#ECE7DE] bg-white/80 p-5 shadow-sm space-y-1.5">
-              <div className="flex items-center gap-2 text-[#B8893D] text-xs font-semibold uppercase tracking-wider">
-                <Briefcase size={14} /> Focus Area
-              </div>
-              <p className="font-semibold text-sm text-[#1E1E1E]">
-                Software Development
               </p>
             </div>
           </div>

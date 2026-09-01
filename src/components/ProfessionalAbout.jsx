@@ -11,9 +11,11 @@ import {
   Sparkles,
   BookOpen,
   Cpu,
-  CheckCircle2
+  CheckCircle2,
+  Phone,
+  Building2
 } from 'lucide-react';
-import { personalInfo } from '../data/content';
+import { personalInfo, internship } from '../data/content';
 
 const ProfessionalAbout = () => {
   const containerVariants = {
@@ -39,31 +41,31 @@ const ProfessionalAbout = () => {
   const pillars = [
     {
       icon: Code2,
-      title: 'Full-Stack Development',
-      description: 'Building clean, responsive web applications using React, JavaScript, HTML/CSS, Tailwind, and backend integrations with Java & Node.js.',
+      title: 'Backend Development',
+      description: 'Practical experience building RESTful backend services using Node.js, Express.js, MongoDB, JWT, Mongoose, and SQLite.',
     },
     {
       icon: BrainCircuit,
-      title: 'AI & Generative AI Focus',
-      description: 'Exploring LLM integrations, Python Streamlit applications (such as Krishi Sakhi), and machine learning concepts to build smart solutions.',
+      title: 'Generative AI & Prompt Engineering',
+      description: 'Hands-on training from AICTE EduSkills & Infosys Springboard in LLMs, prompt engineering, and building AI chatbots.',
     },
     {
       icon: Cpu,
-      title: 'Core Software Engineering',
-      description: 'Solid foundation in Data Structures, Algorithms, and Object-Oriented Programming using C, C++, Java, and Python.',
+      title: 'Core Programming',
+      description: 'Strong foundation in C, Java, and Python with object-oriented programming principles and algorithm design.',
     },
     {
       icon: Rocket,
-      title: 'Research & Innovation',
-      description: 'Actively participating in technical paper presentations (PSG Tech Yuktha), workshops, and pursuing software engineering research internships.',
+      title: 'Full-Stack Web Engineering',
+      description: 'Crafting responsive user interfaces with HTML, CSS, React.js, and Tailwind CSS integrated with robust backend APIs.',
     },
   ];
 
   const highlights = [
-    { label: 'Infosys Springboard', sub: 'Software Engineering & Web Development' },
-    { label: 'VIT Vellore Workshop', sub: 'Large Language Models in GenAI' },
-    { label: 'HP Foundation Certified', sub: 'AI for Beginners' },
-    { label: 'Paper Presentation', sub: 'Yuktha Symposium at PSG Tech' },
+    { label: 'AICTE EduSkills', sub: 'Gen AI Virtual Internship (2026)' },
+    { label: 'NPTEL Elite+Silver', sub: 'Internet of Things (79% Score, 2025)' },
+    { label: 'Infosys Springboard', sub: 'Generative AI for All (2025)' },
+    { label: 'Bharathidasan Univ (IECD)', sub: 'Programming in C and C++ (First Class)' },
   ];
 
   return (
@@ -88,7 +90,7 @@ const ProfessionalAbout = () => {
         </h2>
 
         <p className="text-base sm:text-lg text-[#6B6B6B] max-w-2xl mx-auto leading-relaxed">
-          Computer Science student passionate about software engineering, artificial intelligence, and crafting human-centered digital experiences.
+          Computer Science student passionate about backend software engineering, Generative AI, machine learning, and building scalable real-world solutions.
         </p>
       </motion.div>
 
@@ -100,7 +102,7 @@ const ProfessionalAbout = () => {
         viewport={{ once: true }}
         className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
       >
-        {/* Left Column: Bio & Pillars (7 Cols) */}
+        {/* Left Column: Bio, Internship & Pillars (7 Cols) */}
         <div className="lg:col-span-7 space-y-6">
           {/* Bio Box */}
           <motion.div 
@@ -115,12 +117,48 @@ const ProfessionalAbout = () => {
             </h3>
 
             <p className="text-[#6B6B6B] leading-relaxed mb-6 font-sans text-base">
-              I am currently pursuing my B.E. in Computer Science & Engineering at K.S.R. College of Engineering, Thiruchengode. My academic journey is powered by a strong enthusiasm for building scalable software, diving into AI-driven tools, and solving complex problems with elegant code.
+              {personalInfo.objective}
             </p>
 
             {/* Quote / Highlight */}
             <div className="p-4 rounded-xl bg-[#FCFBF8] border-l-4 border-[#B8893D] text-sm sm:text-base text-[#171717] italic font-medium">
-              "Building human-centered AI software with clean code, intuitive design, and continuous learning."
+              "Applying technical skills and creativity to build intelligent, real-world solutions while continuously learning."
+            </div>
+          </motion.div>
+
+          {/* New Dedicated Internship Feature Card */}
+          <motion.div 
+            variants={itemVariants}
+            className="p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-white via-[#FCFBF8] to-[#F6F2EA] border border-[#ECE7DE] shadow-sm relative"
+          >
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <Building2 className="w-5 h-5 text-[#B8893D]" />
+                <h3 className="text-xl font-serif-display font-semibold text-[#171717]">
+                  Industry Experience
+                </h3>
+              </div>
+              <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#B8893D]/10 text-[#B8893D] border border-[#B8893D]/20">
+                {internship.role}
+              </span>
+            </div>
+
+            <div className="mb-3">
+              <h4 className="text-lg font-bold text-[#171717]">{internship.company}</h4>
+              <p className="text-xs text-[#8A8A8A]">{internship.duration}</p>
+            </div>
+
+            <p className="text-sm text-[#6B6B6B] leading-relaxed mb-4">
+              {internship.description}
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-[#ECE7DE]">
+              {internship.highlights.map((h, i) => (
+                <div key={i} className="flex items-center gap-2 text-xs font-medium text-[#171717]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#B8893D] shrink-0" />
+                  <span>{h}</span>
+                </div>
+              ))}
             </div>
           </motion.div>
 
@@ -161,7 +199,7 @@ const ProfessionalAbout = () => {
           >
             <h3 className="text-xl font-serif-display font-semibold text-[#171717] mb-6 flex items-center gap-2">
               <GraduationCap className="w-5 h-5 text-[#B8893D]" />
-              <span>Academic & Info Snapshot</span>
+              <span>Academic & Contact Snapshot</span>
             </h3>
 
             <div className="space-y-4 text-sm">
@@ -177,9 +215,13 @@ const ProfessionalAbout = () => {
               <div className="flex items-start gap-3 p-3 rounded-xl bg-[#FCFBF8]">
                 <Award className="w-4 h-4 text-[#B8893D] shrink-0 mt-0.5" />
                 <div>
-                  <span className="text-xs text-[#8A8A8A] uppercase font-semibold tracking-wider block">Academic Score</span>
-                  <span className="font-semibold text-[#B8893D] text-base">CGPA 8.16</span>
-                  <span className="text-xs text-[#6B6B6B] block">till 2nd Semester</span>
+                  <span className="text-xs text-[#8A8A8A] uppercase font-semibold tracking-wider block">Academic Performance</span>
+                  <span className="font-semibold text-[#B8893D] text-base">CGPA 8.15</span>
+                  <span className="text-xs text-[#6B6B6B] block">till 4th Semester</span>
+                  <div className="mt-2 pt-2 border-t border-[#ECE7DE] text-xs text-[#6B6B6B] space-y-0.5">
+                    <div>• HSC (12th): <strong>8.35 / 83.5%</strong> (SVM Hr.Sec)</div>
+                    <div>• SSLC (10th): <strong>8.34 / 83.4%</strong> (VBMMS)</div>
+                  </div>
                 </div>
               </div>
 
@@ -188,6 +230,16 @@ const ProfessionalAbout = () => {
                 <div>
                   <span className="text-xs text-[#8A8A8A] uppercase font-semibold tracking-wider block">Location</span>
                   <span className="font-medium text-[#171717]">{personalInfo.location}</span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 p-3 rounded-xl bg-[#FCFBF8]">
+                <Phone className="w-4 h-4 text-[#B8893D] shrink-0 mt-0.5" />
+                <div>
+                  <span className="text-xs text-[#8A8A8A] uppercase font-semibold tracking-wider block">Phone</span>
+                  <a href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`} className="font-medium text-[#171717] hover:text-[#B8893D] transition-colors">
+                    {personalInfo.phone}
+                  </a>
                 </div>
               </div>
 
@@ -247,3 +299,4 @@ const ProfessionalAbout = () => {
 };
 
 export default ProfessionalAbout;
+

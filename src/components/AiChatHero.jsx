@@ -43,32 +43,32 @@ const AiChatHero = () => {
       if (lower.includes('project') || lower.includes('build') || lower.includes('work') || lower.includes('show')) {
         botResponse = {
           type: 'projects',
-          text: "Here are Dharshini's featured projects shipped with React, Python, Streamlit, and Full-Stack tools:",
+          text: "Here are Dharshini's featured projects shipped with Node.js, Express.js, MongoDB, Java, Python, and AI APIs:",
           data: projects,
         };
       } else if (lower.includes('tech') || lower.includes('stack') || lower.includes('skill') || lower.includes('language')) {
         botResponse = {
           type: 'stack',
-          text: "Dharshini specializes in full-stack engineering and Generative AI tools. Here is her core technical matrix:",
+          text: "Dharshini specializes in full-stack backend development, Generative AI, and Prompt Engineering. Here is her core technical matrix:",
           data: { skills, frameworks, tools },
         };
       } else if (lower.includes('background') || lower.includes('vision') || lower.includes('who') || lower.includes('about') || lower.includes('education')) {
         botResponse = {
           type: 'background',
-          text: "Dharshini is a Computer Science Engineering student (CGPA 8.16) passionate about human-centered AI and intelligent web apps.",
+          text: "Dharshini is a Computer Science Engineering student (CGPA 8.15 till 4th sem) with Backend Developer internship experience at Touchmark Descience Pvt. Ltd.",
           data: { personalInfo, journeyMoments, heroStats },
         };
       } else if (lower.includes('contact') || lower.includes('email') || lower.includes('reach') || lower.includes('hire')) {
         botResponse = {
           type: 'contact',
-          text: `You can reach Dharshini directly via email at ${personalInfo.email} or connect on social platforms:`,
+          text: `You can reach Dharshini directly via email at ${personalInfo.email} or call ${personalInfo.phone}:`,
           data: personalInfo,
         };
       } else {
         // Fallback natural language answer
         botResponse = {
           type: 'general',
-          text: `Dharshini is a ${personalInfo.title} based in ${personalInfo.location}. She has shipped ${heroStats[1].value} projects and maintains a ${journeyMoments[2].description.split('cgpa-')[1] || '8.16 CGPA'}.`,
+          text: `Dharshini is a ${personalInfo.title} based in ${personalInfo.location}. She has shipped ${heroStats[1].value} projects, completed an internship at Touchmark Descience, and maintains a 8.15 CGPA.`,
           data: personalInfo,
         };
       }
@@ -362,14 +362,14 @@ const AiChatHero = () => {
                               B.E Computer Science & Engineering at <strong>K.S.R. College of Engineering</strong> (2024 - 2028).
                             </p>
                             <div className="inline-flex items-center gap-1.5 rounded-full bg-[#9A7B4F]/10 px-3 py-1 text-xs font-semibold text-[#9A7B4F]">
-                              <CheckCircle2 size={12} /> CGPA: 8.16 (up to 2nd Sem)
+                              <CheckCircle2 size={12} /> CGPA: 8.15 (till 4th Sem)
                             </div>
                           </div>
 
                           <div className="rounded-2xl border border-[#ECE7DE] bg-[#FCFBF8] p-4 space-y-2">
-                            <h5 className="font-serif-display font-bold text-sm text-[#171717]">AI Research & Development Goal</h5>
+                            <h5 className="font-serif-display font-bold text-sm text-[#171717]">Industry Experience</h5>
                             <p className="text-xs text-[#6B6B6B] leading-relaxed">
-                              Dharshini focuses on building human-centered AI systems, combining GenAI APIs (LLMs, Streamlit, Python) with responsive web architectures.
+                              Backend Developer Intern at <strong>Touchmark Descience Pvt. Ltd.</strong> — built RESTful backend services using Node.js, Express.js, MongoDB, JWT, and Mongoose for HostelHub Management System.
                             </p>
                           </div>
                         </div>

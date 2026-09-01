@@ -89,7 +89,7 @@ const BentoDashboard = () => {
                 <Activity size={13} /> Active Projects
               </span>
               <span className="rounded-md bg-[#ECE7DE] px-2 py-0.5 text-[10px] font-semibold text-[#171717]">
-                3 Shipped
+                4 Shipped
               </span>
             </div>
             <h4 className="font-serif-display text-lg font-bold text-[#171717]">
@@ -144,7 +144,7 @@ const BentoDashboard = () => {
                 <span className="text-[10px] font-medium text-[#6B6B6B]">Internship</span>
               </div>
               <div className="p-2 rounded-xl bg-[#FCFBF8] border border-[#ECE7DE]">
-                <span className="font-serif-display font-bold text-xl text-[#9A7B4F] block">8.16</span>
+                <span className="font-serif-display font-bold text-xl text-[#9A7B4F] block">8.15</span>
                 <span className="text-[10px] font-medium text-[#6B6B6B]">CGPA</span>
               </div>
             </div>

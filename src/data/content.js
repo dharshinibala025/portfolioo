@@ -8,165 +8,206 @@ import cert from '../assets/cert.jpg';
 import chatbot from '../assets/chatbot.jpg';
 import summ from '../assets/summ.jpg';
 import info from '../assets/info.jpg';
-import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaBook, FaPenNib, FaPlane, FaMusic, FaCamera, FaMicrochip, FaMicrosoft } from 'react-icons/fa6';
-import { SiCplusplus, SiTailwindcss, SiExpress, SiStreamlit, SiC, SiCanva } from 'react-icons/si';
+import { FaGithub, FaLinkedin, FaTwitter, FaPython, FaJava, FaHtml5, FaCss3Alt, FaJs, FaReact, FaNodeJs, FaGitAlt, FaBook, FaPenNib, FaPlane, FaMusic, FaCamera, FaDatabase, FaMobileScreenButton } from 'react-icons/fa6';
+import { SiCplusplus, SiTailwindcss, SiExpress, SiStreamlit, SiC, SiCanva, SiMongodb, SiMysql, SiSqlite, SiPostman, SiAndroidstudio } from 'react-icons/si';
 import { VscVscode } from 'react-icons/vsc';
 
 export const personalInfo = {
-  name: 'Dharshini',
-  fullName: 'Dharshini',
+  name: 'Dharshini B',
+  fullName: 'Dharshini B',
   title: 'Software Developer & Computer Science Student',
   dob: '25 May 2007',
-  location: 'Salem, Tamil Nadu',
+  location: 'Attayampatti, Salem, Tamil Nadu',
+  phone: '+91 96295 62900',
   college: 'K.S.R. College of Engineering, Thiruchengode',
+  degree: 'B.E. Computer Science and Engineering',
+  cgpa: '8.15 (till 4th semester)',
+  hsc: '83.5% (Sri Vidya Mandir Matric HR.Sec)',
+  sslc: '83.4% (Vivekananda Balamandir Matric School)',
   email: 'dharshinibala001@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/dharshini-balasubramaniam-62193632a',
+  github: 'https://github.com/dharshinibala025',
+  objective:
+    'A highly motivated student with a strong interest in Machine Learning, Generative AI, and Prompt Engineering, seeking an opportunity to apply my technical skills and creativity to build intelligent, real-world solutions while continuously learning and growing in a challenging environment.',
   description:
-    'I’m a curious and forward-thinking Computer Science student with a growing passion for AI. I love exploring emerging technologies, experimenting with new ideas, and building simple yet meaningful digital experiences.',
-  technologies: ['Python', 'Java', 'C', 'HTML', 'c++'],
+    'A highly motivated Computer Science student specializing in Backend Development, Machine Learning, Generative AI, and Prompt Engineering. Passionate about building intelligent, real-world solutions.',
+  technologies: ['C', 'Java', 'Python', 'React.js', 'Node.js', 'Express.js', 'MongoDB', 'Generative AI'],
   profileImage,
 };
 
 export const heroStats = [
   { label: 'Internship', value: '01' },
-  { label: 'Projects Shipped', value: '03' },
-  { label: 'Tech Stacks', value: '06' },
+  { label: 'Projects Shipped', value: '04' },
+  { label: 'CGPA (till 4th sem)', value: '8.15' },
 ];
+
+export const internship = {
+  role: 'Backend Developer Intern',
+  company: 'Touchmark Descience Pvt. Ltd.',
+  duration: 'Recent Industry Experience',
+  description:
+    'Gained practical experience in backend development using Node.js, Express.js, and MongoDB through a real-world Hostel Management System project. Improved API development, database management, authentication, and teamwork skills while working in an industry environment.',
+  highlights: [
+    'RESTful Backend Development with Node.js & Express.js',
+    'Database Schema & Data Management with MongoDB & Mongoose',
+    'Role-based Access & Secure JWT Authentication',
+    'Real-time Data Processing & API Integration',
+  ],
+};
 
 export const projects = [
   {
     id: 1,
-    title: 'Habit Tracker',
+    title: 'AI Based ChatBot',
     description:
-      'Turning small daily actions into meaningful long-term achievements.',
-    image: habitImg,
-    github: 'https://github.com/dharshinibala025/habit-tracker',
-    link: 'https://habit-tracker-ten-navy.vercel.app',
-    tags: ['React', 'Java', 'Spring Boot', 'MongoDB'],
+      'Intelligent conversational chatbot application built with AI APIs and NLP for smart query resolution.',
+    image: chatbot,
+    github: 'https://github.com/dharshinibala025',
+    link: 'https://github.com/dharshinibala025',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'SQLite', 'AI APIs', 'NLP'],
   },
   {
     id: 2,
-    title: 'Krishi Sakhi',
+    title: 'Health and Fitness Tracker',
     description:
-      'Streamlit app for Kerala Farmers Queries.',
-    image: summ,
-    github: 'https://github.com/dharshinibala025',
-    link: 'https://krishi-sakhi-innovix-yp7whczthex5zaachik6gu.streamlit.app/',
-    tags: ['Python', 'Streamlit'],
-  },
-  {
-    id: 3,
-    title: 'Health Fitness Tracker',
-    description:
-      'Smart health tracking app for monitoring workouts and progress.',
+      'Full-stack web application featuring BMI calculation, workout planning, calorie tracking, hydration monitoring, meditation, sleep analysis, and step tracking.',
     image: image,
     github: 'https://github.com/dharshinibala025/fitness_tracker.git',
     link: 'https://fitness-tracker-nine-kohl.vercel.app',
-    tags: ['HTML', 'CSS', 'Javascript'],
+    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js'],
+  },
+  {
+    id: 3,
+    title: 'HostelHub Management System',
+    description:
+      'RESTful backend services with Node.js, Express.js, MongoDB, JWT, and Mongoose for a role-based Hostel Management System with student, warden, and admin modules.',
+    image: habitImg,
+    github: 'https://github.com/dharshinibala025',
+    link: 'https://github.com/dharshinibala025',
+    tags: ['Node.js', 'Express.js', 'MongoDB', 'JWT', 'Mongoose', 'REST APIs'],
+  },
+  {
+    id: 4,
+    title: 'Habit Tracker',
+    description:
+      'Java application to help users create, manage, and track daily habits efficiently with streak monitoring and OOP principles.',
+    image: summ,
+    github: 'https://github.com/dharshinibala025/habit-tracker',
+    link: 'https://habit-tracker-ten-navy.vercel.app',
+    tags: ['Java', 'OOP', 'Progress Tracking', 'Data Management'],
   },
 ];
 
 export const certificates = [
   {
-    id: 'cert-Infosys',
-    title: 'Infosys Springboard',
-    issuedBy: 'Infosys',
-    year: '2025',
+    id: 'cert-AICTE',
+    title: 'AICTE EduSkills – Gen AI Virtual Internship',
+    issuedBy: 'AICTE EduSkills',
+    year: 'Jan-Mar 2026',
+    description: 'Hands-on experience in prompt engineering, LLMs, and AI-powered application development.',
     image: info,
   },
   {
-    id: 'cert-Workshop',
-    title: 'Large Language Model in GenAI ',
-    issuedBy: 'VIT,Vellore',
-    year: '2025',
-    image: vit,
-  },
-  {
-    id: 'cert-Online Course',
-    title: 'AI for Beginners',
-    issuedBy: 'HP life & HP foundation',
-    year: '2025',
-    image: hp,
-  },
-  {
-    id: 'cert-sympo',
-    title: 'Yuktha Paper presentation',
-    issuedBy: 'PSGItech',
-    year: '2025',
+    id: 'cert-NPTEL',
+    title: 'Elite+Silver NPTEL Online Certification (IoT)',
+    issuedBy: 'NPTEL (IIT)',
+    year: 'Jan-Apr 2025',
+    description: 'Internet of Things (IoT) - Secured 79% in Elite+Silver category.',
     image: yukta,
   },
   {
-    id: 'cert-Career Development',
-    title: 'Programming on C & C++',
-    issuedBy: 'Bharathidasan University',
-    year: '2020',
+    id: 'cert-Infosys',
+    title: 'Infosys Springboard – Generative AI for All',
+    issuedBy: 'Infosys Springboard',
+    year: 'May 2025',
+    description: 'Covering AI fundamentals, prompt engineering, responsible AI, and real-world AI applications.',
+    image: vit,
+  },
+  {
+    id: 'cert-IECD',
+    title: 'Programming in C and C++',
+    issuedBy: 'Bharathidasan University (IECD)',
+    year: 'Feb 2020',
+    description: 'Entrepreneurship and Career Development (SUITS) - Secured First Class.',
     image: cert,
   },
 ];
 
 export const journeyMoments = [
   {
-    year: '2020-21',
-    title: 'Secondary School Leaving',
-    description: 'VBMMS,Attayampatti-637501',
-    highlight: 'First milestone achieved.',
+    year: '2020',
+    title: 'SSLC (10th Standard)',
+    description: 'Vivekananda Balamandir Matric School, Attayampatti',
+    highlight: 'Scored 83.4% (8.34)',
   },
   {
-    year: '2023-24',
-    title: 'Higher Secondary Leaving',
-    description: 'SVM Hr.Sec School,Gurusamipalayam-',
-    highlight: 'Leveling up skills.',
+    year: '2022 - 2024',
+    title: 'HSC (12th Standard)',
+    description: 'Sri Vidya Mandir Matric HR.Sec, Gurusamipalayam',
+    highlight: 'Scored 83.5% (8.35)',
   },
   {
-    year: '2024-28',
-    title: 'Bachelor Degree-B.E(CSE)',
-    description: 'Targeting research internships, building human-centered AI Skill developing cgpa-8.16 till 2nd semester',
-    highlight: 'Targeting research and AI skills.',
+    year: '2024 - 2028',
+    title: 'B.E. Computer Science & Engineering',
+    description: 'K.S.R. College of Engineering, Thiruchengode',
+    highlight: 'Current CGPA: 8.15 (till 4th semester)',
   },
 ];
 
 export const socials = [
   { label: 'GitHub', url: 'https://github.com/dharshinibala025', icon: FaGithub },
-  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/dharshini-bala-62193632a?', icon: FaLinkedin },
+  { label: 'LinkedIn', url: 'https://www.linkedin.com/in/dharshini-balasubramaniam-62193632a', icon: FaLinkedin },
   { label: 'Twitter', url: 'https://x.com/Dharshiniibala?t=WixAss77mnxtDvBJIz5PFg&s=09', icon: FaTwitter },
 ];
 
 export const skills = [
-  { name: 'HTML', icon: FaHtml5 },
-  { name: 'CSS', icon: FaCss3Alt },
-  { name: 'Java', icon: FaJava },
-  { name: 'C++', icon: SiCplusplus },
   { name: 'C', icon: SiC },
+  { name: 'Java', icon: FaJava },
   { name: 'Python', icon: FaPython },
 ];
 
 export const frameworks = [
-  { name: 'React', icon: FaReact },
-  { name: 'Node.js', icon: FaNodeJs },
-  { name: 'Express', icon: SiExpress },
+  { name: 'HTML', icon: FaHtml5 },
+  { name: 'CSS', icon: FaCss3Alt },
+  { name: 'React.js', icon: FaReact },
   { name: 'Tailwind CSS', icon: SiTailwindcss },
-  { name: 'Streamlit', icon: SiStreamlit },
+  { name: 'Node.js', icon: FaNodeJs },
+  { name: 'Express.js', icon: SiExpress },
+  { name: 'REST APIs', icon: FaNodeJs },
+];
+
+export const databases = [
+  { name: 'MongoDB', icon: SiMongodb },
+  { name: 'MySQL', icon: SiMysql },
+  { name: 'SQLite', icon: SiSqlite },
 ];
 
 export const tools = [
-  { name: 'GitHub', icon: FaGithub },
   { name: 'Git', icon: FaGitAlt },
-  { name: 'VS Code', icon: VscVscode },
+  { name: 'GitHub', icon: FaGithub },
+  { name: 'Postman', icon: SiPostman },
+  { name: 'Android Studio', icon: SiAndroidstudio },
   { name: 'Canva', icon: SiCanva },
-  { name: 'MS Office', icon: FaMicrosoft },
-  { name: 'Matlab', icon: FaMicrochip },
+  { name: 'VS Code', icon: VscVscode },
+];
+
+export const aiSkills = [
+  { name: 'Generative AI' },
+  { name: 'Prompt Engineering' },
+  { name: 'Large Language Models (LLMs)' },
 ];
 
 export const hobbies = [
-  { name: 'Reading', icon: FaBook, description: 'Quotes&Inspiring' },
-  { name: 'writing', icon: FaPenNib, description: 'Random Thoughts' },
+  { name: 'Reading', icon: FaBook, description: 'Quotes & Inspiring books' },
+  { name: 'Writing', icon: FaPenNib, description: 'Technical notes & thoughts' },
   { name: 'Traveling', icon: FaPlane, description: 'Exploring new places' },
   { name: 'Music', icon: FaMusic, description: 'All genres' },
-  { name: 'Photography', icon: FaCamera, description: 'Capturing Moments' },
+  { name: 'Photography', icon: FaCamera, description: 'Capturing moments' },
 ];
 
 export const funFacts = [
-  "I can debug code in my sleep (literally).",
-  "I'm a night owl who loves early morning coding sessions.",
-  "I have a collection of over 50 tech stickers.",
-  "I built my first website when I was 15.",
-];
+  "Passion for building AI-powered web applications and smart chatbots.",
+  "Hands-on experience in full-stack REST API development and MongoDB.",
+  "Secured Elite+Silver category (79%) in NPTEL Internet of Things certification.",
+  "Completed AICTE EduSkills Gen AI Virtual Internship in prompt engineering & LLMs.",
+];

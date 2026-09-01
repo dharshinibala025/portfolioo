@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { skills, frameworks, tools } from '../data/content';
+import { skills, frameworks, databases, tools } from '../data/content';
 
 const SkillWebGraph = () => {
     const containerRef = useRef(null);
@@ -30,9 +30,10 @@ const SkillWebGraph = () => {
 
     // Data Structure
     const categories = [
-        { id: 'languages', label: 'Languages', items: skills, angle: 0, color: 'text-accent-400', borderColor: 'border-accent-400/50' },
-        { id: 'frameworks', label: 'Frameworks', items: frameworks, angle: 120, color: 'text-accent-500', borderColor: 'border-accent-500/50' },
-        { id: 'tools', label: 'Tools', items: tools, angle: 240, color: 'text-accent-600', borderColor: 'border-accent-600/50' }
+        { id: 'languages', label: 'Languages', items: skills, angle: 0, color: 'text-amber-500', borderColor: 'border-amber-500/50' },
+        { id: 'frameworks', label: 'Frameworks', items: frameworks, angle: 90, color: 'text-amber-600', borderColor: 'border-amber-600/50' },
+        { id: 'databases', label: 'Databases', items: databases, angle: 180, color: 'text-[#B8893D]', borderColor: 'border-[#B8893D]/50' },
+        { id: 'tools', label: 'Tools', items: tools, angle: 270, color: 'text-amber-700', borderColor: 'border-amber-700/50' }
     ];
 
     // Helper to calculate position
