@@ -76,17 +76,12 @@ const ProfessionalAbout = () => {
 
             <h3 className="text-xl sm:text-2xl font-serif-display font-semibold text-[#171717] mb-4 flex items-center gap-2">
               <BookOpen className="w-5 h-5 text-[#B8893D]" />
-              <span>About Me</span>
+              <span>Professional</span>
             </h3>
 
-            <p className="text-[#6B6B6B] leading-relaxed mb-6 font-sans text-base">
+            <p className="text-[#6B6B6B] leading-relaxed font-sans text-base">
               {personalInfo.objective}
             </p>
-
-            {/* Quote / Highlight */}
-            <div className="p-4 rounded-xl bg-[#FCFBF8] border-l-4 border-[#B8893D] text-sm sm:text-base text-[#171717] italic font-medium">
-              "Applying technical skills and creativity to build intelligent, real-world solutions while continuously learning."
-            </div>
           </motion.div>
 
           {/* New Dedicated Internship Feature Card */}
@@ -126,16 +121,16 @@ const ProfessionalAbout = () => {
           </motion.div>
         </div>
 
-        {/* Right Column: Academic Snapshot (5 Cols) */}
+        {/* Right Column: Academic (5 Cols) */}
         <div className="lg:col-span-5 space-y-6">
-          {/* Academic Snapshot Card */}
+          {/* Academic Card */}
           <motion.div 
             variants={itemVariants}
             className="p-6 sm:p-8 rounded-2xl bg-white border border-[#ECE7DE] shadow-sm relative"
           >
             <h3 className="text-xl font-serif-display font-semibold text-[#171717] mb-6 flex items-center gap-2">
               <GraduationCap className="w-5 h-5 text-[#B8893D]" />
-              <span>Academic Snapshot</span>
+              <span>Academic</span>
             </h3>
 
             <div className="space-y-4 text-sm">
