@@ -49,12 +49,12 @@ const Contact = () => {
   };
 
   return (
-    <section className="relative py-12">
+    <section className="relative py-4">
       <GsapReveal>
         <PageHeader
-          eyebrow="Contact"
-          title="Get in Touch"
-          description="Feel free to reach out directly via email, phone, connect on professional networks, or leave a quick message."
+          eyebrow="Let's Connect"
+          title="Connect with Dharshini B"
+          description="Available for Backend Development, Generative AI, and Software Engineering roles. Reach out via email, phone, or message."
         />
       </GsapReveal>
 

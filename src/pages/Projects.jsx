@@ -6,7 +6,7 @@ import GsapReveal from '../components/GsapReveal';
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-12">
+    <section id="projects" className="py-4">
       <GsapReveal>
         <PageHeader
           eyebrow="Recent Work"

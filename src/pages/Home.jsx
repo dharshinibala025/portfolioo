@@ -8,27 +8,27 @@ import Contact from './Contact';
 
 const Home = () => {
   return (
-    <div className="space-y-16">
+    <div className="space-y-8">
       {/* 1. Full-Bleed Home / Hero Section */}
       <section id="home" className="w-full">
         <HeroSection />
       </section>
 
       {/* 2. Detailed Scroll Sections Container */}
-      <div className="max-w-6xl mx-auto px-4 md:px-10 lg:px-12 space-y-16">
-        <section id="about" className="pt-8">
+      <div className="max-w-6xl mx-auto px-4 md:px-10 lg:px-12 space-y-10">
+        <section id="about" className="pt-2">
           <About />
         </section>
 
-        <section id="projects" className="pt-8">
+        <section id="projects" className="pt-2">
           <Projects />
         </section>
 
-        <section id="skills" className="pt-8">
+        <section id="skills" className="pt-2">
           <Skills />
         </section>
 
-        <section id="contact" className="pt-8">
+        <section id="contact" className="pt-2">
           <Contact />
         </section>
       </div>
