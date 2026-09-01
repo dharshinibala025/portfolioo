@@ -190,16 +190,16 @@ const ProfessionalAbout = () => {
           </div>
         </div>
 
-        {/* Right Column: Quick Profile Info & Highlights (5 Cols) */}
+        {/* Right Column: Academic Snapshot (5 Cols) */}
         <div className="lg:col-span-5 space-y-6">
-          {/* Quick Stats & Info Card */}
+          {/* Academic Snapshot Card */}
           <motion.div 
             variants={itemVariants}
             className="p-6 sm:p-8 rounded-2xl bg-white border border-[#ECE7DE] shadow-sm relative"
           >
             <h3 className="text-xl font-serif-display font-semibold text-[#171717] mb-6 flex items-center gap-2">
               <GraduationCap className="w-5 h-5 text-[#B8893D]" />
-              <span>Academic & Contact Snapshot</span>
+              <span>Academic Snapshot</span>
             </h3>
 
             <div className="space-y-4 text-sm">
@@ -226,34 +226,6 @@ const ProfessionalAbout = () => {
               </div>
 
               <div className="flex items-start gap-3 p-3 rounded-xl bg-[#FCFBF8]">
-                <MapPin className="w-4 h-4 text-[#B8893D] shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-xs text-[#8A8A8A] uppercase font-semibold tracking-wider block">Location</span>
-                  <span className="font-medium text-[#171717]">{personalInfo.location}</span>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-[#FCFBF8]">
-                <Phone className="w-4 h-4 text-[#B8893D] shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-xs text-[#8A8A8A] uppercase font-semibold tracking-wider block">Phone</span>
-                  <a href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`} className="font-medium text-[#171717] hover:text-[#B8893D] transition-colors">
-                    {personalInfo.phone}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-[#FCFBF8]">
-                <Mail className="w-4 h-4 text-[#B8893D] shrink-0 mt-0.5" />
-                <div>
-                  <span className="text-xs text-[#8A8A8A] uppercase font-semibold tracking-wider block">Email</span>
-                  <a href={`mailto:${personalInfo.email}`} className="font-medium text-[#171717] hover:text-[#B8893D] transition-colors break-all">
-                    {personalInfo.email}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3 p-3 rounded-xl bg-[#FCFBF8]">
                 <Briefcase className="w-4 h-4 text-[#B8893D] shrink-0 mt-0.5" />
                 <div>
                   <span className="text-xs text-[#8A8A8A] uppercase font-semibold tracking-wider block">Status</span>
@@ -263,33 +235,6 @@ const ProfessionalAbout = () => {
                   </span>
                 </div>
               </div>
-            </div>
-          </motion.div>
-
-          {/* Key Achievements Card */}
-          <motion.div 
-            variants={itemVariants}
-            className="p-6 sm:p-8 rounded-2xl bg-white border border-[#ECE7DE] shadow-sm"
-          >
-            <h3 className="text-lg font-serif-display font-semibold text-[#171717] mb-4 flex items-center gap-2">
-              <Award className="w-5 h-5 text-[#B8893D]" />
-              <span>Key Certifications & Recognition</span>
-            </h3>
-
-            <div className="space-y-3">
-              {highlights.map((item, idx) => (
-                <div key={idx} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#B8893D] shrink-0 mt-0.5" />
-                  <div>
-                    <p className="text-sm font-medium text-[#171717] leading-tight">
-                      {item.label}
-                    </p>
-                    <p className="text-xs text-[#6B6B6B]">
-                      {item.sub}
-                    </p>
-                  </div>
-                </div>
-              ))}
             </div>
           </motion.div>
         </div>
