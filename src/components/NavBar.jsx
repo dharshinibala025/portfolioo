@@ -57,21 +57,21 @@ const NavBar = ({ isVisible = true }) => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-x-0 top-0 z-50 h-[72px] bg-[#FAF8F3]/90 backdrop-blur-md border-b border-[#ECE7DE]/70 transition-all duration-300"
+      className="fixed inset-x-0 top-0 z-50 h-[72px] bg-[#F8F6F1]/90 backdrop-blur-md border-b border-[#E8E4DB]/80 transition-all duration-300"
     >
       <div className="mx-auto flex h-full w-full max-w-[1400px] items-center justify-between px-6 sm:px-12 lg:px-20">
         
-        {/* Left: Brand Logo */}
+        {/* Left: Brand Logo in Elegant Serif */}
         <a
           href="#home"
           onClick={(e) => handleClick(e, '#home')}
-          className="font-serif-display text-xl sm:text-2xl font-bold tracking-tight text-[#1E1E1E] transition-opacity hover:opacity-80 flex items-center gap-0.5"
+          className="font-serif-display text-xl sm:text-2xl font-bold tracking-tight text-[#171717] transition-opacity hover:opacity-80 flex items-center gap-0.5"
         >
           <span>Dharshini</span>
         </a>
 
         {/* Center: Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium font-sans">
           {navLinks.map((link) => {
             const isActive = activeSection === link.path.substring(1);
             return (
@@ -81,8 +81,8 @@ const NavBar = ({ isVisible = true }) => {
                 onClick={(e) => handleClick(e, link.path)}
                 className={`relative py-1 text-sm font-medium transition-colors duration-200 ${
                   isActive
-                    ? 'text-[#1E1E1E] font-semibold'
-                    : 'text-[#6B7280] hover:text-[#B8893D]'
+                    ? 'text-[#171717] font-semibold'
+                    : 'text-[#6B6B6B] hover:text-[#C49545]'
                 }`}
               >
                 {link.label}
@@ -91,7 +91,7 @@ const NavBar = ({ isVisible = true }) => {
                 {isActive && (
                   <motion.span
                     layoutId="navbar-active-line"
-                    className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-[#B8893D]"
+                    className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-[#C49545]"
                     transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -101,13 +101,13 @@ const NavBar = ({ isVisible = true }) => {
         </nav>
 
         {/* Right: Actions */}
-        <div className="flex items-center gap-4 text-[#1E1E1E]">
+        <div className="flex items-center gap-4 text-[#171717]">
           {/* GitHub Icon */}
           <a
             href={githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#6B7280] hover:text-[#B8893D] transition-colors p-1"
+            className="text-[#6B6B6B] hover:text-[#C49545] transition-colors p-1"
             title="GitHub"
           >
             <FaGithub size={18} />
@@ -118,7 +118,7 @@ const NavBar = ({ isVisible = true }) => {
             href={linkedinUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#6B7280] hover:text-[#B8893D] transition-colors p-1"
+            className="text-[#6B6B6B] hover:text-[#C49545] transition-colors p-1"
             title="LinkedIn"
           >
             <FaLinkedin size={18} />
@@ -127,7 +127,7 @@ const NavBar = ({ isVisible = true }) => {
           {/* Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1 text-[#1E1E1E] hover:text-[#B8893D] transition-colors focus:outline-none md:hidden"
+            className="p-1 text-[#171717] hover:text-[#C49545] transition-colors focus:outline-none md:hidden"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
@@ -143,7 +143,7 @@ const NavBar = ({ isVisible = true }) => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="bg-[#FAF8F3] border-b border-[#ECE7DE] px-6 py-6 overflow-hidden md:hidden"
+            className="bg-[#F8F6F1] border-b border-[#E8E4DB] px-6 py-6 overflow-hidden md:hidden"
           >
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -151,7 +151,7 @@ const NavBar = ({ isVisible = true }) => {
                   key={link.path}
                   href={link.path}
                   onClick={(e) => handleClick(e, link.path)}
-                  className="text-sm font-semibold text-[#1E1E1E] hover:text-[#B8893D] py-1"
+                  className="text-sm font-semibold text-[#171717] hover:text-[#C49545] py-1"
                 >
                   {link.label}
                 </a>

@@ -1,237 +1,127 @@
-import { motion } from 'framer-motion';
-import { ArrowRight, ArrowUpRight, Monitor, Code, Laptop } from 'lucide-react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import profileImg from '../assets/profile.png';
 
 const HeroSection = () => {
-  const handleClickExplore = (e) => {
-    e.preventDefault();
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // Parallax motion tracking on mouse move
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
-  const handleClickAbout = (e) => {
-    e.preventDefault();
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const springConfig = { damping: 30, stiffness: 100 };
+  const dx = useSpring(mouseX, springConfig);
+  const dy = useSpring(mouseY, springConfig);
 
-  const cards = [
-    {
-      num: '01',
-      title: 'UI/UX Design',
-      desc: 'Crafting responsive, intuitive web interfaces and user-centered digital experiences.',
-      icon: Monitor,
-    },
-    {
-      num: '02',
-      title: 'Backend & AI',
-      desc: 'Building RESTful APIs with Node.js, Express, MongoDB, and Generative AI integrations.',
-      icon: Code,
-    },
-    {
-      num: '03',
-      title: 'Software Development',
-      desc: 'Solving complex problems through clean code, robust algorithms, and modern tools.',
-      icon: Laptop,
-    },
-  ];
+  const layer1X = useTransform(dx, [-0.5, 0.5], [-12, 12]);
+  const layer1Y = useTransform(dy, [-0.5, 0.5], [-12, 12]);
+  const layer2X = useTransform(dx, [-0.5, 0.5], [15, -15]);
+  const layer2Y = useTransform(dy, [-0.5, 0.5], [15, -15]);
+
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    mouseX.set(clientX / innerWidth - 0.5);
+    mouseY.set(clientY / innerHeight - 0.5);
+  };
 
   return (
-    <div className="relative w-full bg-[#FCFBF8] text-[#1E1E1E] overflow-hidden min-h-[85vh] flex flex-col justify-between pt-4 pb-10">
-      
+    <div 
+      onMouseMove={handleMouseMove}
+      className="relative w-full bg-[#F8F6F1] text-[#171717] min-h-[78vh] sm:min-h-[82vh] lg:min-h-[85vh] flex items-center justify-center overflow-hidden py-12 px-6 sm:px-12 lg:px-20 select-none"
+    >
       {/* ---------------------------------------------------- */}
-      {/* Organic Gold Wave Background (Restricted to upper hero) */}
+      {/* Background Soft Glow Aura */}
       {/* ---------------------------------------------------- */}
-      <div className="absolute top-0 right-0 w-full lg:w-[52%] h-[78%] pointer-events-none z-0 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#C49545]/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/3 right-1/6 w-[350px] h-[350px] bg-[#171C24]/5 rounded-full blur-3xl" />
+      </div>
+
+      {/* ---------------------------------------------------- */}
+      {/* Main Two-Column Editorial Grid */}
+      {/* ---------------------------------------------------- */}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
-        {/* SVG Fluid Gold Wave with Double Contour */}
-        <svg
-          viewBox="0 0 600 600"
-          className="h-full w-full object-cover"
-          preserveAspectRatio="none"
+        {/* ==================================================== */}
+        {/* LEFT SIDE: Minimal Editorial Typography ONLY */}
+        {/* ==================================================== */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="lg:col-span-6 flex flex-col justify-center items-start text-left pr-0 lg:pr-6"
         >
-          <defs>
-            <linearGradient id="refGoldWave" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#DEAA55" />
-              <stop offset="55%" stopColor="#C6923A" />
-              <stop offset="100%" stopColor="#AF7A26" />
-            </linearGradient>
-            <linearGradient id="refCreamWave" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#F6EBD8" />
-              <stop offset="100%" stopColor="#EADCC4" />
-            </linearGradient>
-          </defs>
+          <h1 className="font-serif-display text-6xl sm:text-7xl md:text-8xl lg:text-[88px] xl:text-[98px] font-bold text-[#171717] leading-[1.04] tracking-tight">
+            Hello,<br />
+            I'm <span className="text-[#C49545]">Dharshini.</span>
+          </h1>
+        </motion.div>
 
-          {/* Soft Cream Outer Contour Edge */}
-          <path
-            d="M 150,0 
-               C 50,110 10,260 60,390 
-               C 100,470 230,550 600,535 
-               L 600,0 
-               Z"
-            fill="url(#refCreamWave)"
-          />
 
-          {/* Main Gold Luminous Wave */}
-          <path
-            d="M 195,0 
-               C 95,110 45,260 95,380 
-               C 135,455 260,510 600,485 
-               L 600,0 
-               Z"
-            fill="url(#refGoldWave)"
-          />
-        </svg>
-
-        {/* Top-Right Decorative Dot Matrix */}
-        <div className="absolute top-8 right-10 grid grid-cols-4 gap-2.5 opacity-50 z-10">
-          {[...Array(12)].map((_, i) => (
-            <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#6E532D]" />
-          ))}
-        </div>
-      </div>
-
-      {/* ---------------------------------------------------- */}
-      {/* Hero Main Content Grid */}
-      {/* ---------------------------------------------------- */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20 pt-4 pb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-
-          {/* ==================================================== */}
-          {/* LEFT SIDE (55% Width on Desktop) */}
-          {/* ==================================================== */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left py-2 sm:py-4">
+        {/* ==================================================== */}
+        {/* RIGHT SIDE: Layered Editorial Portrait Composition */}
+        {/* ==================================================== */}
+        <div className="lg:col-span-6 flex justify-center lg:justify-end items-center relative mt-6 lg:mt-0">
+          <div className="relative w-full max-w-md lg:max-w-xl flex items-center justify-center lg:justify-end py-6">
             
-            {/* Tagline label with horizontal gold line */}
-            <div className="flex items-center gap-3 mb-5">
-              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#8C8C8C] font-sans">
-                WELCOME TO MY PORTFOLIO
-              </span>
-              <div className="h-[2px] w-10 bg-[#B8893D] rounded-full" />
+            {/* 1. Deep Navy / Charcoal Organic Curve Layer */}
+            <motion.div
+              style={{ x: layer2X, y: layer2Y }}
+              animate={{ rotate: [0, 2, 0, -2, 0] }}
+              transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute w-[340px] h-[340px] sm:w-[400px] sm:h-[400px] lg:w-[460px] lg:h-[460px] rounded-[42%_58%_70%_30%/45%_45%_55%_55%] bg-[#171C24] opacity-90 shadow-2xl -z-20 transform translate-x-4 translate-y-4"
+            />
+
+            {/* 2. Muted Luxury Gold Curved Wave Shape Layer */}
+            <motion.div
+              style={{ x: layer1X, y: layer1Y }}
+              animate={{ rotate: [0, -3, 0, 3, 0] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute w-[330px] h-[330px] sm:w-[390px] sm:h-[390px] lg:w-[450px] lg:h-[450px] rounded-[55%_45%_35%_65%/60%_40%_60%_40%] bg-gradient-to-br from-[#D8AB57] via-[#C49545] to-[#A87B2C] opacity-95 shadow-xl -z-10"
+            />
+
+            {/* 3. Thin Golden Ring Outline */}
+            <motion.div
+              animate={{ scale: [0.98, 1.02, 0.98], rotate: [0, 180, 360] }}
+              transition={{ scale: { duration: 6, repeat: Infinity, ease: "easeInOut" }, rotate: { duration: 40, repeat: Infinity, ease: "linear" } }}
+              className="absolute w-[360px] h-[360px] sm:w-[430px] sm:h-[430px] lg:w-[490px] lg:h-[490px] rounded-full border border-[#C49545]/40 pointer-events-none -z-5"
+            />
+
+            {/* 4. Secondary Golden Accent Ring */}
+            <div className="absolute w-[380px] h-[380px] sm:w-[450px] sm:h-[450px] lg:w-[510px] lg:h-[510px] rounded-full border border-dashed border-[#C49545]/20 pointer-events-none -z-5" />
+
+            {/* 5. Minimal Dotted Grid Matrix Decoration */}
+            <div className="absolute -top-4 -right-2 grid grid-cols-4 gap-2.5 opacity-45 pointer-events-none">
+              {[...Array(12)].map((_, i) => (
+                <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#C49545]" />
+              ))}
+            </div>
+            <div className="absolute -bottom-4 -left-2 grid grid-cols-4 gap-2.5 opacity-35 pointer-events-none">
+              {[...Array(12)].map((_, i) => (
+                <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#171C24]" />
+              ))}
             </div>
 
-            {/* Main Heading */}
-            <h1 className="font-serif-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[84px] font-extrabold text-[#1E1E1E] leading-[1.06] tracking-tight mb-5">
-              Hello,<br />
-              I'm <span className="text-[#B8893D]">Dharshini.</span>
-            </h1>
+            {/* 6. Dominant Circular Portrait Frame with Slow Floating Animation */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ scale: 1.02 }}
+              className="relative z-10 w-72 h-72 sm:w-84 sm:h-84 lg:w-[390px] lg:h-[390px] rounded-full border-4 border-white shadow-[0_25px_60px_rgba(23,28,36,0.16)] overflow-hidden bg-white flex items-center justify-center group transition-shadow duration-500 hover:shadow-[0_30px_70px_rgba(196,149,69,0.3)]"
+            >
+              <img
+                src={profileImg}
+                alt="Dharshini"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                style={{
+                  clipPath: 'circle(43.5% at 50% 50%)',
+                  transform: 'scale(1.15)',
+                }}
+              />
+            </motion.div>
 
-            {/* Sub-description paragraph */}
-            <p className="font-sans text-base sm:text-lg text-[#666666] leading-relaxed max-w-lg mb-8 font-normal">
-              I build digital experiences that are intuitive, efficient and designed to make an impact.
-            </p>
-
-            {/* CTA Buttons - Aligned Horizontally */}
-            <div className="flex items-center gap-6 flex-wrap">
-              {/* Primary Gold Button */}
-              <a
-                href="#projects"
-                onClick={handleClickExplore}
-                className="inline-flex items-center justify-center gap-2 bg-[#B8893D] hover:bg-[#966E2E] px-7 py-3.5 text-xs font-bold tracking-wider uppercase text-white shadow-sm transition-all duration-200 cursor-pointer rounded-[3px]"
-              >
-                <span>EXPLORE MY WORK</span>
-                <ArrowRight size={15} />
-              </a>
-
-              {/* Secondary Underlined Text Link */}
-              <a
-                href="#about"
-                onClick={handleClickAbout}
-                className="text-xs font-bold tracking-widest uppercase text-[#1E1E1E] hover:text-[#B8893D] transition-colors relative py-1 border-b-2 border-[#B8893D]"
-              >
-                ABOUT ME
-              </a>
-            </div>
-          </div>
-
-
-          {/* ==================================================== */}
-          {/* RIGHT SIDE (45% Width on Desktop) */}
-          {/* Circular Profile Avatar Display */}
-          {/* ==================================================== */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end relative mt-6 lg:mt-0">
-            <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg flex items-center justify-center lg:justify-end">
-              
-              {/* Profile Card Container */}
-              <div className="relative z-10 w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-white shadow-[0_20px_50px_rgba(30,30,30,0.18)] overflow-hidden bg-white flex items-center justify-center">
-                <img
-                  src={profileImg}
-                  alt="Dharshini"
-                  className="w-full h-full object-cover"
-                  style={{
-                    clipPath: 'circle(43.5% at 50% 50%)',
-                    transform: 'scale(1.15)',
-                  }}
-                />
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* ---------------------------------------------------- */}
-      {/* Bottom Cards & Action Button Section (Clean #FCFBF8 Canvas) */}
-      {/* ---------------------------------------------------- */}
-      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-6">
-        
-        {/* Left 3 Cards */}
-        <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-5">
-          {cards.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.num}
-                className="bg-[#FAF7F2] border border-[#EFEBE1] rounded-2xl p-5 flex items-start gap-4 transition-all duration-300 hover:shadow-md hover:border-[#E5DEC9]"
-              >
-                {/* Left Circular Icon Badge */}
-                <div className="w-12 h-12 shrink-0 rounded-full bg-[#EDE7DA] flex items-center justify-center text-[#8C6D37]">
-                  <Icon size={20} />
-                </div>
-
-                {/* Right Content */}
-                <div className="flex flex-col items-start text-left">
-                  <span className="text-xs font-bold text-[#B8893D] mb-0.5 tracking-wider">
-                    {item.num}
-                  </span>
-                  <h3 className="text-sm font-bold text-[#1E1E1E] mb-1 font-serif-display">
-                    {item.title}
-                  </h3>
-                  <p className="text-[11px] sm:text-xs text-[#7A7A7A] leading-relaxed font-normal">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Far Right Black Rectangular Button + Dot Accent */}
-        <div className="lg:col-span-3 flex items-center justify-start lg:justify-end gap-6 relative">
-          <a
-            href="#projects"
-            onClick={handleClickExplore}
-            className="w-full sm:w-auto bg-[#111111] hover:bg-black text-white font-bold text-xs tracking-[0.2em] px-8 py-5 uppercase rounded-[3px] transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer group z-10"
-          >
-            <span>VIEW ALL WORKS</span>
-            <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
-
-          {/* Bottom-Right Decorative Dot Matrix */}
-          <div className="hidden xl:grid grid-cols-4 gap-2 opacity-30 pointer-events-none">
-            {[...Array(12)].map((_, i) => (
-              <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#B8893D]" />
-            ))}
           </div>
         </div>
 
       </div>
-
     </div>
   );
 };

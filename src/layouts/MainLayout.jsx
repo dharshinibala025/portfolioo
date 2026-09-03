@@ -25,7 +25,7 @@ const MainLayout = () => {
   }, [showIntro]);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[#FAF8F3] text-[#1E1E1E]">
+    <div className="relative min-h-screen overflow-hidden bg-[#F8F6F1] text-[#171717]">
       <AnimatePresence mode="wait">
         {showIntro && (
           <CinematicIntro onComplete={() => setShowIntro(false)} />
