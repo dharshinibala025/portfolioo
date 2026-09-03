@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
+import { Menu, X } from 'lucide-react';
 import { socials } from '../data/content';
 
 const navLinks = [
@@ -13,6 +14,7 @@ const navLinks = [
 
 const NavBar = ({ isVisible = true }) => {
   const [activeSection, setActiveSection] = useState('home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,6 +42,7 @@ const NavBar = ({ isVisible = true }) => {
 
   const handleClick = (e, path) => {
     e.preventDefault();
+    setMobileMenuOpen(false);
     const element = document.getElementById(path.substring(1));
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -120,9 +123,43 @@ const NavBar = ({ isVisible = true }) => {
           >
             <FaLinkedin size={18} />
           </a>
+
+          {/* Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-1 text-[#1E1E1E] hover:text-[#B8893D] transition-colors focus:outline-none md:hidden"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
         </div>
 
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="bg-[#FAF8F3] border-b border-[#ECE7DE] px-6 py-6 overflow-hidden md:hidden"
+          >
+            <div className="flex flex-col gap-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.path}
+                  href={link.path}
+                  onClick={(e) => handleClick(e, link.path)}
+                  className="text-sm font-semibold text-[#1E1E1E] hover:text-[#B8893D] py-1"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };
