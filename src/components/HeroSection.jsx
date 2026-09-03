@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Monitor, Code, Laptop } from 'lucide-react';
 import profileImg from '../assets/profile.png';
-import TypewriterText from './TypewriterText';
 
 const HeroSection = () => {
   const handleClickExplore = (e) => {
@@ -12,128 +11,153 @@ const HeroSection = () => {
     }
   };
 
-  const services = [
+  const handleClickAbout = (e) => {
+    e.preventDefault();
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const cards = [
     {
       num: '01',
       title: 'UI/UX Design',
       desc: 'Crafting responsive, intuitive web interfaces and user-centered digital experiences.',
+      icon: Monitor,
     },
     {
       num: '02',
       title: 'Backend & AI',
       desc: 'Building RESTful APIs with Node.js, Express, MongoDB, and Generative AI integrations.',
+      icon: Code,
     },
     {
       num: '03',
       title: 'Software Development',
       desc: 'Solving complex problems through clean code, robust algorithms, and modern tools.',
+      icon: Laptop,
     },
   ];
 
-  // Entrance animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
   return (
-    <div className="relative w-full bg-[#FAF8F3] overflow-hidden min-h-[85vh] flex flex-col justify-between pt-4 pb-12">
+    <div className="relative w-full bg-[#FCFBF8] text-[#1E1E1E] overflow-hidden min-h-[85vh] flex flex-col justify-between pt-4 pb-10">
       
       {/* ---------------------------------------------------- */}
-      {/* Smooth Organic Fluid Wave Background */}
+      {/* Organic Gold Wave Background (Restricted to upper hero) */}
       {/* ---------------------------------------------------- */}
-      <div className="absolute top-0 right-0 w-full lg:w-[50%] h-full pointer-events-none z-0 overflow-hidden">
+      <div className="absolute top-0 right-0 w-full lg:w-[52%] h-[78%] pointer-events-none z-0 overflow-hidden">
+        
+        {/* SVG Fluid Gold Wave with Double Contour */}
         <svg
-          viewBox="0 0 600 700"
-          className="h-full w-full object-cover opacity-90"
+          viewBox="0 0 600 600"
+          className="h-full w-full object-cover"
           preserveAspectRatio="none"
         >
           <defs>
             <linearGradient id="refGoldWave" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#C99846" />
-              <stop offset="50%" stopColor="#B8893D" />
-              <stop offset="100%" stopColor="#A67B34" />
+              <stop offset="0%" stopColor="#DEAA55" />
+              <stop offset="55%" stopColor="#C6923A" />
+              <stop offset="100%" stopColor="#AF7A26" />
+            </linearGradient>
+            <linearGradient id="refCreamWave" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#F6EBD8" />
+              <stop offset="100%" stopColor="#EADCC4" />
             </linearGradient>
           </defs>
+
+          {/* Soft Cream Outer Contour Edge */}
           <path
-            d="M 120,0 
-               C 240,120 20,280 160,450 
-               C 260,580 100,700 350,700 
-               L 600,700 
+            d="M 150,0 
+               C 50,110 10,260 60,390 
+               C 100,470 230,550 600,535 
+               L 600,0 
+               Z"
+            fill="url(#refCreamWave)"
+          />
+
+          {/* Main Gold Luminous Wave */}
+          <path
+            d="M 195,0 
+               C 95,110 45,260 95,380 
+               C 135,455 260,510 600,485 
                L 600,0 
                Z"
             fill="url(#refGoldWave)"
           />
         </svg>
+
+        {/* Top-Right Decorative Dot Matrix */}
+        <div className="absolute top-8 right-10 grid grid-cols-4 gap-2.5 opacity-50 z-10">
+          {[...Array(12)].map((_, i) => (
+            <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#6E532D]" />
+          ))}
+        </div>
       </div>
 
       {/* ---------------------------------------------------- */}
       {/* Hero Main Content Grid */}
       {/* ---------------------------------------------------- */}
       <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20 pt-4 pb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
           {/* ==================================================== */}
-          {/* LEFT SIDE (55% Width on Desktop) - Bold Clean Heading */}
+          {/* LEFT SIDE (55% Width on Desktop) */}
           {/* ==================================================== */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="lg:col-span-7 flex flex-col items-start text-left py-4 sm:py-8"
-          >
-            {/* Bold, Big & Professional Heading */}
-            <motion.h1
-              variants={itemVariants}
-              className="font-serif-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[86px] font-extrabold text-[#1E1E1E] leading-[1.08] tracking-tight"
-            >
-              Hello,<br />
-              I'm{' '}
-              <span className="text-[#B8893D]">
-                <TypewriterText
-                  text="Dharshini."
-                  speed={110}
-                  deleteSpeed={50}
-                  delay={2500}
-                  loop={true}
-                  cursorColor="#B8893D"
-                />
+          <div className="lg:col-span-7 flex flex-col items-start text-left py-2 sm:py-4">
+            
+            {/* Tagline label with horizontal gold line */}
+            <div className="flex items-center gap-3 mb-5">
+              <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#8C8C8C] font-sans">
+                WELCOME TO MY PORTFOLIO
               </span>
-            </motion.h1>
-          </motion.div>
+              <div className="h-[2px] w-10 bg-[#B8893D] rounded-full" />
+            </div>
+
+            {/* Main Heading */}
+            <h1 className="font-serif-display text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[84px] font-extrabold text-[#1E1E1E] leading-[1.06] tracking-tight mb-5">
+              Hello,<br />
+              I'm <span className="text-[#B8893D]">Dharshini.</span>
+            </h1>
+
+            {/* Sub-description paragraph */}
+            <p className="font-sans text-base sm:text-lg text-[#666666] leading-relaxed max-w-lg mb-8 font-normal">
+              I build digital experiences that are intuitive, efficient and designed to make an impact.
+            </p>
+
+            {/* CTA Buttons - Aligned Horizontally */}
+            <div className="flex items-center gap-6 flex-wrap">
+              {/* Primary Gold Button */}
+              <a
+                href="#projects"
+                onClick={handleClickExplore}
+                className="inline-flex items-center justify-center gap-2 bg-[#B8893D] hover:bg-[#966E2E] px-7 py-3.5 text-xs font-bold tracking-wider uppercase text-white shadow-sm transition-all duration-200 cursor-pointer rounded-[3px]"
+              >
+                <span>EXPLORE MY WORK</span>
+                <ArrowRight size={15} />
+              </a>
+
+              {/* Secondary Underlined Text Link */}
+              <a
+                href="#about"
+                onClick={handleClickAbout}
+                className="text-xs font-bold tracking-widest uppercase text-[#1E1E1E] hover:text-[#B8893D] transition-colors relative py-1 border-b-2 border-[#B8893D]"
+              >
+                ABOUT ME
+              </a>
+            </div>
+          </div>
 
 
           {/* ==================================================== */}
           {/* RIGHT SIDE (45% Width on Desktop) */}
-          {/* Professional Static Profile Display */}
+          {/* Circular Profile Avatar Display */}
           {/* ==================================================== */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 flex justify-center lg:justify-end relative mt-6 lg:mt-0"
-          >
+          <div className="lg:col-span-5 flex justify-center lg:justify-end relative mt-6 lg:mt-0">
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg flex items-center justify-center lg:justify-end">
-              {/* Subtle Ambient Glow Aura */}
-              <div className="absolute -inset-4 sm:-inset-6 rounded-full bg-[#B8893D]/20 blur-2xl -z-20" />
-
+              
               {/* Profile Card Container */}
-              <div className="relative z-10 w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-white shadow-[0_25px_60px_rgba(30,30,30,0.16)] overflow-hidden bg-white flex items-center justify-center">
+              <div className="relative z-10 w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-white shadow-[0_20px_50px_rgba(30,30,30,0.18)] overflow-hidden bg-white flex items-center justify-center">
                 <img
                   src={profileImg}
                   alt="Dharshini"
@@ -144,50 +168,69 @@ const HeroSection = () => {
                   }}
                 />
               </div>
+
             </div>
-          </motion.div>
+          </div>
 
         </div>
       </div>
 
       {/* ---------------------------------------------------- */}
-      {/* Kept 3 Service Columns + Black Button Section at Bottom */}
+      {/* Bottom Cards & Action Button Section (Clean #FCFBF8 Canvas) */}
       {/* ---------------------------------------------------- */}
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-12 gap-8 items-end border-t border-[#ECE7DE]/80 pt-8 mt-4"
-      >
-        {/* Left-to-Center: 3 Columns */}
-        <div className="md:col-span-8 lg:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-          {services.map((item) => (
-            <div key={item.num} className="flex flex-col items-start text-left">
-              <span className="text-xs font-bold text-[#B8893D] mb-1 tracking-wider">
-                {item.num}
-              </span>
-              <h3 className="text-base sm:text-lg font-bold text-[#1E1E1E] mb-1.5 font-serif-display">
-                {item.title}
-              </h3>
-              <p className="text-xs sm:text-sm text-[#6B7280] leading-relaxed font-normal">
-                {item.desc}
-              </p>
-            </div>
-          ))}
+      <div className="relative z-10 w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center pt-6">
+        
+        {/* Left 3 Cards */}
+        <div className="lg:col-span-9 grid grid-cols-1 sm:grid-cols-3 gap-5">
+          {cards.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.num}
+                className="bg-[#FAF7F2] border border-[#EFEBE1] rounded-2xl p-5 flex items-start gap-4 transition-all duration-300 hover:shadow-md hover:border-[#E5DEC9]"
+              >
+                {/* Left Circular Icon Badge */}
+                <div className="w-12 h-12 shrink-0 rounded-full bg-[#EDE7DA] flex items-center justify-center text-[#8C6D37]">
+                  <Icon size={20} />
+                </div>
+
+                {/* Right Content */}
+                <div className="flex flex-col items-start text-left">
+                  <span className="text-xs font-bold text-[#B8893D] mb-0.5 tracking-wider">
+                    {item.num}
+                  </span>
+                  <h3 className="text-sm font-bold text-[#1E1E1E] mb-1 font-serif-display">
+                    {item.title}
+                  </h3>
+                  <p className="text-[11px] sm:text-xs text-[#7A7A7A] leading-relaxed font-normal">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
 
-        {/* Right: Black Rectangular CTA Button */}
-        <div className="md:col-span-4 lg:col-span-3 flex justify-start md:justify-end">
+        {/* Far Right Black Rectangular Button + Dot Accent */}
+        <div className="lg:col-span-3 flex items-center justify-start lg:justify-end gap-6 relative">
           <a
             href="#projects"
             onClick={handleClickExplore}
-            className="w-full sm:w-auto bg-[#111111] hover:bg-black text-white font-bold text-xs sm:text-sm tracking-[0.2em] px-8 py-5 uppercase transition-all duration-300 shadow-lg flex items-center justify-center gap-3 cursor-pointer group"
+            className="w-full sm:w-auto bg-[#111111] hover:bg-black text-white font-bold text-xs tracking-[0.2em] px-8 py-5 uppercase rounded-[3px] transition-all duration-300 shadow-md flex items-center justify-center gap-2 cursor-pointer group z-10"
           >
             <span>VIEW ALL WORKS</span>
-            <ArrowUpRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
+
+          {/* Bottom-Right Decorative Dot Matrix */}
+          <div className="hidden xl:grid grid-cols-4 gap-2 opacity-30 pointer-events-none">
+            {[...Array(12)].map((_, i) => (
+              <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#B8893D]" />
+            ))}
+          </div>
         </div>
-      </motion.div>
+
+      </div>
 
     </div>
   );
