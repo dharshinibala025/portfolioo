@@ -53,7 +53,7 @@ const Contact = () => {
       <GsapReveal>
         <PageHeader
           eyebrow="Let's Connect"
-          title="Connect with Dharshini B"
+          title="Get In Touch"
           description="Available for Backend Development, Generative AI, and Software Engineering roles. Reach out via email, phone, or message."
         />
       </GsapReveal>
