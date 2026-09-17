@@ -19,7 +19,7 @@ const Skills = () => {
 
             <SkillWebGraph />
 
-            <div className="container mx-auto px-4 mt-2 max-w-5xl space-y-10">
+            <div className="w-full max-w-full px-2 mt-2 space-y-10">
                 {/* Key Certifications Section (4 Resume Certificates) */}
                 <div className="pt-8 border-t border-[#ECE7DE]">
                     <div className="text-center mb-10">
