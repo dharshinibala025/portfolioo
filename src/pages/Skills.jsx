@@ -13,7 +13,7 @@ const Skills = () => {
                 <PageHeader
                     eyebrow="Technical Matrix"
                     title="Dharshini's Skillset & Credentials"
-                    description="Interactive network of backend frameworks, databases, core languages, AI tools, and verified certifications."
+                    description="Interactive technical matrix of backend frameworks, databases, core languages, AI specializations, and verified certifications."
                 />
             </GsapReveal>
 
