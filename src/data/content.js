@@ -161,40 +161,40 @@ export const socials = [
 ];
 
 export const skills = [
-  { name: 'Python', icon: FaPython, category: 'languages', proficiency: 'Core Stack', level: 90, usedIn: 'Machine Learning & Scripts', color: '#3776AB', bg: '#EEF6FC' },
-  { name: 'Java', icon: FaJava, category: 'languages', proficiency: 'Advanced', level: 85, usedIn: 'Habit Tracker & OOP', color: '#5382A1', bg: '#F2F7FA' },
-  { name: 'C', icon: SiC, category: 'languages', proficiency: 'Foundational', level: 80, usedIn: 'Problem Solving & Algorithms', color: '#A8B9CC', bg: '#F5F7FA' },
+  { name: 'Python', icon: FaPython, category: 'languages', proficiency: 'Core Stack', level: 90, usedIn: 'Machine Learning & AI Scripts', color: '#3776AB', bg: '#EEF6FC', highlights: ['Data Structures & Algorithmic Problem Solving', 'AI & ML Scripting Pipelines', 'Automated Workflows & Tooling'] },
+  { name: 'Java', icon: FaJava, category: 'languages', proficiency: 'Advanced', level: 85, usedIn: 'Habit Tracker & OOP Architecture', color: '#5382A1', bg: '#F2F7FA', highlights: ['Object-Oriented Programming (OOP)', 'Streak Tracking Logic & File I/O', 'Data Structures Implementation'] },
+  { name: 'C', icon: SiC, category: 'languages', proficiency: 'Foundational', level: 80, usedIn: 'IECD Bharathidasan Certification', color: '#A8B9CC', bg: '#F5F7FA', highlights: ['Low-level Memory Management & Pointers', 'Structured Programming Fundamentals', 'First Class Certificate with Distinction'] },
 ];
 
 export const frameworks = [
-  { name: 'Node.js', icon: FaNodeJs, category: 'frameworks', proficiency: 'Core Stack', level: 92, usedIn: 'HostelHub & ChatBot APIs', color: '#339933', bg: '#F0F9F0' },
-  { name: 'Express.js', icon: SiExpress, category: 'frameworks', proficiency: 'Core Stack', level: 90, usedIn: 'RESTful Backend Services', color: '#000000', bg: '#F4F4F4' },
-  { name: 'React.js', icon: FaReact, category: 'frameworks', proficiency: 'Advanced', level: 88, usedIn: 'Interactive Web Interfaces', color: '#61DAFB', bg: '#F0FAFF' },
-  { name: 'REST APIs', icon: FaNodeJs, category: 'frameworks', proficiency: 'Core Stack', level: 94, usedIn: 'Backend Services & Integration', color: '#9A7B4F', bg: '#FAF6F0' },
-  { name: 'Tailwind CSS', icon: SiTailwindcss, category: 'frameworks', proficiency: 'Advanced', level: 85, usedIn: 'Modern Responsive Styling', color: '#06B6D4', bg: '#ECFEFF' },
-  { name: 'HTML5', icon: FaHtml5, category: 'frameworks', proficiency: 'Expert', level: 95, usedIn: 'Semantic Web Structure', color: '#E34F26', bg: '#FDF2F0' },
-  { name: 'CSS3', icon: FaCss3Alt, category: 'frameworks', proficiency: 'Advanced', level: 90, usedIn: 'Custom Layouts & Animations', color: '#1572B6', bg: '#F0F6FA' },
+  { name: 'Node.js', icon: FaNodeJs, category: 'frameworks', proficiency: 'Core Stack', level: 92, usedIn: 'HostelHub & AI ChatBot REST APIs', color: '#339933', bg: '#F0F9F0', highlights: ['Asynchronous Event Loop Architecture', 'Express Middleware & JWT Authentication', 'RESTful Endpoint Engineering'] },
+  { name: 'Express.js', icon: SiExpress, category: 'frameworks', proficiency: 'Core Stack', level: 90, usedIn: 'Industry Internship at Touchmark', color: '#000000', bg: '#F4F4F4', highlights: ['Custom Route Controllers & Error Handlers', 'Role-Based Access Control (RBAC)', 'Mongoose & Database Integration'] },
+  { name: 'React.js', icon: FaReact, category: 'frameworks', proficiency: 'Advanced', level: 88, usedIn: 'Interactive Portfolio & Web Apps', color: '#61DAFB', bg: '#F0FAFF', highlights: ['Modern Hooks & State Management', 'Framer Motion & GSAP Animations', 'Responsive Component Architecture'] },
+  { name: 'REST APIs', icon: FaNodeJs, category: 'frameworks', proficiency: 'Core Stack', level: 94, usedIn: 'Full-Stack Web Services', color: '#9A7B4F', bg: '#FAF6F0', highlights: ['HTTP Methods & JSON Payload Optimization', 'Secure Authentication Headers & Tokens', 'Cross-Origin Resource Sharing (CORS)'] },
+  { name: 'Tailwind CSS', icon: SiTailwindcss, category: 'frameworks', proficiency: 'Advanced', level: 85, usedIn: 'Modern UI Layouts', highlights: ['Utility-First Responsive Styling', 'Custom Design System Tokens', 'Glassmorphism & Dark Mode Themes'], color: '#06B6D4', bg: '#ECFEFF' },
+  { name: 'HTML5', icon: FaHtml5, category: 'frameworks', proficiency: 'Expert', level: 95, usedIn: 'Semantic Web Structure', color: '#E34F26', bg: '#FDF2F0', highlights: ['Accessibility & WAI-ARIA Standards', 'SEO Optimization & Microdata', 'Responsive DOM Tree Building'] },
+  { name: 'CSS3', icon: FaCss3Alt, category: 'frameworks', proficiency: 'Advanced', level: 90, usedIn: 'Custom Layouts & Keyframes', color: '#1572B6', bg: '#F0F6FA', highlights: ['3D Transforms & Perspective Grids', 'Flexbox & CSS Grid Masters', 'Fluid Typography & Media Queries'] },
 ];
 
 export const databases = [
-  { name: 'MongoDB', icon: SiMongodb, category: 'databases', proficiency: 'Core Stack', level: 90, usedIn: 'HostelHub Schema & Data', color: '#47A248', bg: '#F1F9F1' },
-  { name: 'MySQL', icon: SiMysql, category: 'databases', proficiency: 'Proficient', level: 82, usedIn: 'Relational Queries & Schemas', color: '#4479A1', bg: '#F0F5F9' },
-  { name: 'SQLite', icon: SiSqlite, category: 'databases', proficiency: 'Proficient', level: 85, usedIn: 'AI ChatBot Local Storage', color: '#003B57', bg: '#EFF4F8' },
+  { name: 'MongoDB', icon: SiMongodb, category: 'databases', proficiency: 'Core Stack', level: 90, usedIn: 'HostelHub Schema & Data', color: '#47A248', bg: '#F1F9F1', highlights: ['Document Schema Modeling & Mongoose', 'Aggregation Pipelines & Indexing', 'NoSQL Real-time Query Optimization'] },
+  { name: 'MySQL', icon: SiMysql, category: 'databases', proficiency: 'Proficient', level: 82, usedIn: 'Relational Queries & Schemas', color: '#4479A1', bg: '#F0F5F9', highlights: ['Relational Table Joins & Foreign Keys', 'SQL Query Tuning & Normalization', 'ACID Transaction Consistency'] },
+  { name: 'SQLite', icon: SiSqlite, category: 'databases', proficiency: 'Proficient', level: 85, usedIn: 'AI ChatBot Local Storage', color: '#003B57', bg: '#EFF4F8', highlights: ['Embedded Zero-Config Storage', 'Lightweight Database Queries', 'Local Session Persistence'] },
 ];
 
 export const tools = [
-  { name: 'Git', icon: FaGitAlt, category: 'tools', proficiency: 'Core Stack', level: 90, usedIn: 'Version Control & Branching', color: '#F05032', bg: '#FDF2F0' },
-  { name: 'GitHub', icon: FaGithub, category: 'tools', proficiency: 'Core Stack', level: 92, usedIn: 'Code Hosting & Collaboration', color: '#181717', bg: '#F4F4F4' },
-  { name: 'Postman', icon: SiPostman, category: 'tools', proficiency: 'Advanced', level: 88, usedIn: 'API Testing & Documentation', color: '#FF6C37', bg: '#FFF4F0' },
-  { name: 'VS Code', icon: VscVscode, category: 'tools', proficiency: 'Primary IDE', level: 95, usedIn: 'Full-Stack Development', color: '#007ACC', bg: '#F0F7FC' },
-  { name: 'Android Studio', icon: SiAndroidstudio, category: 'tools', proficiency: 'Proficient', level: 75, usedIn: 'Mobile App Workflows', color: '#3DDC84', bg: '#F0FCF5' },
-  { name: 'Canva', icon: SiCanva, category: 'tools', proficiency: 'Proficient', level: 85, usedIn: 'UI Mockups & Assets', color: '#00C4CC', bg: '#EFFCFD' },
+  { name: 'Git', icon: FaGitAlt, category: 'tools', proficiency: 'Core Stack', level: 90, usedIn: 'Version Control & Branching', color: '#F05032', bg: '#FDF2F0', highlights: ['Feature Branching & Merge Conflicts', 'Commit Hygiene & Rebase Workflows', 'Git CLI Mastery'] },
+  { name: 'GitHub', icon: FaGithub, category: 'tools', proficiency: 'Core Stack', level: 92, usedIn: 'Code Hosting & Collaboration', color: '#181717', bg: '#F4F4F4', highlights: ['Repository Management & Pull Requests', 'CI/CD Actions & Project Boards', 'Code Review & Collaboration'] },
+  { name: 'Postman', icon: SiPostman, category: 'tools', proficiency: 'Advanced', level: 88, usedIn: 'API Testing & Documentation', color: '#FF6C37', bg: '#FFF4F0', highlights: ['API Environment Collections', 'Automated Test Scripts & Assertion Checks', 'Endpoint Load & Response Mocking'] },
+  { name: 'VS Code', icon: VscVscode, category: 'tools', proficiency: 'Primary IDE', level: 95, usedIn: 'Full-Stack Development', color: '#007ACC', bg: '#F0F7FC', highlights: ['Custom Extensions & Debugging', 'Multi-Language Workspace Config', 'Integrated Terminal & Git Lens'] },
+  { name: 'Android Studio', icon: SiAndroidstudio, category: 'tools', proficiency: 'Proficient', level: 75, usedIn: 'Mobile App Workflows', color: '#3DDC84', bg: '#F0FCF5', highlights: ['Android SDK & Emulator Setup', 'Gradle Build Tool Configuration', 'Mobile UI Layout Inspection'] },
+  { name: 'Canva', icon: SiCanva, category: 'tools', proficiency: 'Proficient', level: 85, usedIn: 'UI Mockups & Assets', color: '#00C4CC', bg: '#EFFCFD', highlights: ['Vector Mockups & Visual Assets', 'Brand Palette & Typography Design', 'Presentation & Portfolio Graphics'] },
 ];
 
 export const aiSkills = [
-  { name: 'Generative AI', category: 'ai', proficiency: 'Specialization', level: 90, usedIn: 'AICTE & Infosys Certifications', color: '#8E44AD', bg: '#FAF4FC' },
-  { name: 'Prompt Engineering', category: 'ai', proficiency: 'Specialization', level: 92, usedIn: 'LLM Query Optimization', color: '#9A7B4F', bg: '#FAF6F0' },
-  { name: 'Large Language Models (LLMs)', category: 'ai', proficiency: 'Specialization', level: 88, usedIn: 'AI ChatBot & Integration', color: '#2980B9', bg: '#F2F8FC' },
+  { name: 'Generative AI', category: 'ai', proficiency: 'Specialization', level: 90, usedIn: 'AICTE & Infosys Certifications', color: '#8E44AD', bg: '#FAF4FC', highlights: ['Generative AI Application Pipelines', 'Prompt Optimization Techniques', 'Synthetic Content & AI Tool Integration'] },
+  { name: 'Prompt Engineering', category: 'ai', proficiency: 'Specialization', level: 92, usedIn: 'LLM Query Optimization', color: '#9A7B4F', bg: '#FAF6F0', highlights: ['Zero-Shot / Few-Shot Prompting Strategies', 'System Instruction & Persona Crafting', 'Chain-of-Thought Reasoning Design'] },
+  { name: 'Large Language Models (LLMs)', category: 'ai', proficiency: 'Specialization', level: 88, usedIn: 'AI ChatBot & Integration', color: '#2980B9', bg: '#F2F8FC', highlights: ['API Integration with Open-Source & Prop LLMs', 'Context Window Management', 'Intelligent Agent Query Resolution'] },
 ];
 
 export const hobbies = [

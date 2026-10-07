@@ -42,36 +42,38 @@ const Skills = () => {
                         {certificates.map((cert, index) => (
                             <motion.div
                                 key={cert.id}
-                                initial={{ opacity: 0, y: 15 }}
+                                initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                                className="p-6 rounded-2xl bg-white border border-[#ECE7DE] shadow-sm hover:shadow-md hover:border-[#B8893D]/50 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                                whileHover={{ y: -6, transition: { duration: 0.2 } }}
+                                className="p-6 rounded-2xl bg-white border border-[#ECE7DE] shadow-sm hover:shadow-xl hover:border-[#9A7B4F]/50 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
                             >
-                                <div className="absolute top-0 right-0 w-24 h-24 bg-[#B8893D]/5 rounded-bl-full pointer-events-none" />
+                                <div className="absolute top-0 right-0 w-28 h-28 bg-[#9A7B4F]/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform duration-500" />
+                                <div className="absolute -left-10 -bottom-10 w-24 h-24 bg-[#9A7B4F]/5 rounded-full blur-xl pointer-events-none" />
 
                                 <div>
-                                    <div className="flex items-center justify-between mb-3">
-                                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#B8893D]/10 text-[#B8893D] border border-[#B8893D]/20">
+                                    <div className="flex items-center justify-between mb-3.5">
+                                        <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#FAF6F0] text-[#9A7B4F] border border-[#9A7B4F]/25 shadow-2xs">
                                             {cert.year}
                                         </span>
-                                        <span className="text-xs font-semibold text-[#8A8A8A]">
+                                        <span className="text-xs font-semibold text-[#8A8A8A] bg-[#FAF8F5] px-2.5 py-1 rounded-lg border border-[#ECE7DE]">
                                             {cert.issuedBy}
                                         </span>
                                     </div>
-                                    <h4 className="font-serif-display font-bold text-lg text-[#171717] mb-2 group-hover:text-[#B8893D] transition-colors">
+                                    <h4 className="font-serif-display font-bold text-lg text-[#171717] mb-2 group-hover:text-[#9A7B4F] transition-colors">
                                         {cert.title}
                                     </h4>
                                     <p className="text-xs sm:text-sm text-[#6B6B6B] leading-relaxed">
                                         {cert.description}
                                     </p>
                                 </div>
-                                <div className="mt-5 pt-3 border-t border-[#ECE7DE] flex items-center justify-between">
+                                <div className="mt-5 pt-3.5 border-t border-[#ECE7DE]/70 flex items-center justify-between">
                                     <div className="flex items-center gap-2 text-xs font-semibold text-emerald-700">
                                         <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                                         <span>Verified Credential</span>
                                     </div>
-                                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#B8893D]">
+                                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#9A7B4F] bg-[#FAF6F0] px-2 py-0.5 rounded-full border border-[#9A7B4F]/20">
                                         Verified
                                     </span>
                                 </div>
