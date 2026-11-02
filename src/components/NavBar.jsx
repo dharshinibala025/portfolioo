@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { Menu, X } from 'lucide-react';
 import { socials } from '../data/content';
+import DBMonogramLogo from './DBMonogramLogo';
 
 const navLinks = [
   { label: 'Home', path: '#home' },
@@ -57,17 +58,24 @@ const NavBar = ({ isVisible = true }) => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-x-0 top-0 z-50 h-[72px] bg-[#F8F6F1]/90 backdrop-blur-md border-b border-[#E8E4DB]/80 transition-all duration-300"
+      className="fixed inset-x-0 top-0 z-50 h-[76px] bg-[#F8F6F1]/95 backdrop-blur-md border-b border-[#E8E4DB]/80 transition-all duration-300"
     >
-      <div className="mx-auto flex h-full w-full max-w-[1400px] items-center justify-between px-6 sm:px-12 lg:px-20">
+      <div className="mx-auto flex h-full w-full max-w-[1400px] items-center justify-between px-4 sm:px-8 lg:px-16">
         
-        {/* Left: Brand Logo in Elegant Serif */}
+        {/* Left: Interconnected DB Monogram Logo + Full Name */}
         <a
           href="#home"
           onClick={(e) => handleClick(e, '#home')}
-          className="font-serif-display text-xl sm:text-2xl font-bold tracking-tight text-[#171717] transition-opacity hover:opacity-80 flex items-center gap-0.5"
+          className="group flex items-center gap-3 sm:gap-3.5 focus:outline-none transition-transform duration-200"
+          aria-label="Dharshini Balasubramaniam Home"
         >
-          <span>Dharshini</span>
+          <DBMonogramLogo size={42} />
+          <span className="font-sans text-xs xs:text-sm sm:text-base lg:text-lg font-bold tracking-tight text-[#0F172A] transition-colors duration-300 group-hover:text-[#1E40AF] whitespace-nowrap">
+            Dharshini{' '}
+            <span className="text-[#1E3A8A] transition-colors duration-300 group-hover:text-[#2563EB]">
+              Balasubramaniam
+            </span>
+          </span>
         </a>
 
         {/* Center: Navigation Links */}
