@@ -68,12 +68,9 @@ const NavBar = ({ isVisible = true }) => {
           className="group flex flex-col text-left justify-center select-none focus:outline-none transition-transform duration-200 py-1"
           aria-label="Dharshini Balasubramaniam Home"
         >
-          <div className="flex items-center gap-1.5">
-            <span className="font-serif-display text-lg sm:text-xl lg:text-[22px] font-bold tracking-tight text-[#171717] group-hover:text-[#C49545] transition-colors duration-300 leading-tight">
-              Dharshini
-            </span>
-            <span className="h-1.5 w-1.5 rounded-full bg-[#C49545] opacity-80 group-hover:scale-125 transition-transform duration-300" />
-          </div>
+          <span className="font-serif-display text-lg sm:text-xl lg:text-[22px] font-bold tracking-tight text-[#171717] group-hover:text-[#C49545] transition-colors duration-300 leading-tight">
+            Dharshini
+          </span>
           <span className="font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.25em] uppercase text-[#C49545] group-hover:text-[#171717] transition-colors duration-300 leading-tight mt-0.5">
             Balasubramaniam
           </span>
