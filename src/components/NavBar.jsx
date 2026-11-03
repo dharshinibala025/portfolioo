@@ -70,12 +70,17 @@ const NavBar = ({ isVisible = true }) => {
           aria-label="Dharshini Balasubramaniam Home"
         >
           <DBMonogramLogo size={42} />
-          <span className="font-sans text-xs xs:text-sm sm:text-base lg:text-lg font-bold tracking-tight text-[#0F172A] transition-colors duration-300 group-hover:text-[#1E40AF] whitespace-nowrap">
-            Dharshini{' '}
-            <span className="text-[#1E3A8A] transition-colors duration-300 group-hover:text-[#2563EB]">
+          <div className="flex flex-col text-left justify-center select-none">
+            <div className="flex items-center gap-1.5">
+              <span className="font-serif-display text-base sm:text-lg lg:text-[19px] font-bold tracking-tight text-[#171717] group-hover:text-[#C49545] transition-colors duration-300 leading-tight">
+                Dharshini
+              </span>
+              <span className="h-1.5 w-1.5 rounded-full bg-[#C49545] opacity-80 group-hover:scale-125 transition-transform duration-300" />
+            </div>
+            <span className="font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-[#C49545] group-hover:text-[#171717] transition-colors duration-300 leading-tight mt-0.5">
               Balasubramaniam
             </span>
-          </span>
+          </div>
         </a>
 
         {/* Center: Navigation Links */}
