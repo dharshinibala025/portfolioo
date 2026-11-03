@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa6';
 import { Menu, X } from 'lucide-react';
 import { socials } from '../data/content';
-import DBMonogramLogo from './DBMonogramLogo';
 
 const navLinks = [
   { label: 'Home', path: '#home' },
@@ -62,25 +61,22 @@ const NavBar = ({ isVisible = true }) => {
     >
       <div className="mx-auto flex h-full w-full max-w-[1400px] items-center justify-between px-4 sm:px-8 lg:px-16">
         
-        {/* Left: Interconnected DB Monogram Logo + Full Name */}
+        {/* Left: Brand Name Wordmark */}
         <a
           href="#home"
           onClick={(e) => handleClick(e, '#home')}
-          className="group flex items-center gap-3 sm:gap-3.5 focus:outline-none transition-transform duration-200"
+          className="group flex flex-col text-left justify-center select-none focus:outline-none transition-transform duration-200 py-1"
           aria-label="Dharshini Balasubramaniam Home"
         >
-          <DBMonogramLogo size={42} />
-          <div className="flex flex-col text-left justify-center select-none">
-            <div className="flex items-center gap-1.5">
-              <span className="font-serif-display text-base sm:text-lg lg:text-[19px] font-bold tracking-tight text-[#171717] group-hover:text-[#C49545] transition-colors duration-300 leading-tight">
-                Dharshini
-              </span>
-              <span className="h-1.5 w-1.5 rounded-full bg-[#C49545] opacity-80 group-hover:scale-125 transition-transform duration-300" />
-            </div>
-            <span className="font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-[#C49545] group-hover:text-[#171717] transition-colors duration-300 leading-tight mt-0.5">
-              Balasubramaniam
+          <div className="flex items-center gap-1.5">
+            <span className="font-serif-display text-lg sm:text-xl lg:text-[22px] font-bold tracking-tight text-[#171717] group-hover:text-[#C49545] transition-colors duration-300 leading-tight">
+              Dharshini
             </span>
+            <span className="h-1.5 w-1.5 rounded-full bg-[#C49545] opacity-80 group-hover:scale-125 transition-transform duration-300" />
           </div>
+          <span className="font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.25em] uppercase text-[#C49545] group-hover:text-[#171717] transition-colors duration-300 leading-tight mt-0.5">
+            Balasubramaniam
+          </span>
         </a>
 
         {/* Center: Navigation Links */}
