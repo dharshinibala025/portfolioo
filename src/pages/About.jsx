@@ -8,7 +8,6 @@ import {
   AnimatePresence,
 } from 'framer-motion';
 import { ArrowRight, Sparkles, Code2, Cpu, Brain, Layers } from 'lucide-react';
-import profileImg from '../assets/profile.png';
 
 // Areas of Interest Data (Section 4)
 const areasOfInterest = [
@@ -80,18 +79,6 @@ const learningStages = [
 
 const About = () => {
   const shouldReduceMotion = useReducedMotion();
-
-  // Gentle parallax for the portrait in the Personal Introduction section
-  const photoContainerRef = useRef(null);
-  const { scrollYProgress: photoProgress } = useScroll({
-    target: photoContainerRef,
-    offset: ['start end', 'end start'],
-  });
-  const photoParallax = useTransform(
-    photoProgress,
-    [0, 1],
-    shouldReduceMotion ? [0, 0] : [-12, 12]
-  );
 
   // Pinned storytelling scroll progress for Currently Growing section
   const pinnedSectionRef = useRef(null);
@@ -208,86 +195,7 @@ const About = () => {
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#ECE7DE] to-transparent" />
 
         {/* =================================================================== */}
-        {/* 2. PERSONAL INTRODUCTION SECTION (A LITTLE ABOUT MYSELF)           */}
-        {/* =================================================================== */}
-        <section className="py-8 sm:py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Side: Professional Portrait with Refined Treatment */}
-            <div ref={photoContainerRef} className="lg:col-span-5 relative flex justify-center">
-              <div className="absolute inset-0 bg-[#9A7B4F]/10 rounded-3xl blur-2xl transform scale-95 pointer-events-none" />
-
-              <motion.div
-                style={{ y: photoParallax }}
-                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.7 }}
-                className="relative w-full max-w-[340px] rounded-3xl p-3 bg-white border border-[#ECE7DE] shadow-[0_10px_35px_rgba(23,23,23,0.05)]"
-              >
-                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-[#ECE7DE]/50">
-                  <img
-                    src={profileImg}
-                    alt="Dharshini Balasubramaniam"
-                    loading="lazy"
-                    className="w-full h-full object-cover object-top filter grayscale-[10%] contrast-[1.02] transition-transform duration-700 hover:scale-[1.02]"
-                  />
-                </div>
-
-                <div className="pt-3 pb-1 px-2 flex items-center justify-between text-xs text-[#6B6B6B]">
-                  <span className="font-serif-display font-medium text-[#171717]">Dharshini B.</span>
-                  <span className="tracking-widest uppercase text-[10px] text-[#9A7B4F] font-semibold">
-                    CSE Undergrad
-                  </span>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Right Side: Personal Introduction with Readable Paragraphs */}
-            <motion.div {...fadeInUp} className="lg:col-span-7 space-y-6 text-left">
-              {/* Decorative Label & Gold Line */}
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#9A7B4F] font-sans">
-                  A LITTLE ABOUT MYSELF
-                </span>
-                <div className="h-[1px] w-12 bg-[#9A7B4F]/60" />
-              </div>
-
-              <h2 className="font-serif-display text-3xl sm:text-4xl font-bold text-[#171717] leading-tight">
-                Curious Mind, Purposeful Code.
-              </h2>
-
-              <div className="space-y-4 text-base sm:text-lg text-[#3A3A3A] leading-relaxed font-normal max-w-xl">
-                <p>
-                  I'm currently pursuing Computer Science and Engineering at{' '}
-                  <span className="text-[#171717] font-semibold border-b border-[#9A7B4F]/40 pb-0.5">
-                    K.S.R. College of Engineering
-                  </span>
-                  .
-                </p>
-
-                <p>
-                  I have a strong interest in emerging technologies, particularly{' '}
-                  <span className="text-[#171717] font-semibold">Artificial Intelligence</span>,{' '}
-                  <span className="text-[#171717] font-semibold">Machine Learning</span>,{' '}
-                  <span className="text-[#171717] font-semibold">Generative AI</span>, and{' '}
-                  <span className="text-[#171717] font-semibold">Prompt Engineering</span>.
-                </p>
-
-                <p className="text-[#6B6B6B]">
-                  I enjoy learning how things work, experimenting with new technologies, and turning
-                  ideas into practical solutions.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Subtle Section Divider */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#ECE7DE] to-transparent" />
-
-        {/* =================================================================== */}
-        {/* 3. EDUCATION – MY ACADEMIC JOURNEY                                  */}
+        {/* 2. EDUCATION – MY ACADEMIC JOURNEY                                  */}
         {/* =================================================================== */}
         <section className="py-8 sm:py-12">
           <div className="max-w-3xl text-left space-y-8">
