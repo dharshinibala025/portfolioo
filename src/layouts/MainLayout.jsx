@@ -15,7 +15,7 @@ const MainLayout = () => {
   }, [location.pathname]);
 
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-[#F8F6F1] text-[#171717]">
+    <div className="relative min-h-screen overflow-x-clip bg-[#F8F6F1] text-[#171717]">
       {/* Dynamic Animated Canvas Background */}
       <AnimatedBackground />
 
