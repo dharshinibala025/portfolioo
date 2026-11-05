@@ -195,65 +195,13 @@ const About = () => {
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#ECE7DE] to-transparent" />
 
         {/* =================================================================== */}
-        {/* 2. EDUCATION – MY ACADEMIC JOURNEY                                  */}
-        {/* =================================================================== */}
-        <section className="py-8 sm:py-12">
-          <div className="max-w-3xl text-left space-y-8">
-            <motion.div {...fadeInUp} className="space-y-2">
-              <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#9A7B4F]">
-                02 — EDUCATION
-              </span>
-              <h2 className="font-serif-display text-3xl sm:text-4xl font-bold text-[#171717]">
-                Where My Journey Begins
-              </h2>
-            </motion.div>
-
-            {/* Vertical Timeline */}
-            <div className="relative pl-6 sm:pl-8">
-              <div className="absolute left-0 top-3 bottom-3 w-[1.5px] bg-gradient-to-b from-[#9A7B4F] via-[#C2AB8A] to-[#ECE7DE]" />
-
-              <motion.div {...fadeInUp} className="relative space-y-4">
-                <div className="absolute -left-[30px] sm:-left-[38px] top-1.5 flex items-center justify-center">
-                  <span className="relative flex h-3.5 w-3.5">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#9A7B4F] opacity-40" />
-                    <span className="relative inline-flex rounded-full h-3.5 w-3.5 bg-[#FCFBF8] border-2 border-[#9A7B4F]" />
-                  </span>
-                </div>
-
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#9A7B4F]/10 border border-[#9A7B4F]/25 text-[#9A7B4F] text-xs font-semibold tracking-wider uppercase">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#9A7B4F]" />
-                  Undergraduate Student
-                </div>
-
-                <div className="space-y-1">
-                  <h3 className="font-serif-display text-2xl sm:text-3xl font-bold text-[#171717]">
-                    K.S.R. College of Engineering
-                  </h3>
-                  <p className="text-base sm:text-lg text-[#9A7B4F] font-medium font-sans">
-                    Department of Computer Science and Engineering
-                  </p>
-                </div>
-
-                <p className="text-sm sm:text-base text-[#6B6B6B] leading-relaxed max-w-xl font-normal">
-                  Building a solid theoretical foundation in computer systems, algorithmic problem solving,
-                  and software engineering principles.
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Subtle Section Divider */}
-        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#ECE7DE] to-transparent" />
-
-        {/* =================================================================== */}
-        {/* 4. MY AREAS OF INTEREST                                            */}
+        {/* 2. MY AREAS OF INTEREST                                            */}
         {/* =================================================================== */}
         <section className="py-8 sm:py-12">
           <div className="space-y-10 text-left">
             <motion.div {...fadeInUp} className="space-y-2 max-w-2xl">
               <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#9A7B4F]">
-                03 — AREAS OF PASSION
+                02 — AREAS OF PASSION
               </span>
               <h2 className="font-serif-display text-3xl sm:text-4xl font-bold text-[#171717]">
                 Technology That Inspires Me.
@@ -307,7 +255,7 @@ const About = () => {
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#ECE7DE] to-transparent" />
 
         {/* =================================================================== */}
-        {/* 5. WHAT I'M CURRENTLY LEARNING (SCROLL-DRIVEN PINNED STORYTELLING)   */}
+        {/* 3. WHAT I'M CURRENTLY LEARNING (SCROLL-DRIVEN PINNED STORYTELLING)   */}
         {/* =================================================================== */}
         <section
           ref={pinnedSectionRef}
@@ -322,7 +270,7 @@ const About = () => {
                 <div className="space-y-2">
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#9A7B4F] font-sans">
-                      04 — ACTIVE FOCUS
+                      03 — ACTIVE FOCUS
                     </span>
                     <div className="h-[1px] w-10 bg-[#9A7B4F]/60" />
                   </div>
@@ -433,7 +381,7 @@ const About = () => {
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#ECE7DE] to-transparent" />
 
         {/* =================================================================== */}
-        {/* 6. BEYOND THE CODE – MY APPROACH                                    */}
+        {/* 4. BEYOND THE CODE – MY APPROACH                                    */}
         {/* =================================================================== */}
         <section className="py-12 sm:py-16 relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-[#9A7B4F]/5 rounded-full blur-3xl pointer-events-none" />
@@ -461,12 +409,12 @@ const About = () => {
         <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-[#ECE7DE] to-transparent" />
 
         {/* =================================================================== */}
-        {/* 7. FUTURE VISION                                                   */}
+        {/* 5. FUTURE VISION                                                   */}
         {/* =================================================================== */}
         <section className="py-8 sm:py-12">
           <motion.div {...fadeInUp} className="max-w-3xl mx-auto text-left space-y-5">
             <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#9A7B4F]">
-              05 — FUTURE VISION
+              04 — FUTURE VISION
             </span>
 
             <h2 className="font-serif-display text-3xl sm:text-4xl font-bold text-[#171717]">
